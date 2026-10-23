@@ -1,5 +1,5 @@
 {
- "surum": 2,
+ "surum": 3,
  "kanallar": [
   {
    "no": 1,
@@ -228,7 +228,8 @@
   {
    "no": 31,
    "name": "Akit TV",
-   "urls": []
+   "urls": [],
+   "youtube": "https://www.youtube.com/@AkitTV/live"
   },
   {
    "no": 32,
@@ -249,7 +250,8 @@
   {
    "no": 34,
    "name": "Sözcü TV",
-   "urls": []
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCOulx_rep5O4i9y6AyDqVvw/live"
   },
   {
    "no": 35,
@@ -261,7 +263,8 @@
   {
    "no": 36,
    "name": "KRT",
-   "urls": []
+   "urls": [],
+   "youtube": "https://www.youtube.com/@krttv/live"
   },
   {
    "no": 37,
@@ -273,7 +276,8 @@
   {
    "no": 38,
    "name": "CNN Türk",
-   "urls": []
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCV6zcRug6Hqp1UX_FdyUeBg/live"
   },
   {
    "no": 39,

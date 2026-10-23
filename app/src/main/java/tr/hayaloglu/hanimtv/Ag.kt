@@ -21,10 +21,16 @@ object Ag {
     }
 
     /** Metin dosyası indirir. Hata olursa ya da dosya [enFazlaBayt] değerinden büyükse null döner. */
-    fun metinIndir(adres: String, enFazlaBayt: Int = 2_000_000, zamanAsimi: Int = 10_000): String? {
+    fun metinIndir(
+        adres: String,
+        enFazlaBayt: Int = 2_000_000,
+        zamanAsimi: Int = 10_000,
+        ekBasliklar: Map<String, String> = emptyMap(),
+    ): String? {
         var b: HttpURLConnection? = null
         return try {
             b = baglan(adres, zamanAsimi)
+            ekBasliklar.forEach { (ad, deger) -> b.setRequestProperty(ad, deger) }
             if (b.responseCode !in 200..299) return null
             val cikti = ByteArrayOutputStream()
             val tampon = ByteArray(8192)

@@ -104,6 +104,7 @@ class MainActivity : Activity() {
         kanallar = KanalDeposu.yukle(this)
         val sonKanal = ayarlar.getInt("sonKanal", 1)
         aktif = kanallar.indexOfFirst { it.no == sonKanal }.coerceAtLeast(0)
+        sonOynayan = aktif
 
         oynaticiyiKur()
         agDinleyicisiniKur()
@@ -243,11 +244,17 @@ class MainActivity : Activity() {
         aktif = indeks
         linkSirasi = link
         val k = kanallar[indeks]
+        if (bilgiGoster) bilgiyiGoster(k.no.toString(), k.isim)
+
+        if (k.linkler.isEmpty() && k.youtube != null) {
+            youtubeAc(k)
+            return
+        }
+        sonOynayan = indeks
         if (link == 0 && ayarlar.getInt("sonKanal", -1) != k.no) {
             // commit(): elektrik kesilse bile son kanal anında kaydedilmiş olur.
             ayarlar.edit().putInt("sonKanal", k.no).commit()
         }
-        if (bilgiGoster) bilgiyiGoster(k.no.toString(), k.isim)
 
         if (k.linkler.isEmpty()) {
             oynatici.stop()
@@ -259,6 +266,39 @@ class MainActivity : Activity() {
         oynatici.setMediaItem(yayinOgesi(k.linkler[link]))
         oynatici.prepare()
         oynatici.playWhenReady = true
+    }
+
+    /** En son normal şekilde oynatılan kanal. YouTube'dan geri dönünce bu kanal açılır. */
+    private var sonOynayan = 0
+    private var youtubeIstegi = 0
+
+    /**
+     * Yayını sadece YouTube'da olan kanallar: kanalın resmi canlı yayını YouTube uygulamasında açılır.
+     * Geri tuşuyla HanımTV'ye dönülünce, ondan önce izlenen kanal devam eder.
+     */
+    private fun youtubeAc(k: Kanal) {
+        oynatici.stop()
+        oynatici.clearMediaItems()
+        durumGoster("${k.isim} YouTube'da açılıyor…")
+        val istek = ++youtubeIstegi
+        val adres = k.youtube ?: return
+        arkaPlan.execute {
+            val videoNo = YouTube.canliYayinBul(adres)
+            ana.post {
+                // Bu arada başka kanala geçildiyse eski isteği yok say.
+                if (istek != youtubeIstegi || kanallar.getOrNull(aktif)?.no != k.no) return@post
+                if (videoNo == null) {
+                    durumGoster("${k.isim} şu an YouTube'da canlı yayın yapmıyor")
+                    return@post
+                }
+                durumGizle()
+                if (YouTube.ac(this, videoNo)) {
+                    aktif = sonOynayan
+                } else {
+                    durumGoster("YouTube uygulaması açılamadı")
+                }
+            }
+        }
     }
 
     /** Kendini onarma: takılan ya da hata veren yayında önce yedek linkler denenir, sonra beklenip baştan denenir. */
@@ -399,7 +439,7 @@ class MainActivity : Activity() {
             when {
                 indeks < kanallar.size -> {
                     val k = kanallar[indeks]
-                    t.text = String.format("%-4d %s", k.no, k.isim)
+                    t.text = String.format("%-4d %s", k.no, k.isim) + if (k.linkler.isEmpty() && k.youtube != null) "  · YouTube" else ""
                     t.setTextColor(if (calismayanlar.contains(k.no)) GRI else BEYAZ)
                     t.visibility = View.VISIBLE
                 }
@@ -501,6 +541,7 @@ class MainActivity : Activity() {
             for (k in liste) {
                 if (Thread.currentThread().isInterrupted) return@execute
                 if (k.no == izlenen) continue
+                if (k.linkler.isEmpty() && k.youtube != null) continue
                 if (k.linkler.take(2).none { Ag.linkCalisiyorMu(it) }) calismayan.add(k.no)
             }
             ana.post {

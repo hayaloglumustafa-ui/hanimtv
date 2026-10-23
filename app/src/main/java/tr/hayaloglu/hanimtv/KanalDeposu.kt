@@ -72,7 +72,8 @@ object KanalDeposu {
             }
             val isim = o.getString("name").trim()
             if (isim.isEmpty()) return null
-            liste.add(Kanal(o.getInt("no"), isim, linkler))
+            val yt = o.optString("youtube", "").trim().takeIf { it.startsWith("https://www.youtube.com/") }
+            liste.add(Kanal(o.getInt("no"), isim, linkler, yt))
         }
         liste.sortBy { it.no }
         val siraDogru = liste.withIndex().all { (i, k) -> k.no == i + 1 }
