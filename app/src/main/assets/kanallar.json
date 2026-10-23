@@ -1,5 +1,5 @@
 {
- "surum": 1,
+ "surum": 2,
  "kanallar": [
   {
    "no": 1,
@@ -128,7 +128,10 @@
   {
    "no": 18,
    "name": "Show TV",
-   "urls": []
+   "urls": [
+    "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce=3&app=4bc856ef-4c68-4a94-bc87-37dfaaa66558",
+    "https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv.m3u8"
+   ]
   },
   {
    "no": 19,
@@ -156,13 +159,18 @@
    "name": "TV 8",
    "urls": [
     "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788&ce=3",
-    "https://tv8-live.daioncdn.net/tv8/tv8.m3u8"
+    "https://tv8-live.daioncdn.net/tv8/tv8.m3u8",
+    "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788",
+    "https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8/tv8.m3u8"
    ]
   },
   {
    "no": 23,
    "name": "TV 8.5",
-   "urls": []
+   "urls": [
+    "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web",
+    "https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8bucuk/tv8bucuk.m3u8"
+   ]
   },
   {
    "no": 24,
@@ -174,12 +182,18 @@
   {
    "no": 25,
    "name": "TLC",
-   "urls": []
+   "urls": [
+    "https://dogus.daioncdn.net/tlc/tlc.m3u8?app=web",
+    "http://dygvideo.dygdigital.com/live/hls/tlctvdai?m3u8"
+   ]
   },
   {
    "no": 26,
    "name": "DMAX",
-   "urls": []
+   "urls": [
+    "https://dogus.daioncdn.net/dmax/dmax.m3u8?app=web",
+    "http://dygvideo.dygdigital.com/live/hls/dmaxdai?m3u8"
+   ]
   },
   {
    "no": 27,
@@ -191,7 +205,10 @@
   {
    "no": 28,
    "name": "TV2",
-   "urls": []
+   "urls": [
+    "https://demiroren.daioncdn.net/teve2/teve2.m3u8?app=6aab838a-437e-4a1b-bbd0-e30f79cdbbbd",
+    "http://live.duhnet.tv/S2/HLS_LIVE/teve2np/playlist.m3u8"
+   ]
   },
   {
    "no": 29,
@@ -223,7 +240,11 @@
   {
    "no": 33,
    "name": "TV100",
-   "urls": []
+   "urls": [
+    "https://tv100-live.daioncdn.net/tv100/tv100.m3u8",
+    "https://tv.ensonhaber.com/tv100/tv100.m3u8",
+    "https://ensonhaber-live.ercdn.net/tv100/tv100.m3u8"
+   ]
   },
   {
    "no": 34,
@@ -285,7 +306,10 @@
   {
    "no": 43,
    "name": "Lider TV",
-   "urls": []
+   "urls": [
+    "https://lidertv.radyotelekom.com.tr/player/m3u8/9217b6e91d17c38f7d171eb2b3670349/playlist.m3u8",
+    "http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8"
+   ]
   },
   {
    "no": 44,
