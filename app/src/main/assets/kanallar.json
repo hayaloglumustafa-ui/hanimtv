@@ -1,5 +1,5 @@
 {
- "surum": 9,
+ "surum": 10,
  "kanallar": [
   {
    "no": 1,
@@ -53,6 +53,20 @@
   },
   {
    "no": 8,
+   "name": "TRT Genç",
+   "urls": [
+    "https://tv-trtgenc.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 9,
+   "name": "TRT Türk",
+   "urls": [
+    "https://tv-trtturk.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 10,
    "name": "TRT Müzik",
    "urls": [
     "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",
@@ -60,7 +74,7 @@
    ]
   },
   {
-   "no": 9,
+   "no": 11,
    "name": "TRT Belgesel",
    "urls": [
     "https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8",
@@ -69,7 +83,7 @@
    ]
   },
   {
-   "no": 10,
+   "no": 12,
    "name": "TRT World",
    "urls": [
     "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
@@ -78,14 +92,14 @@
    ]
   },
   {
-   "no": 11,
+   "no": 13,
    "name": "TRT Avaz",
    "urls": [
     "https://tv-trtavaz.medya.trt.com.tr/master.m3u8"
    ]
   },
   {
-   "no": 12,
+   "no": 14,
    "name": "ATV",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8",
@@ -93,14 +107,14 @@
    ]
   },
   {
-   "no": 13,
+   "no": 15,
    "name": "ATV Avrupa",
    "urls": [
     "https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8"
    ]
   },
   {
-   "no": 14,
+   "no": 16,
    "name": "Kanal D",
    "urls": [
     "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3"
@@ -111,14 +125,14 @@
    }
   },
   {
-   "no": 15,
+   "no": 17,
    "name": "Kanal D Avrupa",
    "urls": [
     "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8"
    ]
   },
   {
-   "no": 16,
+   "no": 18,
    "name": "Star TV",
    "urls": [
     "https://dogus.daioncdn.net/startv/startv_720p.m3u8?app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3&sid=8l4w3lst4co5"
@@ -129,12 +143,12 @@
    }
   },
   {
-   "no": 17,
+   "no": 19,
    "name": "Star Avrupa",
    "urls": []
   },
   {
-   "no": 18,
+   "no": 20,
    "name": "Show TV",
    "urls": [
     "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce=3&app=4bc856ef-4c68-4a94-bc87-37dfaaa66558",
@@ -146,7 +160,7 @@
    }
   },
   {
-   "no": 19,
+   "no": 21,
    "name": "Show TV Avrupa",
    "urls": [
     "https://ciner.daioncdn.net/showturk/showturk.m3u8?app=3a516c79-a14a-4585-9204-9080fb8ecb61",
@@ -158,7 +172,7 @@
    }
   },
   {
-   "no": 20,
+   "no": 22,
    "name": "NOW TV",
    "urls": [
     "https://nowtv.daioncdn.net/nowtv/nowtv.m3u8",
@@ -172,7 +186,7 @@
    }
   },
   {
-   "no": 21,
+   "no": 23,
    "name": "Beyaz TV",
    "urls": [
     "https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8",
@@ -185,7 +199,7 @@
    }
   },
   {
-   "no": 22,
+   "no": 24,
    "name": "TV 8",
    "urls": [
     "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788&ce=3",
@@ -199,7 +213,7 @@
    }
   },
   {
-   "no": 23,
+   "no": 25,
    "name": "TV 8.5",
    "urls": [
     "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web",
@@ -211,14 +225,14 @@
    }
   },
   {
-   "no": 24,
+   "no": 26,
    "name": "360",
    "urls": [
     "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8"
    ]
   },
   {
-   "no": 25,
+   "no": 27,
    "name": "TLC",
    "urls": [
     "https://dogus.daioncdn.net/tlc/tlc.m3u8?app=web",
@@ -233,7 +247,7 @@
    "sayfa": "https://www.tlctv.com.tr/canli-izle"
   },
   {
-   "no": 26,
+   "no": 28,
    "name": "DMAX",
    "urls": [
     "https://dogus.daioncdn.net/dmax/dmax.m3u8?app=web",
@@ -248,14 +262,14 @@
    "sayfa": "https://www.dmax.com.tr/canli-izle"
   },
   {
-   "no": 27,
+   "no": 29,
    "name": "A2",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8"
    ]
   },
   {
-   "no": 28,
+   "no": 30,
    "name": "TV2",
    "urls": [
     "https://demiroren.daioncdn.net/teve2/teve2.m3u8?app=6aab838a-437e-4a1b-bbd0-e30f79cdbbbd",
@@ -267,7 +281,7 @@
    }
   },
   {
-   "no": 29,
+   "no": 31,
    "name": "Kanal 7",
    "urls": [
     "https://kanal7.blutv.com/blutv_kanal7_live/live.m3u8",
@@ -275,27 +289,27 @@
    ]
   },
   {
-   "no": 30,
+   "no": 32,
    "name": "Kanal 7 Avrupa",
    "urls": [
     "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8"
    ]
   },
   {
-   "no": 31,
+   "no": 33,
    "name": "Akit TV",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCbaLyHJp6S9Lsj6oT9aJsQw/live"
   },
   {
-   "no": 32,
+   "no": 34,
    "name": "Ülke TV",
    "urls": [
     "http://217.174.229.138:8000/play/a0el"
    ]
   },
   {
-   "no": 33,
+   "no": 35,
    "name": "TV100",
    "urls": [
     "https://tv100-live.daioncdn.net/tv100/tv100.m3u8",
@@ -308,26 +322,26 @@
    }
   },
   {
-   "no": 34,
+   "no": 36,
    "name": "Sözcü TV",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCOulx_rep5O4i9y6AyDqVvw/live"
   },
   {
-   "no": 35,
+   "no": 37,
    "name": "Halk TV",
    "urls": [
     "https://halktv-live.daioncdn.net/halktv/halktv.m3u8"
    ]
   },
   {
-   "no": 36,
+   "no": 38,
    "name": "KRT",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCVKWwHoLwUMMa80cu_1uapA/live"
   },
   {
-   "no": 37,
+   "no": 39,
    "name": "Habertürk",
    "urls": [
     "https://tv.ensonhaber.com/haberturk/haberturk.m3u8"
@@ -338,41 +352,41 @@
    }
   },
   {
-   "no": 38,
+   "no": 40,
    "name": "CNN Türk",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCV6zcRug6Hqp1UX_FdyUeBg/live"
   },
   {
-   "no": 39,
+   "no": 41,
    "name": "NTV",
    "urls": [
     "https://dogus.daioncdn.net/ntv/ntv.m3u8?app=ntv_web"
    ]
   },
   {
-   "no": 40,
+   "no": 42,
    "name": "CNBC-e",
    "urls": [
     "https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8"
    ]
   },
   {
-   "no": 41,
+   "no": 43,
    "name": "A Haber",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8"
    ]
   },
   {
-   "no": 42,
+   "no": 44,
    "name": "Flash Haber TV",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 43,
+   "no": 45,
    "name": "Lider TV",
    "urls": [
     "https://lidertv.radyotelekom.com.tr/player/m3u8/9217b6e91d17c38f7d171eb2b3670349/playlist.m3u8",
@@ -380,7 +394,7 @@
    ]
   },
   {
-   "no": 44,
+   "no": 46,
    "name": "Bloomberg HT",
    "urls": [
     "https://ciner-live.daioncdn.net/bloomberght/bloomberght.m3u8",
@@ -394,7 +408,7 @@
    }
   },
   {
-   "no": 45,
+   "no": 47,
    "name": "TGRT Haber",
    "urls": [
     "https://canli.tgrthaber.com/tgrt.m3u8",
@@ -402,35 +416,35 @@
    ]
   },
   {
-   "no": 46,
+   "no": 48,
    "name": "Haber Global",
    "urls": [
     "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8"
    ]
   },
   {
-   "no": 47,
+   "no": 49,
    "name": "TVNET",
    "urls": [
     "https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8"
    ]
   },
   {
-   "no": 48,
+   "no": 50,
    "name": "Tele 1",
    "urls": [
     "https://tele1-live.ercdn.net/tele1/tele1.m3u8"
    ]
   },
   {
-   "no": 49,
+   "no": 51,
    "name": "TV 24",
    "urls": [
     "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8"
    ]
   },
   {
-   "no": 50,
+   "no": 52,
    "name": "Bengütürk",
    "urls": [
     "http://185.234.111.229:8000/play/a05u",
@@ -438,63 +452,63 @@
    ]
   },
   {
-   "no": 51,
+   "no": 53,
    "name": "Ekotürk",
    "urls": [
     "https://cdn.ekoturk.net/hls/master.m3u8"
    ]
   },
   {
-   "no": 52,
+   "no": 54,
    "name": "TürkHaber",
    "urls": [
     "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8"
    ]
   },
   {
-   "no": 53,
+   "no": 55,
    "name": "TR24",
    "urls": [
     "https://tv.ensonhaber.com/tv24/tv24.m3u8"
    ]
   },
   {
-   "no": 54,
+   "no": 56,
    "name": "Finans Türk",
    "urls": [
     "https://yayin30.haber100.com/live/finansturk/playlist.m3u8"
    ]
   },
   {
-   "no": 55,
+   "no": 57,
    "name": "GZT",
    "urls": [
     "https://gzttv-live.lg.mncdn.com/gzttv/gzttv/playlist.m3u8"
    ]
   },
   {
-   "no": 56,
+   "no": 58,
    "name": "DHA",
    "urls": [
     "https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8"
    ]
   },
   {
-   "no": 57,
+   "no": 59,
    "name": "TBMM TV",
    "urls": [
     "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8"
    ]
   },
   {
-   "no": 58,
+   "no": 60,
    "name": "Kral Pop TV",
    "urls": [
     "https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8"
    ]
   },
   {
-   "no": 59,
+   "no": 61,
    "name": "Power TV",
    "urls": [
     "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8",
@@ -502,7 +516,7 @@
    ]
   },
   {
-   "no": 60,
+   "no": 62,
    "name": "Power Türk",
    "urls": [
     "https://powerturk.blutv.com/blutv_powerturk/powerturk_sd.smil/playlist.m3u8",
@@ -512,42 +526,42 @@
    ]
   },
   {
-   "no": 61,
+   "no": 63,
    "name": "Power Türk Taptaze",
    "urls": [
     "https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 62,
+   "no": 64,
    "name": "Power Türk Akustik",
    "urls": [
     "https://livetv.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 63,
+   "no": 65,
    "name": "Power Türk Slow",
    "urls": [
     "https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 64,
+   "no": 66,
    "name": "Power Love",
    "urls": [
     "https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 65,
+   "no": 67,
    "name": "Power Dance",
    "urls": [
     "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8"
    ]
   },
   {
-   "no": 66,
+   "no": 68,
    "name": "Number 1 TV",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
@@ -555,80 +569,66 @@
    ]
   },
   {
-   "no": 67,
+   "no": 69,
    "name": "Number 1 Aşk",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8"
    ]
   },
   {
-   "no": 68,
+   "no": 70,
    "name": "Number 1 Damar",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8"
    ]
   },
   {
-   "no": 69,
+   "no": 71,
    "name": "Number 1 Dance",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8"
    ]
   },
   {
-   "no": 70,
+   "no": 72,
    "name": "Dream Türk",
    "urls": [
     "https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8"
    ]
   },
   {
-   "no": 71,
+   "no": 73,
    "name": "Med Müzik",
    "urls": [
     "http://54.36.110.140/live3/live3.m3u8"
    ]
   },
   {
-   "no": 72,
+   "no": 74,
    "name": "TRT 3",
    "urls": [
     "https://tv-trt3.live.trt.com.tr/master.m3u8"
    ]
   },
   {
-   "no": 73,
-   "name": "TRT Türk",
-   "urls": [
-    "https://tv-trtturk.medya.trt.com.tr/master.m3u8"
-   ]
-  },
-  {
-   "no": 74,
+   "no": 75,
    "name": "TRT Çocuk",
    "urls": [
     "https://tv-trtcocuk.medya.trt.com.tr/master.m3u8"
    ]
   },
   {
-   "no": 75,
+   "no": 76,
    "name": "TRT Kurdî",
    "urls": [
     "https://tv-trtkurdi.medya.trt.com.tr/master.m3u8"
    ]
   },
   {
-   "no": 76,
+   "no": 77,
    "name": "TRT Arabi",
    "urls": [
     "https://tv-trtarabi.medya.trt.com.tr/master.m3u8"
-   ]
-  },
-  {
-   "no": 77,
-   "name": "TRT Genç",
-   "urls": [
-    "https://tv-trtgenc.medya.trt.com.tr/master.m3u8"
    ]
   },
   {
