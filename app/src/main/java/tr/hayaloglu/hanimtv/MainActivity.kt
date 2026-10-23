@@ -514,10 +514,12 @@ class MainActivity : Activity() {
     private fun listeyiKapat() {
         listeKutusu.visibility = View.GONE
         ayarModu = false
+        testModu = false
         ana.removeCallbacks(listeyiKendiligindenKapat)
     }
 
-    private val listeyiKendiligindenKapat = Runnable { listeyiKapat() }
+    // Test sonuçları okunurken (fotoğraf çekilirken) liste kendiliğinden kapanmaz.
+    private val listeyiKendiligindenKapat = Runnable { if (!testModu) listeyiKapat() }
 
     private fun listeZamanlayicisi() {
         ana.removeCallbacks(listeyiKendiligindenKapat)
@@ -631,6 +633,7 @@ class MainActivity : Activity() {
         return listOf(
             "Kanal listesini şimdi güncelle",
             "Güncellemeleri kontrol et",
+            "Bütün kanalları test et",
             "Şeffaflık: " + seffaflikAdlari[seffaflik],
             "Yazı boyutu: " + boyutAdlari[boyut],
             "Açılışta HanımTV başlasın: " + if (acilis) "Açık" else "Kapalı",
@@ -640,6 +643,10 @@ class MainActivity : Activity() {
     }
 
     private fun ayarlariCiz() {
+        if (testModu) {
+            testiCiz()
+            return
+        }
         val s = ayarSatirlari()
         ayarSecili = ayarSecili.coerceIn(0, s.size - 1)
         listeBaslik.text = "Ayarlar · Geri tuşu: kanal listesi"
@@ -659,6 +666,7 @@ class MainActivity : Activity() {
     }
 
     private fun ayarTusu(tus: Int): Boolean {
+        if (testModu) return testTusu(tus)
         val adet = ayarSatirlari().size
         when (tus) {
             KeyEvent.KEYCODE_DPAD_UP -> ayarSecili = (ayarSecili - 1 + adet) % adet
@@ -679,13 +687,14 @@ class MainActivity : Activity() {
         when (sira) {
             0 -> listeyiSimdiGuncelle()
             1 -> surumuSimdiKontrolEt()
-            2 -> e.putInt("seffaflik", (ayarlar.getInt("seffaflik", 1) + 1) % 3)
-            3 -> e.putInt("yaziBoyutu", (ayarlar.getInt("yaziBoyutu", 1) + 1) % 3)
-            4 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
-            5 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
+            2 -> kanalTestiniBaslat()
+            3 -> e.putInt("seffaflik", (ayarlar.getInt("seffaflik", 1) + 1) % 3)
+            4 -> e.putInt("yaziBoyutu", (ayarlar.getInt("yaziBoyutu", 1) + 1) % 3)
+            5 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
+            6 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
         }
         e.commit()
-        if (sira == 2 || sira == 3) gorunumuUygula()
+        if (sira == 3 || sira == 4) gorunumuUygula()
     }
 
     /** Seçilen şeffaflığı ve yazı boyutunu bütün kutulara uygular. */
@@ -708,6 +717,114 @@ class MainActivity : Activity() {
         listeKutusu.layoutParams = listeKutusu.layoutParams.apply {
             width = (440 * oran * resources.displayMetrics.density).toInt()
         }
+    }
+
+    // ---------------------------------------------------------------- Kanal testi
+
+    private var testModu = false
+    private var testCalisiyor = false
+    private var testIlerleme = 0
+    private var testSayfa = 0
+    private var testSonuclari: List<String> = emptyList()
+
+    /** Bütün kanalları stick'in kendisinden (Türkiye'den) dener; açılmayanları sebebiyle listeler. */
+    private fun kanalTestiniBaslat() {
+        testModu = true
+        testSayfa = 0
+        listeZamanlayicisi()
+        if (testCalisiyor) {
+            listeyiCiz()
+            return
+        }
+        testCalisiyor = true
+        testIlerleme = 0
+        testSonuclari = emptyList()
+        val liste = kanallar
+        listeyiCiz()
+        arkaPlan.execute {
+            val sonuc = java.util.Collections.synchronizedList(ArrayList<Pair<Int, String>>())
+            val havuz = Executors.newFixedThreadPool(6)
+            for (k in liste) {
+                havuz.execute {
+                    val sorun: String? = when {
+                        k.linkler.isEmpty() && k.sayfa == null && k.youtube != null -> null
+                        else -> {
+                            val adaylar = ArrayList<String>()
+                            k.sayfa?.let { s -> SayfadanLink.bul(s, k.basliklar)?.let { adaylar.add(it) } }
+                            adaylar.addAll(k.linkler.take(4))
+                            if (adaylar.isEmpty()) "link yok"
+                            else {
+                                var ilkSorun: String? = "link yok"
+                                for (a in adaylar) {
+                                    val s = Ag.linkSorunu(a, k.basliklar)
+                                    if (s == null) { ilkSorun = null; break }
+                                    if (ilkSorun == "link yok") ilkSorun = s
+                                }
+                                ilkSorun
+                            }
+                        }
+                    }
+                    if (sorun != null) sonuc.add(k.no to "${k.no}  ${k.isim} · $sorun")
+                    ana.post {
+                        testIlerleme++
+                        if (sorun != null) calismayanlar.add(k.no) else calismayanlar.remove(k.no)
+                        if (testModu && listeAcik && testIlerleme % 5 == 0) listeyiCiz()
+                    }
+                }
+            }
+            havuz.shutdown()
+            havuz.awaitTermination(15, java.util.concurrent.TimeUnit.MINUTES)
+            val sirali = sonuc.sortedBy { it.first }.map { it.second }
+            ana.post {
+                testCalisiyor = false
+                testSonuclari = sirali
+                if (listeAcik) listeyiCiz()
+            }
+        }
+    }
+
+    private fun testiCiz() {
+        listeZamanlayicisi()
+        val toplam = kanallar.size
+        if (testCalisiyor) {
+            listeBaslik.text = "Kanallar test ediliyor… $testIlerleme / $toplam"
+            for (i in 0 until SAYFA_BOYU) {
+                val t = satirlar[i]
+                t.text = if (i == 0) "Bu işlem 1-2 dakika sürer. Bekleyin." else ""
+                t.background = null
+                t.setTextColor(BEYAZ)
+                t.visibility = if (i == 0) View.VISIBLE else View.INVISIBLE
+            }
+            return
+        }
+        val sonuclar = testSonuclari
+        val sayfaSayisi = maxOf(1, (sonuclar.size + SAYFA_BOYU - 1) / SAYFA_BOYU)
+        testSayfa = testSayfa.coerceIn(0, sayfaSayisi - 1)
+        listeBaslik.text = if (sonuclar.isEmpty()) "Test bitti · bütün kanallar açılıyor"
+        else "Açılmayan ${sonuclar.size} kanal · sayfa ${testSayfa + 1}/$sayfaSayisi"
+        for (i in 0 until SAYFA_BOYU) {
+            val t = satirlar[i]
+            val s = sonuclar.getOrNull(testSayfa * SAYFA_BOYU + i)
+            t.background = null
+            t.setTextColor(BEYAZ)
+            t.typeface = normalYazi
+            if (s == null) t.visibility = View.INVISIBLE else {
+                t.text = s
+                t.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun testTusu(tus: Int): Boolean {
+        val sayfaSayisi = maxOf(1, (testSonuclari.size + SAYFA_BOYU - 1) / SAYFA_BOYU)
+        when (tus) {
+            KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_DPAD_DOWN -> testSayfa = (testSayfa + 1) % sayfaSayisi
+            KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_UP -> testSayfa = (testSayfa - 1 + sayfaSayisi) % sayfaSayisi
+            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> testModu = false
+            else -> return true
+        }
+        listeyiCiz()
+        return true
     }
 
     private fun kisaMesaj(yazi: String) {

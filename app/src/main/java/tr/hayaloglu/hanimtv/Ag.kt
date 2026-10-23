@@ -50,6 +50,28 @@ object Ag {
         }
     }
 
+    /** Kanal testi için: link açılıyorsa null, açılmıyorsa kısa sebebini döndürür. */
+    fun linkSorunu(adres: String, basliklar: Map<String, String> = emptyMap()): String? {
+        var b: HttpURLConnection? = null
+        return try {
+            b = baglan(adres, 8_000)
+            basliklar.forEach { (ad, deger) -> b.setRequestProperty(ad, deger) }
+            val kod = b.responseCode
+            if (kod !in 200..399) return "kod $kod"
+            val ilk = ByteArray(2048)
+            val n = b.inputStream.use { it.read(ilk) }
+            if (adres.contains(".m3u8") && (n <= 0 || !String(ilk, 0, maxOf(n, 0), Charsets.UTF_8).contains("#EXTM3U"))) "yayın dosyası değil" else null
+        } catch (e: java.net.SocketTimeoutException) {
+            "zaman aşımı"
+        } catch (e: java.net.UnknownHostException) {
+            "sunucu yok"
+        } catch (e: Exception) {
+            "bağlantı hatası"
+        } finally {
+            b?.disconnect()
+        }
+    }
+
     /** Bir yayın linkinin cevap verip vermediğini hızlıca kontrol eder. */
     fun linkCalisiyorMu(adres: String): Boolean {
         var b: HttpURLConnection? = null

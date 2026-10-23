@@ -1,5 +1,5 @@
 {
- "surum": 8,
+ "surum": 9,
  "kanallar": [
   {
    "no": 1,
@@ -285,7 +285,7 @@
    "no": 31,
    "name": "Akit TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/@AkitTV/live"
+   "youtube": "https://www.youtube.com/channel/UCbaLyHJp6S9Lsj6oT9aJsQw/live"
   },
   {
    "no": 32,
@@ -324,7 +324,7 @@
    "no": 36,
    "name": "KRT",
    "urls": [],
-   "youtube": "https://www.youtube.com/@krttv/live"
+   "youtube": "https://www.youtube.com/channel/UCVKWwHoLwUMMa80cu_1uapA/live"
   },
   {
    "no": 37,
@@ -1320,6 +1320,12 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8"
    ]
+  },
+  {
+   "no": 173,
+   "name": "Koza TV",
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UC4Ohyy56H4EZAy0Pagsv3iA/live"
   }
  ]
 }
