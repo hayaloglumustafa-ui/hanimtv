@@ -1,5 +1,5 @@
 {
- "surum": 5,
+ "surum": 6,
  "kanallar": [
   {
    "no": 1,
@@ -104,7 +104,11 @@
    "name": "Kanal D",
    "urls": [
     "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.kanald.com.tr/",
+    "Origin": "https://www.kanald.com.tr"
+   }
   },
   {
    "no": 15,
@@ -118,7 +122,11 @@
    "name": "Star TV",
    "urls": [
     "https://dogus.daioncdn.net/startv/startv_720p.m3u8?app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3&sid=8l4w3lst4co5"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.startv.com.tr/",
+    "Origin": "https://www.startv.com.tr"
+   }
   },
   {
    "no": 17,
@@ -131,7 +139,11 @@
    "urls": [
     "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce=3&app=4bc856ef-4c68-4a94-bc87-37dfaaa66558",
     "https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.showtv.com.tr/",
+    "Origin": "https://www.showtv.com.tr"
+   }
   },
   {
    "no": 19,
@@ -139,7 +151,11 @@
    "urls": [
     "https://ciner.daioncdn.net/showturk/showturk.m3u8?app=3a516c79-a14a-4585-9204-9080fb8ecb61",
     "https://raw.githubusercontent.com/bnyusuf67-crypto/streams/refs/heads/main/streams/shturk.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.showturk.com.tr/",
+    "Origin": "https://www.showturk.com.tr"
+   }
   },
   {
    "no": 20,
@@ -149,7 +165,11 @@
     "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8",
     "https://nowtv.daioncdn.net/nowtv/nowtv.m3u8?st=8DIpY0ejlKo4Tgzl5g6zuA&e=1792783382",
     "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.nowtv.com.tr/",
+    "Origin": "https://www.nowtv.com.tr"
+   }
   },
   {
    "no": 21,
@@ -158,7 +178,11 @@
     "https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8",
     "https://beyaztv.daioncdn.net/beyaztv/beyaztv.m3u8?app=fcd5c66b-da9d-44ba-a410-4f34805c397d",
     "https://mn-nl.mncdn.com/blutv_beyaztv2/live.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://beyaztv.com.tr/",
+    "Origin": "https://beyaztv.com.tr"
+   }
   },
   {
    "no": 22,
@@ -168,7 +192,11 @@
     "https://tv8-live.daioncdn.net/tv8/tv8.m3u8",
     "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788",
     "https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8/tv8.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.tv8.com.tr/",
+    "Origin": "https://www.tv8.com.tr"
+   }
   },
   {
    "no": 23,
@@ -176,7 +204,11 @@
    "urls": [
     "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web",
     "https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8bucuk/tv8bucuk.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.tv8bucuk.com/",
+    "Origin": "https://www.tv8bucuk.com"
+   }
   },
   {
    "no": 24,
@@ -192,7 +224,11 @@
     "https://dogus.daioncdn.net/tlc/tlc.m3u8?app=web",
     "http://dygvideo.dygdigital.com/live/hls/tlctvdai?m3u8",
     "https://trn03.tulix.tv/gt-tlc-tv/index.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.tlctv.com.tr/",
+    "Origin": "https://www.tlctv.com.tr"
+   }
   },
   {
    "no": 26,
@@ -201,7 +237,11 @@
     "https://dogus.daioncdn.net/dmax/dmax.m3u8?app=web",
     "http://dygvideo.dygdigital.com/live/hls/dmaxdai?m3u8",
     "https://trn03.tulix.tv/gt-dmax-tv/index.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.dmax.com.tr/",
+    "Origin": "https://www.dmax.com.tr"
+   }
   },
   {
    "no": 27,
@@ -216,7 +256,11 @@
    "urls": [
     "https://demiroren.daioncdn.net/teve2/teve2.m3u8?app=6aab838a-437e-4a1b-bbd0-e30f79cdbbbd",
     "http://live.duhnet.tv/S2/HLS_LIVE/teve2np/playlist.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.teve2.com.tr/",
+    "Origin": "https://www.teve2.com.tr"
+   }
   },
   {
    "no": 29,
@@ -253,7 +297,11 @@
     "https://tv100-live.daioncdn.net/tv100/tv100.m3u8",
     "https://tv.ensonhaber.com/tv100/tv100.m3u8",
     "https://ensonhaber-live.ercdn.net/tv100/tv100.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.tv100.com/",
+    "Origin": "https://www.tv100.com"
+   }
   },
   {
    "no": 34,
@@ -279,7 +327,11 @@
    "name": "Habertürk",
    "urls": [
     "https://tv.ensonhaber.com/haberturk/haberturk.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.haberturk.com/",
+    "Origin": "https://www.haberturk.com"
+   }
   },
   {
    "no": 38,
@@ -331,7 +383,11 @@
     "https://mumbai-edge.smartplaytv.in/BloombergHT/index.m3u8",
     "http://193.123.61.120:3000/kanal/bloomberght",
     "https://tv.ensonhaber.com/bloomberght/bloomberght.m3u8"
-   ]
+   ],
+   "basliklar": {
+    "Referer": "https://www.bloomberght.com/",
+    "Origin": "https://www.bloomberght.com"
+   }
   },
   {
    "no": 45,

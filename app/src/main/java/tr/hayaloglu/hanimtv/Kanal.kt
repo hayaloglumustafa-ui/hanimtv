@@ -7,4 +7,6 @@ data class Kanal(
     val linkler: List<String>,
     /** İnternet yayını sadece YouTube'da olan kanallar için resmi YouTube canlı yayın adresi. */
     val youtube: String? = null,
+    /** Bazı kanalların yayın sunucusu, isteğin kanalın kendi sitesinden geldiğini görmek ister (Referer, Origin). */
+    val basliklar: Map<String, String> = emptyMap(),
 )

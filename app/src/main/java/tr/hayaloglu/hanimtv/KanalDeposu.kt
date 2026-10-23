@@ -22,10 +22,12 @@ object KanalDeposu {
     fun yukle(ctx: Context): List<Kanal> {
         val kayit = File(ctx.filesDir, KAYIT_DOSYASI)
         if (kayit.exists()) {
-            runCatching { coz(kayit.readText(Charsets.UTF_8)) }.getOrNull()?.let { return it }
+            val metin = runCatching { kayit.readText(Charsets.UTF_8) }.getOrNull()
+            metin?.let { m -> coz(m)?.let { surumuKaydet(ctx, m, false); return it } }
             kayit.delete() // Bozuk kayıt kendini onarır: silinir, içerideki listeye dönülür.
         }
         val ic = ctx.assets.open(KAYIT_DOSYASI).use { it.readBytes().toString(Charsets.UTF_8) }
+        surumuKaydet(ctx, ic, false)
         return coz(ic) ?: emptyList()
     }
 
@@ -33,19 +35,33 @@ object KanalDeposu {
      * GitHub'daki listeyi indirir. Geçerliyse ve öncekinden farklıysa hafızaya kaydedip döndürür.
      * Değişiklik yoksa ya da dosya geçersizse null döner.
      */
-    fun uzaktanGuncelle(ctx: Context, mevcut: List<Kanal>): List<Kanal>? {
-        val metin = Ag.metinIndir(UZAK_LISTE) ?: return null
-        val yeni = coz(metin) ?: return null
-        if (yeni == mevcut) return null
+    fun uzaktanGuncelle(ctx: Context, mevcut: List<Kanal>): List<Kanal>? = uzaktanKontrol(ctx, mevcut).liste
+
+    /** [basarili]: liste indirilip doğrulandı mı. [liste]: sadece öncekinden farklıysa dolu gelir. */
+    class Sonuc(val basarili: Boolean, val liste: List<Kanal>?)
+
+    fun uzaktanKontrol(ctx: Context, mevcut: List<Kanal>): Sonuc {
+        val metin = Ag.metinIndir(UZAK_LISTE) ?: return Sonuc(false, null)
+        val yeni = coz(metin) ?: return Sonuc(false, null)
+        surumuKaydet(ctx, metin, zamaniKaydet = true)
+        if (yeni == mevcut) return Sonuc(true, null)
         val kayit = File(ctx.filesDir, KAYIT_DOSYASI)
         val gecici = File(ctx.filesDir, "$KAYIT_DOSYASI.gecici")
         gecici.writeText(metin, Charsets.UTF_8)
         // Elektrik kesilse bile yarım dosya kalmaz: yeni dosya tamamen yazıldıktan sonra yer değiştirilir.
         if (!gecici.renameTo(kayit)) {
             gecici.delete()
-            return null
+            return Sonuc(false, null)
         }
-        return yeni
+        return Sonuc(true, yeni)
+    }
+
+    /** Listenin sürüm numarasını (ve istenirse kontrol saatini) Ayarlar'da göstermek için saklar. */
+    private fun surumuKaydet(ctx: Context, metin: String, zamaniKaydet: Boolean) {
+        val surum = runCatching { JSONObject(metin).optInt("surum", 0) }.getOrDefault(0)
+        val e = ctx.getSharedPreferences("hanimtv", Context.MODE_PRIVATE).edit().putInt("listeSurumu", surum)
+        if (zamaniKaydet) e.putLong("listeZamani", System.currentTimeMillis())
+        e.apply()
     }
 
     /** Listeyi okur ve sıkı kontrolden geçirir. Bir kural bile bozuksa null döner. */
@@ -73,7 +89,14 @@ object KanalDeposu {
             val isim = o.getString("name").trim()
             if (isim.isEmpty()) return null
             val yt = o.optString("youtube", "").trim().takeIf { it.startsWith("https://www.youtube.com/") }
-            liste.add(Kanal(o.getInt("no"), isim, linkler, yt))
+            val baslikNesnesi = o.optJSONObject("basliklar")
+            val basliklar = HashMap<String, String>()
+            if (baslikNesnesi != null) {
+                for (ad in listOf("Referer", "Origin", "User-Agent")) {
+                    baslikNesnesi.optString(ad, "").trim().takeIf { it.isNotEmpty() }?.let { basliklar[ad] = it }
+                }
+            }
+            liste.add(Kanal(o.getInt("no"), isim, linkler, yt, basliklar))
         }
         liste.sortBy { it.no }
         val siraDogru = liste.withIndex().all { (i, k) -> k.no == i + 1 }

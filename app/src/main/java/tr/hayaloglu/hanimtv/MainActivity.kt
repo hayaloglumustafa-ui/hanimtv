@@ -25,6 +25,7 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.DefaultHttpDataSource
+import androidx.media3.datasource.HttpDataSource
 import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
@@ -38,6 +39,8 @@ import java.util.concurrent.Executors
 class MainActivity : Activity() {
 
     private companion object {
+        const val OGE_GUNCELLEME = -1
+        const val OGE_AYARLAR = -2
         const val SAYFA_BOYU = 10
         const val BILGI_SURESI = 3_000L
         const val LISTE_KAPANMA_SURESI = 20_000L
@@ -79,7 +82,6 @@ class MainActivity : Activity() {
     private val calismayanlar: MutableSet<Int> = ConcurrentHashMap.newKeySet()
 
     private val listeAcik get() = listeKutusu.visibility == View.VISIBLE
-    private val toplamSatir get() = kanallar.size + if (yeniSurum != null) 1 else 0
 
     // ---------------------------------------------------------------- Açılış
 
@@ -100,6 +102,7 @@ class MainActivity : Activity() {
 
         yaziTipleriniUygula()
         listeSatirlariniKur()
+        gorunumuUygula()
 
         kanallar = KanalDeposu.yukle(this)
         val sonKanal = ayarlar.getInt("sonKanal", 1)
@@ -206,6 +209,7 @@ class MainActivity : Activity() {
                     oynatici.seekToDefaultPosition()
                     oynatici.prepare()
                 } else {
+                    sonHata = hataAciklamasi(error)
                     sonrakiLinkiDene()
                 }
             }
@@ -226,6 +230,29 @@ class MainActivity : Activity() {
                 }
             }
         })
+    }
+
+    /** Kanalın istediği ek başlıklarla (Referer, Origin) yayın kaynağı hazırlar. */
+    private fun kaynakFabrikasi(basliklar: Map<String, String>): DefaultMediaSourceFactory {
+        val http = DefaultHttpDataSource.Factory()
+            .setUserAgent(basliklar["User-Agent"] ?: Ag.TARAYICI)
+            .setAllowCrossProtocolRedirects(true)
+            .setConnectTimeoutMs(8_000)
+            .setReadTimeoutMs(8_000)
+            .setDefaultRequestProperties(basliklar - "User-Agent")
+        return DefaultMediaSourceFactory(this).setDataSourceFactory(DefaultDataSource.Factory(this, http))
+    }
+
+    /** Ekranda gösterilecek kısa hata sebebi; bana fotoğrafı gönderildiğinde sorunu anlamayı sağlar. */
+    private var sonHata = ""
+
+    private fun hataAciklamasi(e: PlaybackException): String {
+        var c: Throwable? = e
+        while (c != null) {
+            if (c is HttpDataSource.InvalidResponseCodeException) return "sunucu kodu ${c.responseCode}"
+            c = c.cause
+        }
+        return e.errorCodeName
     }
 
     private fun yayinOgesi(link: String): MediaItem {
@@ -263,7 +290,7 @@ class MainActivity : Activity() {
             durumGoster("Bu kanalın internet yayını henüz eklenmedi")
             return
         }
-        oynatici.setMediaItem(yayinOgesi(k.linkler[link]))
+        oynatici.setMediaSource(kaynakFabrikasi(k.basliklar).createMediaSource(yayinOgesi(k.linkler[link])))
         oynatici.prepare()
         oynatici.playWhenReady = true
     }
@@ -311,7 +338,7 @@ class MainActivity : Activity() {
         calismayanlar.add(k.no)
         if (listeAcik) listeyiCiz()
         hataSayisi++
-        durumGoster("Yayın şu an gelmiyor, tekrar deneniyor…")
+        durumGoster("Yayın şu an gelmiyor, tekrar deneniyor… (${k.linkler.size} link · $sonHata)")
         val bekleme = (5_000L * hataSayisi).coerceAtMost(30_000L)
         ana.removeCallbacks(yenidenDene)
         ana.postDelayed(yenidenDene, bekleme)
@@ -320,7 +347,10 @@ class MainActivity : Activity() {
     private val yenidenDene = Runnable { if (kanallar.isNotEmpty()) oynat(aktif, 0) }
 
     private val takilmaKontrol = Runnable {
-        if (oynatici.playbackState == Player.STATE_BUFFERING) sonrakiLinkiDene()
+        if (oynatici.playbackState == Player.STATE_BUFFERING) {
+            sonHata = "yayın 10 saniye gelmedi"
+            sonrakiLinkiDene()
+        }
     }
 
     private val gecikmeliOynat = Runnable { oynat(aktif, 0) }
@@ -402,9 +432,22 @@ class MainActivity : Activity() {
 
     // ---------------------------------------------------------------- Kanal listesi
 
+    /** Listede görünen satırlar: kanal indeksleri, varsa "Yeni sürümü kur", en sonda "Ayarlar". */
+    private fun ogeler(): List<Int> {
+        val gizle = ayarlar.getBoolean("griGizle", false)
+        val l = ArrayList<Int>(kanallar.size + 2)
+        for (i in kanallar.indices) {
+            if (!gizle || i == aktif || !calismayanlar.contains(kanallar[i].no)) l.add(i)
+        }
+        if (yeniSurum != null) l.add(OGE_GUNCELLEME)
+        l.add(OGE_AYARLAR)
+        return l
+    }
+
     private fun listeyiAc() {
         if (kanallar.isEmpty()) return
-        listeSecili = aktif
+        ayarModu = false
+        listeSecili = ogeler().indexOf(aktif).coerceAtLeast(0)
         listeKutusu.visibility = View.VISIBLE
         bilgiKutusu.visibility = View.GONE
         listeyiCiz()
@@ -413,6 +456,7 @@ class MainActivity : Activity() {
 
     private fun listeyiKapat() {
         listeKutusu.visibility = View.GONE
+        ayarModu = false
         ana.removeCallbacks(listeyiKendiligindenKapat)
     }
 
@@ -424,8 +468,12 @@ class MainActivity : Activity() {
     }
 
     private fun listeyiCiz() {
-        val toplam = toplamSatir
-        if (toplam == 0) return
+        if (ayarModu) {
+            ayarlariCiz()
+            return
+        }
+        val o = ogeler()
+        val toplam = o.size
         listeSecili = listeSecili.coerceIn(0, toplam - 1)
         val sayfa = listeSecili / SAYFA_BOYU
         val sayfaSayisi = (toplam + SAYFA_BOYU - 1) / SAYFA_BOYU
@@ -435,32 +483,43 @@ class MainActivity : Activity() {
         }
         for (i in 0 until SAYFA_BOYU) {
             val t = satirlar[i]
-            val indeks = sayfa * SAYFA_BOYU + i
+            val konum = sayfa * SAYFA_BOYU + i
+            if (konum >= toplam) {
+                t.visibility = View.INVISIBLE
+                t.background = null
+                continue
+            }
+            val indeks = o[konum]
             when {
-                indeks < kanallar.size -> {
+                indeks >= 0 -> {
                     val k = kanallar[indeks]
-                    t.text = String.format("%-4d %s", k.no, k.isim) + if (k.linkler.isEmpty() && k.youtube != null) "  · YouTube" else ""
+                    val yt = if (k.linkler.isEmpty() && k.youtube != null) "  · YouTube" else ""
+                    t.text = String.format("%-4d %s", k.no, k.isim) + yt
                     t.setTextColor(if (calismayanlar.contains(k.no)) GRI else BEYAZ)
-                    t.visibility = View.VISIBLE
                 }
-                indeks < toplam -> {
+                indeks == OGE_GUNCELLEME -> {
                     t.text = if (guncellemeIniyor) "Yeni sürüm indiriliyor…" else "Yeni sürümü kur"
                     t.setTextColor(BEYAZ)
-                    t.visibility = View.VISIBLE
                 }
-                else -> t.visibility = View.INVISIBLE
+                else -> {
+                    t.text = "Ayarlar"
+                    t.setTextColor(BEYAZ)
+                }
             }
+            t.visibility = View.VISIBLE
             t.typeface = if (indeks == aktif) kalinYazi else normalYazi
-            t.setBackgroundResource(if (indeks == listeSecili) R.drawable.secili_satir else 0)
+            t.setBackgroundResource(if (konum == listeSecili) R.drawable.secili_satir else 0)
         }
     }
 
     private fun listeTusu(tus: Int): Boolean {
-        val toplam = toplamSatir
+        listeZamanlayicisi()
+        if (ayarModu) return ayarTusu(tus)
+        val o = ogeler()
+        val toplam = o.size
         val sayfaSayisi = (toplam + SAYFA_BOYU - 1) / SAYFA_BOYU
         val satir = listeSecili % SAYFA_BOYU
         val sayfa = listeSecili / SAYFA_BOYU
-        listeZamanlayicisi()
         when (tus) {
             KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_CHANNEL_UP ->
                 listeSecili = (listeSecili - 1 + toplam) % toplam
@@ -471,11 +530,19 @@ class MainActivity : Activity() {
             KeyEvent.KEYCODE_DPAD_LEFT ->
                 listeSecili = (((sayfa - 1 + sayfaSayisi) % sayfaSayisi) * SAYFA_BOYU + satir).coerceAtMost(toplam - 1)
             KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER -> {
-                if (listeSecili < kanallar.size) {
-                    listeyiKapat()
-                    if (listeSecili != aktif) kanalaGit(listeSecili) else bilgiyiGoster(kanallar[aktif].no.toString(), kanallar[aktif].isim)
-                } else {
-                    guncellemeyiBaslat()
+                val indeks = o[listeSecili.coerceIn(0, toplam - 1)]
+                when {
+                    indeks >= 0 -> {
+                        listeyiKapat()
+                        if (indeks != aktif) kanalaGit(indeks)
+                        else bilgiyiGoster(kanallar[aktif].no.toString(), kanallar[aktif].isim)
+                    }
+                    indeks == OGE_GUNCELLEME -> guncellemeyiBaslat()
+                    else -> {
+                        ayarModu = true
+                        ayarSecili = 0
+                        listeyiCiz()
+                    }
                 }
                 return true
             }
@@ -487,6 +554,143 @@ class MainActivity : Activity() {
         }
         listeyiCiz()
         return true
+    }
+
+    // ---------------------------------------------------------------- Ayarlar
+
+    private var ayarModu = false
+    private var ayarSecili = 0
+    private val seffaflikAdlari = arrayOf("Az", "Orta", "Çok")
+    private val boyutAdlari = arrayOf("Küçük", "Orta", "Büyük")
+
+    private fun ayarSatirlari(): List<String> {
+        val seffaflik = ayarlar.getInt("seffaflik", 1)
+        val boyut = ayarlar.getInt("yaziBoyutu", 1)
+        val acilis = ayarlar.getBoolean("acilistaBasla", true)
+        val gizle = ayarlar.getBoolean("griGizle", false)
+        val zaman = ayarlar.getLong("listeZamani", 0L).let {
+            if (it == 0L) "—" else java.text.SimpleDateFormat("dd.MM HH:mm", java.util.Locale("tr")).format(java.util.Date(it))
+        }
+        return listOf(
+            "Kanal listesini şimdi güncelle",
+            "Güncellemeleri kontrol et",
+            "Şeffaflık: " + seffaflikAdlari[seffaflik],
+            "Yazı boyutu: " + boyutAdlari[boyut],
+            "Açılışta HanımTV başlasın: " + if (acilis) "Açık" else "Kapalı",
+            "Açılmayan kanalları gizle: " + if (gizle) "Açık" else "Kapalı",
+            "Sürüm 1.0.${Guncelleyici.mevcutSurum(this)} · Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman",
+        )
+    }
+
+    private fun ayarlariCiz() {
+        val s = ayarSatirlari()
+        ayarSecili = ayarSecili.coerceIn(0, s.size - 1)
+        listeBaslik.text = "Ayarlar · Geri tuşu: kanal listesi"
+        for (i in 0 until SAYFA_BOYU) {
+            val t = satirlar[i]
+            if (i >= s.size) {
+                t.visibility = View.INVISIBLE
+                t.background = null
+                continue
+            }
+            t.text = s[i]
+            t.setTextColor(if (i == s.size - 1) GRI else BEYAZ)
+            t.typeface = normalYazi
+            t.visibility = View.VISIBLE
+            t.setBackgroundResource(if (i == ayarSecili) R.drawable.secili_satir else 0)
+        }
+    }
+
+    private fun ayarTusu(tus: Int): Boolean {
+        val adet = ayarSatirlari().size
+        when (tus) {
+            KeyEvent.KEYCODE_DPAD_UP -> ayarSecili = (ayarSecili - 1 + adet) % adet
+            KeyEvent.KEYCODE_DPAD_DOWN -> ayarSecili = (ayarSecili + 1) % adet
+            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_LEFT -> {
+                ayarModu = false
+                listeSecili = ogeler().size - 1
+            }
+            KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER -> ayarUygula(ayarSecili)
+            else -> return true
+        }
+        listeyiCiz()
+        return true
+    }
+
+    private fun ayarUygula(sira: Int) {
+        val e = ayarlar.edit()
+        when (sira) {
+            0 -> listeyiSimdiGuncelle()
+            1 -> surumuSimdiKontrolEt()
+            2 -> e.putInt("seffaflik", (ayarlar.getInt("seffaflik", 1) + 1) % 3)
+            3 -> e.putInt("yaziBoyutu", (ayarlar.getInt("yaziBoyutu", 1) + 1) % 3)
+            4 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
+            5 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
+        }
+        e.commit()
+        if (sira == 2 || sira == 3) gorunumuUygula()
+    }
+
+    /** Seçilen şeffaflığı ve yazı boyutunu bütün kutulara uygular. */
+    private fun gorunumuUygula() {
+        val opaklik = intArrayOf(0xBF, 0x8C, 0x59)[ayarlar.getInt("seffaflik", 1).coerceIn(0, 2)]
+        val oran = floatArrayOf(0.85f, 1f, 1.2f)[ayarlar.getInt("yaziBoyutu", 1).coerceIn(0, 2)]
+        val yaricap = 12 * resources.displayMetrics.density
+        fun zemin() = android.graphics.drawable.GradientDrawable().apply {
+            setColor(opaklik shl 24)
+            cornerRadius = yaricap
+        }
+        listeKutusu.background = zemin()
+        bilgiKutusu.background = zemin()
+        durumYazisi.background = zemin()
+        satirlar.forEach { it.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f * oran) }
+        listeBaslik.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f * oran)
+        bilgiNumara.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f * oran)
+        bilgiIsim.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f * oran)
+        durumYazisi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f * oran)
+        listeKutusu.layoutParams = listeKutusu.layoutParams.apply {
+            width = (440 * oran * resources.displayMetrics.density).toInt()
+        }
+    }
+
+    private fun kisaMesaj(yazi: String) {
+        durumGoster(yazi)
+        ana.removeCallbacks(mesajiGizle)
+        ana.postDelayed(mesajiGizle, 5_000)
+    }
+
+    private val mesajiGizle = Runnable { durumGizle() }
+
+    private fun listeyiSimdiGuncelle() {
+        kisaMesaj("Kanal listesi kontrol ediliyor…")
+        val mevcut = kanallar
+        arkaPlan.execute {
+            val s = KanalDeposu.uzaktanKontrol(this@MainActivity, mevcut)
+            ana.post {
+                val no = ayarlar.getInt("listeSurumu", 0)
+                when {
+                    !s.basarili -> kisaMesaj("Kanal listesine ulaşılamadı. İnternet bağlantısını kontrol edin.")
+                    s.liste != null -> {
+                        yeniListeyiUygula(s.liste)
+                        kisaMesaj("Kanal listesi güncellendi (liste $no)")
+                    }
+                    else -> kisaMesaj("Kanal listesi zaten güncel (liste $no)")
+                }
+                if (listeAcik) listeyiCiz()
+            }
+        }
+    }
+
+    private fun surumuSimdiKontrolEt() {
+        kisaMesaj("Yeni sürüm kontrol ediliyor…")
+        arkaPlan.execute {
+            val s = Guncelleyici.kontrolEt(this@MainActivity)
+            ana.post {
+                yeniSurum = s
+                kisaMesaj(if (s != null) "Yeni sürüm var. Kanal listesinde \"Yeni sürümü kur\" satırını seçin." else "Uygulamanız güncel")
+                if (listeAcik) listeyiCiz()
+            }
+        }
     }
 
     // ---------------------------------------------------------------- Kumanda
