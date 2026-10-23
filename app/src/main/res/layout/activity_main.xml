@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/oynatici"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        app:use_controller="false"
+        app:resize_mode="fit"
+        app:shutter_background_color="@android:color/black"
+        app:show_buffering="never" />
+
+    <!-- Kanal değiştirince sağ üstte görünen bilgi kutusu -->
+    <LinearLayout
+        android:id="@+id/bilgiKutusu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/kutu_zemin"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingStart="22dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/bilgiNumara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="#FFFFFFFF"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/bilgiIsim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxWidth="360dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFFFF"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <!-- Ortada, orta şeffaflıkta kanal listesi -->
+    <LinearLayout
+        android:id="@+id/listeKutusu"
+        android:layout_width="440dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/kutu_zemin"
+        android:orientation="vertical"
+        android:padding="14dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/listeBaslik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textColor="#D9FFFFFF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/listeSatirlari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <!-- Yayın gelmediğinde ekranın altında çıkan kısa mesaj -->
+    <TextView
+        android:id="@+id/durumYazisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/kutu_zemin"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20sp"
+        android:visibility="gone" />
+</FrameLayout>

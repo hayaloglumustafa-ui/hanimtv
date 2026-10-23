@@ -1,0 +1,73 @@
+# HanımTV'nin APK dosyasını GitHub'ın sunucularında otomatik üretir.
+# Kodda bir değişiklik olunca kendiliğinden çalışır. Sadece kanal listesi değişirse çalışmaz,
+# çünkü kanal listesi uygulamaya Wi-Fi üzerinden zaten kendiliğinden gelir.
+name: HanimTV APK
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "app/src/main/assets/kanallar.json"
+      - "surum.json"
+      - "BENİOKU.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apk
+  cancel-in-progress: false
+
+jobs:
+  derle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: İmza şifresini kontrol et
+        env:
+          SIFRE: ${{ secrets.HANIMTV_IMZA_SIFRESI }}
+        run: |
+          if [ -z "$SIFRE" ]; then
+            echo "::error::HANIMTV_IMZA_SIFRESI adlı gizli ayar eklenmemiş. Ayarlar > Secrets and variables > Actions bölümünden ekleyin."
+            exit 1
+          fi
+
+      - name: APK üret
+        env:
+          HANIMTV_KEYSTORE_FILE: ${{ github.workspace }}/imza/hanimtv.p12
+          HANIMTV_KEYSTORE_PASSWORD: ${{ secrets.HANIMTV_IMZA_SIFRESI }}
+          HANIMTV_KEY_PASSWORD: ${{ secrets.HANIMTV_IMZA_SIFRESI }}
+          HANIMTV_KEY_ALIAS: hanimtv
+          HANIMTV_VERSION_CODE: ${{ github.run_number }}
+        run: |
+          gradle --no-daemon assembleRelease
+          cp app/build/outputs/apk/release/app-release.apk HanimTV.apk
+
+      - name: Yayınla
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: HanımTV 1.0.${{ github.run_number }}
+          make_latest: "true"
+          files: HanimTV.apk
+
+      - name: Uygulamaya yeni sürümü haber ver
+        run: |
+          printf '{\n "surumKodu": %s,\n "apk": "https://github.com/%s/releases/latest/download/HanimTV.apk"\n}\n' \
+            "${{ github.run_number }}" "${{ github.repository }}" > surum.json
+          git config user.name "hanimtv-derleyici"
+          git config user.email "actions@github.com"
+          git add surum.json
+          git commit -m "Sürüm ${{ github.run_number }}" || exit 0
+          git push

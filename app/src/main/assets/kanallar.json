@@ -1,0 +1,1226 @@
+{
+ "surum": 1,
+ "kanallar": [
+  {
+   "no": 1,
+   "name": "TRT 1",
+   "urls": [
+    "https://tv-trt1.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 2,
+   "name": "TRT 2",
+   "urls": [
+    "https://tv-trt2.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 3,
+   "name": "TRT Haber",
+   "urls": [
+    "https://tv-trthaber.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 4,
+   "name": "TRT Spor",
+   "urls": [
+    "https://tv-trtspor1.medya.trt.com.tr/master.m3u8",
+    "https://corestream.siteyaptim.live/trt-spor/index.m3u8"
+   ]
+  },
+  {
+   "no": 5,
+   "name": "TRT Spor Yıldız",
+   "urls": [
+    "https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor"
+   ]
+  },
+  {
+   "no": 6,
+   "name": "A Spor",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8"
+   ]
+  },
+  {
+   "no": 7,
+   "name": "HT Spor",
+   "urls": [
+    "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web"
+   ]
+  },
+  {
+   "no": 8,
+   "name": "TRT Müzik",
+   "urls": [
+    "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",
+    "https://stream8.cinerama.uz/1208/tracks-v1a1/mono.m3u8"
+   ]
+  },
+  {
+   "no": 9,
+   "name": "TRT Belgesel",
+   "urls": [
+    "https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8",
+    "http://hls127.freeott.top:8080/TRT_BELGESEL_TR/video.m3u8",
+    "https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 10,
+   "name": "TRT World",
+   "urls": [
+    "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
+    "https://mumbai-edge.smartplaytv.in/TRTWorld/index.m3u8",
+    "https://cdn.pishow.tv/ott/live/266/master.m3u8"
+   ]
+  },
+  {
+   "no": 11,
+   "name": "TRT Avaz",
+   "urls": [
+    "https://tv-trtavaz.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 12,
+   "name": "ATV",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8",
+    "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8"
+   ]
+  },
+  {
+   "no": 13,
+   "name": "ATV Avrupa",
+   "urls": [
+    "https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8"
+   ]
+  },
+  {
+   "no": 14,
+   "name": "Kanal D",
+   "urls": [
+    "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3"
+   ]
+  },
+  {
+   "no": 15,
+   "name": "Kanal D Avrupa",
+   "urls": [
+    "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 16,
+   "name": "Star TV",
+   "urls": [
+    "https://dogus.daioncdn.net/startv/startv_720p.m3u8?app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3&sid=8l4w3lst4co5"
+   ]
+  },
+  {
+   "no": 17,
+   "name": "Star Avrupa",
+   "urls": []
+  },
+  {
+   "no": 18,
+   "name": "Show TV",
+   "urls": []
+  },
+  {
+   "no": 19,
+   "name": "Show TV Avrupa",
+   "urls": [
+    "https://raw.githubusercontent.com/bnyusuf67-crypto/streams/refs/heads/main/streams/shturk.m3u8"
+   ]
+  },
+  {
+   "no": 20,
+   "name": "NOW TV",
+   "urls": [
+    "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8"
+   ]
+  },
+  {
+   "no": 21,
+   "name": "Beyaz TV",
+   "urls": [
+    "https://mn-nl.mncdn.com/blutv_beyaztv2/live.m3u8"
+   ]
+  },
+  {
+   "no": 22,
+   "name": "TV 8",
+   "urls": [
+    "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788&ce=3",
+    "https://tv8-live.daioncdn.net/tv8/tv8.m3u8"
+   ]
+  },
+  {
+   "no": 23,
+   "name": "TV 8.5",
+   "urls": []
+  },
+  {
+   "no": 24,
+   "name": "360",
+   "urls": [
+    "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8"
+   ]
+  },
+  {
+   "no": 25,
+   "name": "TLC",
+   "urls": []
+  },
+  {
+   "no": 26,
+   "name": "DMAX",
+   "urls": []
+  },
+  {
+   "no": 27,
+   "name": "A2",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8"
+   ]
+  },
+  {
+   "no": 28,
+   "name": "TV2",
+   "urls": []
+  },
+  {
+   "no": 29,
+   "name": "Kanal 7",
+   "urls": [
+    "https://kanal7.blutv.com/blutv_kanal7_live/live.m3u8",
+    "https://kanal7-live.daioncdn.net/kanal7/kanal7.m3u8"
+   ]
+  },
+  {
+   "no": 30,
+   "name": "Kanal 7 Avrupa",
+   "urls": [
+    "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 31,
+   "name": "Akit TV",
+   "urls": []
+  },
+  {
+   "no": 32,
+   "name": "Ülke TV",
+   "urls": [
+    "http://217.174.229.138:8000/play/a0el"
+   ]
+  },
+  {
+   "no": 33,
+   "name": "TV100",
+   "urls": []
+  },
+  {
+   "no": 34,
+   "name": "Sözcü TV",
+   "urls": []
+  },
+  {
+   "no": 35,
+   "name": "Halk TV",
+   "urls": [
+    "https://halktv-live.daioncdn.net/halktv/halktv.m3u8"
+   ]
+  },
+  {
+   "no": 36,
+   "name": "KRT",
+   "urls": []
+  },
+  {
+   "no": 37,
+   "name": "Habertürk",
+   "urls": [
+    "https://tv.ensonhaber.com/haberturk/haberturk.m3u8"
+   ]
+  },
+  {
+   "no": 38,
+   "name": "CNN Türk",
+   "urls": []
+  },
+  {
+   "no": 39,
+   "name": "NTV",
+   "urls": [
+    "https://dogus.daioncdn.net/ntv/ntv.m3u8?app=ntv_web"
+   ]
+  },
+  {
+   "no": 40,
+   "name": "CNBC-e",
+   "urls": [
+    "https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8"
+   ]
+  },
+  {
+   "no": 41,
+   "name": "A Haber",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8"
+   ]
+  },
+  {
+   "no": 42,
+   "name": "Flash Haber TV",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 43,
+   "name": "Lider TV",
+   "urls": []
+  },
+  {
+   "no": 44,
+   "name": "Bloomberg HT",
+   "urls": [
+    "https://ciner-live.daioncdn.net/bloomberght/bloomberght.m3u8",
+    "https://mumbai-edge.smartplaytv.in/BloombergHT/index.m3u8",
+    "http://193.123.61.120:3000/kanal/bloomberght",
+    "https://tv.ensonhaber.com/bloomberght/bloomberght.m3u8"
+   ]
+  },
+  {
+   "no": 45,
+   "name": "TGRT Haber",
+   "urls": [
+    "https://canli.tgrthaber.com/tgrt.m3u8",
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe4598be8e5d.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 46,
+   "name": "Haber Global",
+   "urls": [
+    "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8"
+   ]
+  },
+  {
+   "no": 47,
+   "name": "TVNET",
+   "urls": [
+    "https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 48,
+   "name": "Tele 1",
+   "urls": [
+    "https://tele1-live.ercdn.net/tele1/tele1.m3u8"
+   ]
+  },
+  {
+   "no": 49,
+   "name": "TV 24",
+   "urls": [
+    "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8"
+   ]
+  },
+  {
+   "no": 50,
+   "name": "Bengütürk",
+   "urls": [
+    "http://185.234.111.229:8000/play/a05u",
+    "https://tv.ensonhaber.com/benguturk/benguturk.m3u8"
+   ]
+  },
+  {
+   "no": 51,
+   "name": "Ekotürk",
+   "urls": [
+    "https://cdn.ekoturk.net/hls/master.m3u8"
+   ]
+  },
+  {
+   "no": 52,
+   "name": "TürkHaber",
+   "urls": [
+    "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 53,
+   "name": "TR24",
+   "urls": [
+    "https://tv.ensonhaber.com/tv24/tv24.m3u8"
+   ]
+  },
+  {
+   "no": 54,
+   "name": "Finans Türk",
+   "urls": [
+    "https://yayin30.haber100.com/live/finansturk/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 55,
+   "name": "GZT",
+   "urls": [
+    "https://gzttv-live.lg.mncdn.com/gzttv/gzttv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 56,
+   "name": "DHA",
+   "urls": [
+    "https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 57,
+   "name": "TBMM TV",
+   "urls": [
+    "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8"
+   ]
+  },
+  {
+   "no": 58,
+   "name": "Kral Pop TV",
+   "urls": [
+    "https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 59,
+   "name": "Power TV",
+   "urls": [
+    "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_powertv/powertv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 60,
+   "name": "Power Türk",
+   "urls": [
+    "https://powerturk.blutv.com/blutv_powerturk/powerturk_sd.smil/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8",
+    "https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8",
+    "https://mn-nl.mncdn.com/blutv_powerturk/smil:powerturk_sd.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 61,
+   "name": "Power Türk Taptaze",
+   "urls": [
+    "https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 62,
+   "name": "Power Türk Akustik",
+   "urls": [
+    "https://livetv.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 63,
+   "name": "Power Türk Slow",
+   "urls": [
+    "https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 64,
+   "name": "Power Love",
+   "urls": [
+    "https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 65,
+   "name": "Power Dance",
+   "urls": [
+    "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 66,
+   "name": "Number 1 TV",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
+    "https://mn-nl.mncdn.com/blutv_nr12/live.m3u8"
+   ]
+  },
+  {
+   "no": 67,
+   "name": "Number 1 Aşk",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 68,
+   "name": "Number 1 Damar",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 69,
+   "name": "Number 1 Dance",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 70,
+   "name": "Dream Türk",
+   "urls": [
+    "https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 71,
+   "name": "Med Müzik",
+   "urls": [
+    "http://54.36.110.140/live3/live3.m3u8"
+   ]
+  },
+  {
+   "no": 72,
+   "name": "TRT 3",
+   "urls": [
+    "https://tv-trt3.live.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 73,
+   "name": "TRT Türk",
+   "urls": [
+    "https://tv-trtturk.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 74,
+   "name": "TRT Çocuk",
+   "urls": [
+    "https://tv-trtcocuk.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 75,
+   "name": "TRT Kurdî",
+   "urls": [
+    "https://tv-trtkurdi.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 76,
+   "name": "TRT Arabi",
+   "urls": [
+    "https://tv-trtarabi.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 77,
+   "name": "TRT Genç",
+   "urls": [
+    "https://tv-trtgenc.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 78,
+   "name": "TRT Diyanet Çocuk",
+   "urls": [
+    "https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 79,
+   "name": "TRT EBA İlkokul",
+   "urls": [
+    "https://tv-e-okul00.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 80,
+   "name": "TRT EBA Ortaokul",
+   "urls": [
+    "https://tv-e-okul01.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 81,
+   "name": "TRT EBA Lise",
+   "urls": [
+    "https://tv-e-okul02.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 82,
+   "name": "Minika Çocuk",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8",
+    "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8"
+   ]
+  },
+  {
+   "no": 83,
+   "name": "Minika Go",
+   "urls": [
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8",
+    "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8"
+   ]
+  },
+  {
+   "no": 84,
+   "name": "Diyanet TV",
+   "urls": [
+    "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 85,
+   "name": "Kanal D Drama",
+   "urls": [
+    "http://190.93.224.42/KANAL-D-DRAMA/index.m3u8",
+    "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD.stream/playlist.m3u8",
+    "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD_principal_SRT/playlist.m3u8",
+    "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01602-themahqfrance-vivekanald-samsungspain/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 86,
+   "name": "TGRT Belgesel",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 87,
+   "name": "TJK TV",
+   "urls": [
+    "https://tjktv-live.tjk.org/tjktv.m3u8"
+   ]
+  },
+  {
+   "no": 88,
+   "name": "TJK TV 2",
+   "urls": [
+    "https://tjktv-live.tjk.org/tjktv2/tjktv2.m3u8"
+   ]
+  },
+  {
+   "no": 89,
+   "name": "TRT Spor 2",
+   "urls": [
+    "https://tv-trtspor2.medya.trt.com.tr/master.m3u8"
+   ]
+  },
+  {
+   "no": 90,
+   "name": "4U TV",
+   "urls": [
+    "https://hls.4utv.live/hls/stream.m3u8"
+   ]
+  },
+  {
+   "no": 91,
+   "name": "Afroturk TV",
+   "urls": [
+    "https://edge.socialsmart.tv/naturaltv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 92,
+   "name": "Aksu TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_aksutv/aksutv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 93,
+   "name": "Al-Zahra TV Turkic",
+   "urls": [
+    "https://live.al-zahratv.com/live/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 94,
+   "name": "Alanya Posta TV",
+   "urls": [
+    "https://api-tv3.yayin.com.tr/postatv/postatv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 95,
+   "name": "Almahriah TV",
+   "urls": [
+    "https://starmenajo.com/hls/almahriah/index.m3u8"
+   ]
+  },
+  {
+   "no": 96,
+   "name": "Altas TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 97,
+   "name": "Anadolu Net TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_anadolunet/anadolunet/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 98,
+   "name": "ARAS TV",
+   "urls": [
+    "http://1.rtmp.org/tv217/yayin.stream/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 99,
+   "name": "ATV Alanya",
+   "urls": [
+    "https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8",
+    "http://stream2.taksimbilisim.com:1935/alanyatv/alanyatv.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 100,
+   "name": "Bir TV",
+   "urls": [
+    "https://edge.taksimbilisim.com/birtv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 101,
+   "name": "BRTV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 102,
+   "name": "Bursa AS TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_astv/astv/playlist.m3u8",
+    "https://waw2.artiyerelmedya.net/astv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 103,
+   "name": "Bursa TV",
+   "urls": [
+    "https://win1.yayin.com.tr/bursatv/bursatv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 104,
+   "name": "Cay TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/caytv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 105,
+   "name": "Cekmeköy TV",
+   "urls": [
+    "https://cdn-cekmekoybeltv.yayin.com.tr/cekmekoybeltv/cekmekoybeltv_1080p/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 106,
+   "name": "Deniz Postası TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_denizpostasi/denizpostasi/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 107,
+   "name": "Diyar TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 108,
+   "name": "Dost TV",
+   "urls": [
+    "https://dost.stream.emsal.im/tv/live.m3u8"
+   ]
+  },
+  {
+   "no": 109,
+   "name": "Edessa TV",
+   "urls": [
+    "https://canli.edessatv.com/hls/stream.m3u8"
+   ]
+  },
+  {
+   "no": 110,
+   "name": "Er TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_ertv_new/ertv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 111,
+   "name": "Erzurum Web TV",
+   "urls": [
+    "https://win29.yayin.com.tr/erzurumwebtv/erzurumwebtv/iptvdelisi.m3u8"
+   ]
+  },
+  {
+   "no": 112,
+   "name": "ES TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_estv/estv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 113,
+   "name": "ETV Kayseri",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_etv/etv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 114,
+   "name": "ETV Manisa",
+   "urls": [
+    "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 115,
+   "name": "FB TV",
+   "urls": [
+    "http://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 116,
+   "name": "Fortuna TV",
+   "urls": [
+    "https://edge.taksimbilisim.com/ftvturk/bant1/playlist.m3u8",
+    "https://edge1.socialsmart.tv/ftvturk/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 117,
+   "name": "Guneydogu TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/gtv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 118,
+   "name": "Haber61 TV",
+   "urls": [
+    "https://cdn-haber61tv.yayin.com.tr/haber61tv/smil:haber61tv.smil/index.m3u8",
+    "https://win8.yayin.com.tr/haber61tv/smil:haber61tv.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 119,
+   "name": "Hunat TV",
+   "urls": [
+    "https://59cba4d34b678.streamlock.net/canlitv/hunattv/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_hunattv/hunattv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 120,
+   "name": "Icel TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/iceltv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 121,
+   "name": "Ilke TV",
+   "urls": [
+    "https://stream.ilketv.com.tr/hls/ilkecanli.m3u8"
+   ]
+  },
+  {
+   "no": 122,
+   "name": "Kanal 12",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanal12/kanal12/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 123,
+   "name": "Kanal 15",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanal15/kanal15/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 124,
+   "name": "Kanal 23",
+   "urls": [
+    "https://cdn-kanal23.yayin.com.tr/kanal23/index.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_kanal23/kanal23/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 125,
+   "name": "Kanal 26",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 126,
+   "name": "Kanal 3",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/playlist.m3u8",
+    "https://waw2.artiyerelmedya.net/kanal3/bant1/playlist.m3u8",
+    "http://stream.taksimbilisim.com:1935/kanal3/bant1/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3guncel/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 127,
+   "name": "Kanal 32",
+   "urls": [
+    "https://edge1.socialsmart.tv/kanal32/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 128,
+   "name": "Kanal 33",
+   "urls": [
+    "https://edge1.socialsmart.tv/kanal33/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 129,
+   "name": "Kanal 34",
+   "urls": [
+    "https://vdo.digitalbox.xyz:3266/live/kanal34tvlive.m3u8"
+   ]
+  },
+  {
+   "no": 130,
+   "name": "KANAL 58",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanal58/kanal58/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 131,
+   "name": "Kanal Firat",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanalfirat/kanalfirat/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 132,
+   "name": "Kanal Hayat",
+   "urls": [
+    "https://tbn02a.ltnschedule.com/hls/nx21i.m3u8"
+   ]
+  },
+  {
+   "no": 133,
+   "name": "Kanal V",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 134,
+   "name": "Kay TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kaytv/kaytv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 135,
+   "name": "Kent Türk TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_38kenttv/38kenttv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 136,
+   "name": "Kocaeli TV",
+   "urls": [
+    "https://edge.taksimbilisim.com/kocaelitv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 137,
+   "name": "Konya Olay TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_konyaolaytv/konyaolaytv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 138,
+   "name": "Lalegul TV",
+   "urls": [
+    "https://lbl.netmedya.net/hls/lalegultv.m3u8",
+    "http://lalegultv.netmedya.net/hls/lalegultv.m3u8",
+    "http://lalegultv.netmedya.net/lalegul-tv/lalegultv.stream/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 139,
+   "name": "Life TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 140,
+   "name": "Line TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 141,
+   "name": "Luys TV",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtpayqrfkgirxelive/broadcast_5e91c5ac96898.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 142,
+   "name": "MaviKaradeniz",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_mavikaradeniz/mavikaradeniz/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 143,
+   "name": "Mekameleen TV",
+   "urls": [
+    "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 144,
+   "name": "Meltem TV",
+   "urls": [
+    "https://vhxyrsly.rocketcdn.com/meltemtv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 145,
+   "name": "Mercan TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 146,
+   "name": "MTürk TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 147,
+   "name": "Natural TV",
+   "urls": [
+    "http://broadcasttr.com:1935/naturaltv/bant1/playlist.m3u8",
+    "https://edge1.socialsmart.tv/naturaltv/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 148,
+   "name": "Olay Türk TV Kayseri",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 149,
+   "name": "On4 TV",
+   "urls": [
+    "https://edge1.socialsmart.tv/on4/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 150,
+   "name": "Qaf TV",
+   "urls": [
+    "https://customer-9vqui33qma2rownb.cloudflarestream.com/7792e558fe54e23bdd4b462ec275cdba/manifest/video.m3u8"
+   ]
+  },
+  {
+   "no": 151,
+   "name": "Sat7 Türk",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8",
+    "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 152,
+   "name": "Satranç TV",
+   "urls": [
+    "http://139.162.182.79/live/test/index.m3u8"
+   ]
+  },
+  {
+   "no": 153,
+   "name": "Semerkand TV",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_58d915bd40efc.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 154,
+   "name": "Sercem TV",
+   "urls": [
+    "https://canli.sercemtv.com.tr/hls/0/stream.m3u8"
+   ]
+  },
+  {
+   "no": 155,
+   "name": "Spacetoon Turkey",
+   "urls": [
+    "https://live-tr-next.spacetoongo.com/ST_TR_NEXT/hls/h7qefeiwfbjn1.m3u8"
+   ]
+  },
+  {
+   "no": 156,
+   "name": "Sun RTV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/playlist.m3u8",
+    "https://tr.socialsmart.tv/suntv/bant1/chunks.m3u8"
+   ]
+  },
+  {
+   "no": 157,
+   "name": "Tempo TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_tempotv/tempotv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 158,
+   "name": "Tivi 6",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_tivi6/tivi6/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 159,
+   "name": "Ton TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_tontv/tontv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 160,
+   "name": "Torba TV",
+   "urls": [
+    "https://59cba4d34b678.streamlock.net/canlitv/torbatv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 161,
+   "name": "TV 1",
+   "urls": [
+    "https://edge1.socialsmart.tv/tv1/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 162,
+   "name": "TV 264",
+   "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 163,
+   "name": "TV 41",
+   "urls": [
+    "http://stream.taksimbilisim.com:1935/tv41/bant1/TV41.m3u8",
+    "http://stream.taksimbilisim.com:1935/tv41/smil:tv41.smil/playlist.m3u8",
+    "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 164,
+   "name": "TV 42",
+   "urls": [
+    "https://canli.tv42.com.tr/memfs/d936e417-c4bd-4d42-89a2-02f289892d1d.m3u8"
+   ]
+  },
+  {
+   "no": 165,
+   "name": "TV 52",
+   "urls": [
+    "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 166,
+   "name": "TV Den",
+   "urls": [
+    "http://canli.tvden.com.tr/hls/live.m3u8"
+   ]
+  },
+  {
+   "no": 167,
+   "name": "TV4",
+   "urls": [
+    "https://turkmedya-live.ercdn.net/tv4/tv4.m3u8"
+   ]
+  },
+  {
+   "no": 168,
+   "name": "Urfa Natik TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 169,
+   "name": "Van 65 TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 170,
+   "name": "Vav TV",
+   "urls": [
+    "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8"
+   ]
+  },
+  {
+   "no": 171,
+   "name": "Zarok TV",
+   "urls": [
+    "https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8"
+   ]
+  },
+  {
+   "no": 172,
+   "name": "Çiftçi TV",
+   "urls": [
+    "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8"
+   ]
+  }
+ ]
+}
