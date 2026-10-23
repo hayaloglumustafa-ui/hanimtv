@@ -1,5 +1,5 @@
 {
- "surum": 17,
+ "surum": 18,
  "kanallar": [
   {
    "no": 1,
@@ -1264,9 +1264,9 @@
    "no": 146,
    "name": "MTürk TV",
    "urls": [
+    "https://edge.taksimbilisim.com/muglaturk/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://www.mturktv.net/canli/",
    "basliklar": {
     "Referer": "https://www.mturktv.net/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
@@ -1426,10 +1426,11 @@
    "no": 164,
    "name": "TV 42",
    "urls": [
+    "https://canliyayin.tv42.com.tr/memfs/0c8c4bc7-550a-4239-8e3d-6f4d768391bb.m3u8",
     "https://canli.tv42.com.tr/memfs/d936e417-c4bd-4d42-89a2-02f289892d1d.m3u8",
     "http://canliyayin.tv42.com.tr/memfs/288fb8d8-21f6-4be6-b48e-a5ed1606430c.m3u8"
    ],
-   "sayfa": "https://www.tv42haber.com/tv42-canli",
+   "sayfa": "https://canliyayin.tv42.com.tr/0c8c4bc7-550a-4239-8e3d-6f4d768391bb.html",
    "basliklar": {
     "Referer": "https://www.tv42haber.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
@@ -1452,6 +1453,7 @@
    "no": 166,
    "name": "TV Den",
    "urls": [
+    "https://canli.tvden.com.tr/hls/live.m3u8",
     "http://canli.tvden.com.tr/hls/live.m3u8"
    ]
   },
@@ -2073,6 +2075,7 @@
    "no": 245,
    "name": "Muğla Türk TV",
    "urls": [
+    "https://edge.taksimbilisim.com/muglaturk/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8"
    ]
   },
