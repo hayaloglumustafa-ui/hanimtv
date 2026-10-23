@@ -273,7 +273,7 @@ class MainActivity : Activity() {
         val k = kanallar[indeks]
         if (bilgiGoster) bilgiyiGoster(k.no.toString(), k.isim)
 
-        if (k.linkler.isEmpty() && k.youtube != null) {
+        if (k.linkler.isEmpty() && k.sayfa == null && k.youtube != null) {
             youtubeAc(k)
             return
         }
@@ -283,14 +283,46 @@ class MainActivity : Activity() {
             ayarlar.edit().putInt("sonKanal", k.no).commit()
         }
 
-        if (k.linkler.isEmpty()) {
+        if (k.linkler.isEmpty() && k.sayfa == null) {
             oynatici.stop()
             oynatici.clearMediaItems()
             calismayanlar.add(k.no)
             durumGoster("Bu kanalın internet yayını henüz eklenmedi")
             return
         }
-        oynatici.setMediaSource(kaynakFabrikasi(k.basliklar).createMediaSource(yayinOgesi(k.linkler[link])))
+        if (link > 0) {
+            baslat(k, link)
+            return
+        }
+        aktifLinkler = k.linkler
+        val sayfa = k.sayfa
+        if (sayfa == null) {
+            baslat(k, 0)
+            return
+        }
+        // Kanalın kendi sitesinden o anki taze yayın linkini (anahtarıyla) al, sonra sabit linkleri yedek olarak kullan.
+        val istek = ++sayfaIstegi
+        arkaPlan.execute {
+            val taze = SayfadanLink.bul(sayfa, k.basliklar)
+            ana.post {
+                if (istek != sayfaIstegi || kanallar.getOrNull(aktif)?.no != k.no) return@post
+                aktifLinkler = listOfNotNull(taze) + k.linkler.filter { it != taze }
+                if (aktifLinkler.isEmpty()) {
+                    sonHata = "sitede yayın linki bulunamadı"
+                    sonrakiLinkiDene()
+                } else baslat(k, 0)
+            }
+        }
+    }
+
+    /** O anda denenen linkler: varsa kanalın sitesinden alınan taze link, ardından sabit linkler. */
+    private var aktifLinkler: List<String> = emptyList()
+    private var sayfaIstegi = 0
+
+    private fun baslat(k: Kanal, link: Int) {
+        linkSirasi = link
+        val adres = aktifLinkler.getOrNull(link) ?: return
+        oynatici.setMediaSource(kaynakFabrikasi(k.basliklar).createMediaSource(yayinOgesi(adres)))
         oynatici.prepare()
         oynatici.playWhenReady = true
     }
@@ -331,14 +363,15 @@ class MainActivity : Activity() {
     /** Kendini onarma: takılan ya da hata veren yayında önce yedek linkler denenir, sonra beklenip baştan denenir. */
     private fun sonrakiLinkiDene() {
         val k = kanallar.getOrNull(aktif) ?: return
-        if (linkSirasi + 1 < k.linkler.size) {
-            oynat(aktif, linkSirasi + 1)
+        if (linkSirasi + 1 < aktifLinkler.size) {
+            ana.removeCallbacks(takilmaKontrol)
+            baslat(k, linkSirasi + 1)
             return
         }
         calismayanlar.add(k.no)
         if (listeAcik) listeyiCiz()
         hataSayisi++
-        durumGoster("Yayın şu an gelmiyor, tekrar deneniyor… (${k.linkler.size} link · $sonHata)")
+        durumGoster("Yayın şu an gelmiyor, tekrar deneniyor… (${aktifLinkler.size} link · $sonHata)")
         val bekleme = (5_000L * hataSayisi).coerceAtMost(30_000L)
         ana.removeCallbacks(yenidenDene)
         ana.postDelayed(yenidenDene, bekleme)
@@ -493,7 +526,7 @@ class MainActivity : Activity() {
             when {
                 indeks >= 0 -> {
                     val k = kanallar[indeks]
-                    val yt = if (k.linkler.isEmpty() && k.youtube != null) "  · YouTube" else ""
+                    val yt = if (k.linkler.isEmpty() && k.sayfa == null && k.youtube != null) "  · YouTube" else ""
                     t.text = String.format("%-4d %s", k.no, k.isim) + yt
                     t.setTextColor(if (calismayanlar.contains(k.no)) GRI else BEYAZ)
                 }
@@ -745,7 +778,7 @@ class MainActivity : Activity() {
             for (k in liste) {
                 if (Thread.currentThread().isInterrupted) return@execute
                 if (k.no == izlenen) continue
-                if (k.linkler.isEmpty() && k.youtube != null) continue
+                if (k.linkler.isEmpty() && (k.youtube != null || k.sayfa != null)) continue
                 if (k.linkler.take(2).none { Ag.linkCalisiyorMu(it) }) calismayan.add(k.no)
             }
             ana.post {

@@ -1,5 +1,5 @@
 {
- "surum": 6,
+ "surum": 7,
  "kanallar": [
   {
    "no": 1,
@@ -228,7 +228,8 @@
    "basliklar": {
     "Referer": "https://www.tlctv.com.tr/",
     "Origin": "https://www.tlctv.com.tr"
-   }
+   },
+   "sayfa": "https://www.tlctv.com.tr/canli-izle"
   },
   {
    "no": 26,
@@ -241,7 +242,8 @@
    "basliklar": {
     "Referer": "https://www.dmax.com.tr/",
     "Origin": "https://www.dmax.com.tr"
-   }
+   },
+   "sayfa": "https://www.dmax.com.tr/canli-izle"
   },
   {
    "no": 27,

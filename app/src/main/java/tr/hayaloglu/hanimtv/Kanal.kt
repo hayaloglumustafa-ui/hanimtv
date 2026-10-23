@@ -9,4 +9,6 @@ data class Kanal(
     val youtube: String? = null,
     /** Bazı kanalların yayın sunucusu, isteğin kanalın kendi sitesinden geldiğini görmek ister (Referer, Origin). */
     val basliklar: Map<String, String> = emptyMap(),
+    /** Yayını her seferinde yeni bir anahtarla veren kanallar için kanalın canlı yayın sayfası. */
+    val sayfa: String? = null,
 )

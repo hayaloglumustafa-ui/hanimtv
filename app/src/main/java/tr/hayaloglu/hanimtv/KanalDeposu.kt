@@ -96,7 +96,8 @@ object KanalDeposu {
                     baslikNesnesi.optString(ad, "").trim().takeIf { it.isNotEmpty() }?.let { basliklar[ad] = it }
                 }
             }
-            liste.add(Kanal(o.getInt("no"), isim, linkler, yt, basliklar))
+            val sayfa = o.optString("sayfa", "").trim().takeIf { it.startsWith("https://") }
+            liste.add(Kanal(o.getInt("no"), isim, linkler, yt, basliklar, sayfa))
         }
         liste.sortBy { it.no }
         val siraDogru = liste.withIndex().all { (i, k) -> k.no == i + 1 }
