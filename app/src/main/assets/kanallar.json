@@ -1,5 +1,5 @@
 {
- "surum": 15,
+ "surum": 16,
  "kanallar": [
   {
    "no": 1,
@@ -483,11 +483,12 @@
    "no": 54,
    "name": "TürkHaber",
    "urls": [
+    "https://edge.taksimbilisim.com/turkhaber/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://www.turkhabertv.com/canli-yayin/",
+   "sayfa": "https://player.socialsmart.tv/turkhaber/",
    "basliklar": {
-    "Referer": "https://www.turkhabertv.com/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -814,8 +815,14 @@
    "no": 96,
    "name": "Altas TV",
    "urls": [
+    "https://edge.taksimbilisim.com/altastv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/altastv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 97,
@@ -878,8 +885,15 @@
   {
    "no": 104,
    "name": "Cay TV",
-   "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCdou6H7ZfkB4AF9bTtlUdsw/live"
+   "urls": [
+    "https://edge.taksimbilisim.com/caytv/bant1/playlist.m3u8"
+   ],
+   "youtube": "https://www.youtube.com/channel/UCdou6H7ZfkB4AF9bTtlUdsw/live",
+   "sayfa": "https://player.socialsmart.tv/caytv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 105,
@@ -959,12 +973,12 @@
    "no": 114,
    "name": "ETV Manisa",
    "urls": [
-    "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8",
-    "https://edge.taksimbilisim.com/manisaetv/bant1/playlist.m3u8"
+    "https://edge.taksimbilisim.com/manisaetv/bant1/playlist.m3u8",
+    "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://www.etvmanisa.com/",
+   "sayfa": "https://player.socialsmart.tv/manisaetv/",
    "basliklar": {
-    "Referer": "https://www.etvmanisa.com/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -1019,8 +1033,14 @@
    "no": 120,
    "name": "Icel TV",
    "urls": [
+    "https://edge.taksimbilisim.com/iceltv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/iceltv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/iceltv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 121,
@@ -1064,22 +1084,29 @@
    "no": 126,
    "name": "Kanal 3",
    "urls": [
+    "https://edge.taksimbilisim.com/kanal3/bant1/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/playlist.m3u8",
     "https://waw2.artiyerelmedya.net/kanal3/bant1/playlist.m3u8",
     "http://stream.taksimbilisim.com:1935/kanal3/bant1/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3guncel/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/chunks.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/kanal3/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 127,
    "name": "Kanal 32",
    "urls": [
+    "https://edge.taksimbilisim.com/kanal32/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/kanal32/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://kanal32.com.tr/canli-tv",
+   "sayfa": "https://player.socialsmart.tv/kanal32/",
    "basliklar": {
-    "Referer": "https://kanal32.com.tr/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -1087,11 +1114,12 @@
    "no": 128,
    "name": "Kanal 33",
    "urls": [
+    "https://edge.taksimbilisim.com/kanal33/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/kanal33/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://kanal33.com.tr/",
+   "sayfa": "https://player.socialsmart.tv/kanal33/",
    "basliklar": {
-    "Referer": "https://kanal33.com.tr/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -1149,9 +1177,7 @@
    "name": "Kent Türk TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8",
-    "https://live.artidijitalmedya.com/artidijital_38kenttv/38kenttv/playlist.m3u8",
-    "https://edge1.socialsmart.tv/bodrumkenttv/bant1/chunks.m3u8",
-    "https://edge.taksimbilisim.com/bodrumkenttv/bant1/chunks.m3u8"
+    "https://live.artidijitalmedya.com/artidijital_38kenttv/38kenttv/playlist.m3u8"
    ]
   },
   {
@@ -1188,11 +1214,12 @@
    "no": 140,
    "name": "Line TV",
    "urls": [
+    "https://edge.taksimbilisim.com/linetv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://canliyayin.linehaber.com.tr/",
+   "sayfa": "https://player.socialsmart.tv/linetv/",
    "basliklar": {
-    "Referer": "https://canliyayin.linehaber.com.tr/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -1248,9 +1275,15 @@
    "no": 147,
    "name": "Natural TV",
    "urls": [
+    "https://edge.taksimbilisim.com/naturaltv/bant1/playlist.m3u8",
     "http://broadcasttr.com:1935/naturaltv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/naturaltv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/naturaltv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 148,
@@ -1360,9 +1393,15 @@
    "no": 161,
    "name": "TV 1",
    "urls": [
+    "https://edge.taksimbilisim.com/tv1/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/tv1/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/tv1/bant1/chunks.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/tv1/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 162,
@@ -1399,11 +1438,12 @@
    "no": 165,
    "name": "TV 52",
    "urls": [
+    "https://edge.taksimbilisim.com/tv52/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8"
    ],
-   "sayfa": "https://tv52.com.tr/canli-yayin",
+   "sayfa": "https://player.socialsmart.tv/tv52/",
    "basliklar": {
-    "Referer": "https://tv52.com.tr/",
+    "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    }
   },
@@ -1885,8 +1925,14 @@
    "no": 231,
    "name": "FRT Fethiye",
    "urls": [
+    "https://edge.taksimbilisim.com/frttv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/frttv/bant1/chunks.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/frttv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 232,
@@ -1951,6 +1997,7 @@
    "no": 239,
    "name": "Kardelen TV",
    "urls": [
+    "https://edge.taksimbilisim.com/kardelentv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/kardelentv/bant1/playlist.m3u8"
    ],
    "sayfa": "https://player.socialsmart.tv/kardelentv/",
@@ -2224,6 +2271,18 @@
    "urls": [
     "http://old.kuzeykibris.tv/m3u8/kktv.m3u8"
    ]
+  },
+  {
+   "no": 271,
+   "name": "Kent TV Bodrum",
+   "urls": [
+    "https://edge.taksimbilisim.com/bodrumkenttv/bant1/playlist.m3u8"
+   ],
+   "sayfa": "https://player.socialsmart.tv/bodrumkenttv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   }
  ]
 }

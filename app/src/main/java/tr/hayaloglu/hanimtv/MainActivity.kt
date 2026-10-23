@@ -285,7 +285,7 @@ class MainActivity : Activity() {
         val b = MediaItem.Builder().setUri(link)
         val kucuk = link.lowercase()
         when {
-            kucuk.contains(".m3u8") -> b.setMimeType(MimeTypes.APPLICATION_M3U8)
+            kucuk.contains(".m3u8") || kucuk.contains("/hls/") -> b.setMimeType(MimeTypes.APPLICATION_M3U8)
             kucuk.contains(".mpd") -> b.setMimeType(MimeTypes.APPLICATION_MPD)
         }
         return b.build()

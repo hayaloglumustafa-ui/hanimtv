@@ -12,6 +12,8 @@ import java.net.URL
  */
 object SayfadanLink {
     private val M3U8 = Regex("""(?:https?:)?(?:\\?/){2}[^"'\s<>()]+?\.m3u8[^"'\s<>()]*""")
+    /** Uzantısı olmayan ama yayın sunucusundaki canlı yayın klasörünü gösteren linkler (örneğin .../live/hls/kanal?token=...). */
+    private val HLS_KLASORU = Regex("""https?:(?:\\?/){2}[^"'\s<>()]+?/live/hls/[^"'\s<>()]+""")
     private val IFRAME = Regex("""<iframe[^>]+?(?:data-src|src)\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
     private val YOUTUBE = Regex("""youtube(?:-nocookie)?\.com/(?:embed|live)/([A-Za-z0-9_-]{11})""")
     private val ATLA = Regex("""google|doubleclick|facebook|twitter|instagram|recaptcha|adsystem|criteo|taboola|disqus""")
@@ -27,6 +29,7 @@ object SayfadanLink {
     private fun tara(adres: String, ek: Map<String, String>, derinlik: Int): String? {
         val html = Ag.metinIndir(adres, enFazlaBayt = 3_000_000, ekBasliklar = ek) ?: return null
         M3U8.find(html)?.value?.let { return temizle(it, adres) }
+        HLS_KLASORU.find(html)?.value?.let { return temizle(it, adres) }
         if (derinlik >= 2) return YOUTUBE.find(html)?.groupValues?.get(1)?.let { "youtube:$it" }
 
         val altSayfalar = IFRAME.findAll(html)
