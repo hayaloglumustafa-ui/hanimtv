@@ -1,19 +1,50 @@
 package tr.hayaloglu.hanimtv
 
+import java.net.URL
+
 /**
- * Bazı kanallar (DMAX, TLC gibi) yayın linkini her seferinde değişen bir anahtarla verir.
- * Bu yardımcı, kanalın kendi canlı yayın sayfasını açıp o anki linki bulur.
+ * Bazı kanallar yayın linkini her seferinde değişen bir anahtarla ya da sitelerindeki
+ * gömülü bir oynatıcının içinden verir. Bu yardımcı, kanalın kendi canlı yayın sayfasını açıp
+ * o anki linki bulur:
+ *  1. Sayfanın içinde doğrudan bir yayın linki (.m3u8) arar.
+ *  2. Bulamazsa sayfadaki gömülü oynatıcılara (iframe) iki kat derinliğe kadar bakar.
+ *  3. Sayfada YouTube canlı yayını varsa "youtube:VIDEO_NO" döndürür.
  */
 object SayfadanLink {
-    private val M3U8 = Regex("""https?:(?:\\?/){2}[^"'\s<>]+?\.m3u8[^"'\s<>]*""")
+    private val M3U8 = Regex("""(?:https?:)?(?:\\?/){2}[^"'\s<>()]+?\.m3u8[^"'\s<>()]*""")
+    private val IFRAME = Regex("""<iframe[^>]+?(?:data-src|src)\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+    private val YOUTUBE = Regex("""youtube(?:-nocookie)?\.com/(?:embed|live)/([A-Za-z0-9_-]{11})""")
+    private val ATLA = Regex("""google|doubleclick|facebook|twitter|instagram|recaptcha|adsystem|criteo|taboola|disqus""")
 
     fun bul(sayfa: String, basliklar: Map<String, String>): String? {
         val ek = HashMap<String, String>()
         basliklar["Referer"]?.let { ek["Referer"] = it }
         basliklar["User-Agent"]?.let { ek["User-Agent"] = it }
         ek["Accept-Language"] = "tr-TR,tr;q=0.9"
-        val html = Ag.metinIndir(sayfa, enFazlaBayt = 3_000_000, ekBasliklar = ek) ?: return null
-        val ham = M3U8.find(html)?.value ?: return null
-        return ham.replace("\\/", "/").replace("&amp;", "&").replace("\\u0026", "&")
+        return tara(sayfa, ek, derinlik = 0)
+    }
+
+    private fun tara(adres: String, ek: Map<String, String>, derinlik: Int): String? {
+        val html = Ag.metinIndir(adres, enFazlaBayt = 3_000_000, ekBasliklar = ek) ?: return null
+        M3U8.find(html)?.value?.let { return temizle(it, adres) }
+        if (derinlik >= 2) return YOUTUBE.find(html)?.groupValues?.get(1)?.let { "youtube:$it" }
+
+        val altSayfalar = IFRAME.findAll(html)
+            .map { temizle(it.groupValues[1], adres) }
+            .filter { it.startsWith("http") && !ATLA.containsMatchIn(it) && !YOUTUBE.containsMatchIn(it) }
+            .distinct()
+            .take(4)
+            .toList()
+        val altEk = ek + ("Referer" to adres)
+        for (alt in altSayfalar) {
+            tara(alt, altEk, derinlik + 1)?.let { return it }
+        }
+        return YOUTUBE.find(html)?.groupValues?.get(1)?.let { "youtube:$it" }
+    }
+
+    /** Kaçış karakterlerini temizler ve göreli adresleri tam adrese çevirir. */
+    private fun temizle(ham: String, taban: String): String {
+        val s = ham.replace("\\/", "/").replace("&amp;", "&").replace("\\u0026", "&").trim()
+        return runCatching { URL(URL(taban), s).toString() }.getOrDefault(s)
     }
 }

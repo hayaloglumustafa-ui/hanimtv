@@ -96,7 +96,7 @@ object KanalDeposu {
                     baslikNesnesi.optString(ad, "").trim().takeIf { it.isNotEmpty() }?.let { basliklar[ad] = it }
                 }
             }
-            val sayfa = o.optString("sayfa", "").trim().takeIf { it.startsWith("https://") }
+            val sayfa = o.optString("sayfa", "").trim().takeIf { it.startsWith("https://") || it.startsWith("http://") }
             liste.add(Kanal(o.getInt("no"), isim, linkler, yt, basliklar, sayfa))
         }
         liste.sortBy { it.no }

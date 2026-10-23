@@ -303,6 +303,7 @@ class MainActivity : Activity() {
             youtubeAc(k)
             return
         }
+        val oncekiKanal = sonOynayan
         sonOynayan = indeks
         if (link == 0 && ayarlar.getInt("sonKanal", -1) != k.no) {
             // commit(): elektrik kesilse bile son kanal anında kaydedilmiş olur.
@@ -330,7 +331,7 @@ class MainActivity : Activity() {
         val istek = ++sayfaIstegi
         // Son 5 dakika içinde alınmış anahtar varsa tekrar siteye gitmeden hemen kullan.
         sayfaOnbellegi[k.no]?.let { (link, zaman) ->
-            if (System.currentTimeMillis() - zaman < 5 * 60_000L) {
+            if (System.currentTimeMillis() - zaman < 5 * 60_000L && !link.startsWith("youtube:")) {
                 aktifLinkler = listOf(link) + k.linkler.filter { it != link }
                 baslat(k, 0)
                 return
@@ -341,6 +342,16 @@ class MainActivity : Activity() {
             if (taze != null) sayfaOnbellegi[k.no] = taze to System.currentTimeMillis()
             ana.post {
                 if (istek != sayfaIstegi || kanallar.getOrNull(aktif)?.no != k.no) return@post
+                if (taze != null && taze.startsWith("youtube:")) {
+                    // Kanalın sitesindeki canlı yayın YouTube'da: YouTube uygulamasında aç, dönünce önceki kanal devam etsin.
+                    oynatici.stop()
+                    if (YouTube.ac(this, taze.removePrefix("youtube:"))) {
+                        durumGizle()
+                        aktif = oncekiKanal
+                        sonOynayan = oncekiKanal
+                    } else durumGoster("YouTube uygulaması açılamadı")
+                    return@post
+                }
                 aktifLinkler = listOfNotNull(taze) + k.linkler.filter { it != taze }
                 if (aktifLinkler.isEmpty()) {
                     sonHata = "sitede yayın linki bulunamadı"
@@ -779,9 +790,11 @@ class MainActivity : Activity() {
                         k.linkler.isEmpty() && k.sayfa == null && k.youtube != null -> null
                         else -> {
                             val adaylar = ArrayList<String>()
-                            k.sayfa?.let { s -> SayfadanLink.bul(s, k.basliklar)?.let { adaylar.add(it) } }
+                            var siteYoutube = false
+                            k.sayfa?.let { s -> SayfadanLink.bul(s, k.basliklar)?.let { if (it.startsWith("youtube:")) siteYoutube = true else adaylar.add(it) } }
                             adaylar.addAll(k.linkler.take(4))
-                            if (adaylar.isEmpty()) "link yok"
+                            if (siteYoutube) null
+                            else if (adaylar.isEmpty()) "link yok"
                             else {
                                 var ilkSorun: String? = "link yok"
                                 for (a in adaylar) {

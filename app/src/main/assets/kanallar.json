@@ -1,5 +1,5 @@
 {
- "surum": 14,
+ "surum": 15,
  "kanallar": [
   {
    "no": 1,
@@ -152,7 +152,12 @@
   {
    "no": 19,
    "name": "Star Avrupa",
-   "urls": []
+   "urls": [],
+   "sayfa": "https://www.eurostartv.com.tr/canli-izle",
+   "basliklar": {
+    "Referer": "https://www.eurostartv.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 20,
@@ -445,7 +450,12 @@
    "name": "Tele 1",
    "urls": [
     "https://tele1-live.ercdn.net/tele1/tele1.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.tele1.com.tr/canli-yayin/",
+   "basliklar": {
+    "Referer": "https://www.tele1.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 51,
@@ -474,7 +484,12 @@
    "name": "TürkHaber",
    "urls": [
     "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.turkhabertv.com/canli-yayin/",
+   "basliklar": {
+    "Referer": "https://www.turkhabertv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 55,
@@ -495,7 +510,12 @@
    "name": "GZT",
    "urls": [
     "https://gzttv-live.lg.mncdn.com/gzttv/gzttv/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.gzt.com/gzttv-canli-yayin",
+   "basliklar": {
+    "Referer": "https://www.gzt.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 58,
@@ -754,7 +774,12 @@
    "name": "Afroturk TV",
    "urls": [
     "https://edge.socialsmart.tv/naturaltv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.afroturktv.com/",
+   "basliklar": {
+    "Referer": "https://www.afroturktv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 92,
@@ -820,7 +845,12 @@
    "urls": [
     "https://edge.taksimbilisim.com/birtv/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/birtv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/birtv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 101,
@@ -856,7 +886,12 @@
    "name": "Cekmeköy TV",
    "urls": [
     "https://cdn-cekmekoybeltv.yayin.com.tr/cekmekoybeltv/cekmekoybeltv_1080p/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://cekmekoy.bel.tr/web-tv",
+   "basliklar": {
+    "Referer": "https://cekmekoy.bel.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 106,
@@ -898,7 +933,12 @@
    "name": "Erzurum Web TV",
    "urls": [
     "https://win29.yayin.com.tr/erzurumwebtv/erzurumwebtv/iptvdelisi.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.erzurum.bel.tr/canli-yayin",
+   "basliklar": {
+    "Referer": "https://www.erzurum.bel.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 112,
@@ -921,7 +961,12 @@
    "urls": [
     "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8",
     "https://edge.taksimbilisim.com/manisaetv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.etvmanisa.com/",
+   "basliklar": {
+    "Referer": "https://www.etvmanisa.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 115,
@@ -946,7 +991,12 @@
    "name": "Guneydogu TV",
    "urls": [
     "https://edge1.socialsmart.tv/gtv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.guneydogutv.com/",
+   "basliklar": {
+    "Referer": "https://www.guneydogutv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 118,
@@ -1026,14 +1076,24 @@
    "name": "Kanal 32",
    "urls": [
     "https://edge1.socialsmart.tv/kanal32/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://kanal32.com.tr/canli-tv",
+   "basliklar": {
+    "Referer": "https://kanal32.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 128,
    "name": "Kanal 33",
    "urls": [
     "https://edge1.socialsmart.tv/kanal33/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://kanal33.com.tr/",
+   "basliklar": {
+    "Referer": "https://kanal33.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 129,
@@ -1063,7 +1123,12 @@
    "urls": [
     "https://livecdn.use1-0004.jwplive.com/live/sites/WpgVdplm/media/icNwL50b/live.isml/live.m3u8",
     "https://tbn02a.ltnschedule.com/hls/nx21i.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.kanalhayat.com/live",
+   "basliklar": {
+    "Referer": "https://www.kanalhayat.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 133,
@@ -1124,7 +1189,12 @@
    "name": "Line TV",
    "urls": [
     "https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://canliyayin.linehaber.com.tr/",
+   "basliklar": {
+    "Referer": "https://canliyayin.linehaber.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 141,
@@ -1167,7 +1237,12 @@
    "name": "MTürk TV",
    "urls": [
     "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.mturktv.net/canli/",
+   "basliklar": {
+    "Referer": "https://www.mturktv.net/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 147,
@@ -1189,7 +1264,12 @@
    "name": "On4 TV",
    "urls": [
     "https://edge1.socialsmart.tv/on4/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://on4.com.tr/canli-yayin",
+   "basliklar": {
+    "Referer": "https://on4.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 150,
@@ -1269,7 +1349,12 @@
    "name": "Torba TV",
    "urls": [
     "https://59cba4d34b678.streamlock.net/canlitv/torbatv/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://torba.web.tv/",
+   "basliklar": {
+    "Referer": "https://torba.web.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 161,
@@ -1303,14 +1388,24 @@
    "urls": [
     "https://canli.tv42.com.tr/memfs/d936e417-c4bd-4d42-89a2-02f289892d1d.m3u8",
     "http://canliyayin.tv42.com.tr/memfs/288fb8d8-21f6-4be6-b48e-a5ed1606430c.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.tv42haber.com/tv42-canli",
+   "basliklar": {
+    "Referer": "https://www.tv42haber.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 165,
    "name": "TV 52",
    "urls": [
     "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://tv52.com.tr/canli-yayin",
+   "basliklar": {
+    "Referer": "https://tv52.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 166,
@@ -1545,7 +1640,12 @@
    "name": "Cem TV",
    "urls": [
     "https://tv.cemtv.net/cemtv/cemtv.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.cemtv.net/canli-yayin",
+   "basliklar": {
+    "Referer": "https://www.cemtv.net/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 200,
@@ -1573,7 +1673,12 @@
    "name": "Kanal B",
    "urls": [
     "https://baskentaudiovideo.xyz/LiveApp/streams/mUE22idl26lA1683879097431.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.kanalb.com.tr/canli_yayin",
+   "basliklar": {
+    "Referer": "https://www.kanalb.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 204,
@@ -1594,7 +1699,12 @@
    "urls": [
     "http://canbroadcast.com:7000/canlican/tv.m3u8",
     "https://livetv.canbroadcast.com:7443/canlican/tv.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.cantv.com.tr/canli-yayin/",
+   "basliklar": {
+    "Referer": "https://www.cantv.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 207,
@@ -1743,7 +1853,12 @@
    "name": "Erciş TV",
    "urls": [
     "https://cdn1-ercistv.yayin.com.tr/ercistv/amlst:ercistv/chunklist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.ercistv.com/",
+   "basliklar": {
+    "Referer": "https://www.ercistv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 228,
@@ -1785,7 +1900,12 @@
    "name": "Güne Doğuş TV",
    "urls": [
     "http://cdn-expovizyontv.yayin.com.tr/expovizyontv/expovizyontv/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.gunedogustv.com.tr/",
+   "basliklar": {
+    "Referer": "https://www.gunedogustv.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 234,
@@ -1799,7 +1919,12 @@
    "name": "Kaçkar TV",
    "urls": [
     "https://live.euromediacenter.com/kkackartv/video.m3u8"
-   ]
+   ],
+   "sayfa": "https://kackartv.com/",
+   "basliklar": {
+    "Referer": "https://kackartv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 236,
@@ -1827,7 +1952,12 @@
    "name": "Kardelen TV",
    "urls": [
     "https://edge1.socialsmart.tv/kardelentv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://player.socialsmart.tv/kardelentv/",
+   "basliklar": {
+    "Referer": "https://player.socialsmart.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 240,
@@ -1848,7 +1978,12 @@
    "name": "Malatya Pencere",
    "urls": [
     "https://cdn-malatyapencere.yayin.com.tr/malatyapencere/malatyapencere/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://malatyapencere.com/malatya-pencere-tv/",
+   "basliklar": {
+    "Referer": "https://malatyapencere.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 243,
@@ -1862,7 +1997,12 @@
    "name": "Metropol Denizli",
    "urls": [
     "https://edge1.socialsmart.tv/metropoltv/smil/metropoltv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://denizlimetropol.com/canli-yayin",
+   "basliklar": {
+    "Referer": "https://denizlimetropol.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 245,
@@ -1876,7 +2016,12 @@
    "name": "Olay TV Bursa",
    "urls": [
     "http://nrttn172.kesintisizyayin.com:29010/olay/olay/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.olay.com.tr/olay-tv-canli-yayin-24950",
+   "basliklar": {
+    "Referer": "https://www.olay.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 247,
@@ -1918,14 +2063,24 @@
    "name": "Üsküdar Üniversite TV",
    "urls": [
     "http://uskudarunv.mediatriple.net/uskudarunv/uskudar2/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://tv.uskudar.edu.tr/canli-yayin",
+   "basliklar": {
+    "Referer": "https://tv.uskudar.edu.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 253,
    "name": "Van Gölü TV",
    "urls": [
     "https://cdn1-vangolutv.yayin.com.tr/vangolutv/amlst:vangolutv/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.vangolutv.com.tr/canli_yayin-23.html",
+   "basliklar": {
+    "Referer": "https://www.vangolutv.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 254,
@@ -1939,7 +2094,12 @@
    "name": "World Türk TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_worldturk/worldturk/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://worldturk.com.tr/",
+   "basliklar": {
+    "Referer": "https://worldturk.com.tr/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 256,
@@ -2002,14 +2162,24 @@
    "name": "Ada TV",
    "urls": [
     "https://sc-kuzeykibrissmarttv.ercdn.net/adatv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://adatv.tv/",
+   "basliklar": {
+    "Referer": "https://adatv.tv/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 265,
    "name": "Kanal T",
    "urls": [
     "https://sc-kuzeykibrissmarttv.ercdn.net/kanalt/bantp1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.kanalt.com/",
+   "basliklar": {
+    "Referer": "https://www.kanalt.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 266,
@@ -2022,14 +2192,24 @@
    "name": "Kıbrıs TV",
    "urls": [
     "https://sc-kuzeykibrissmarttv.ercdn.net/kibristv/bant1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "https://www.kibristv.com/",
+   "basliklar": {
+    "Referer": "https://www.kibristv.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 268,
    "name": "Sim TV",
    "urls": [
     "https://sc-kuzeykibrissmarttv.ercdn.net/simtv/bantp1/playlist.m3u8"
-   ]
+   ],
+   "sayfa": "http://www.kanalsim.com/",
+   "basliklar": {
+    "Referer": "http://www.kanalsim.com/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 269,
