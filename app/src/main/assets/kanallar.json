@@ -1,5 +1,5 @@
 {
- "surum": 13,
+ "surum": 14,
  "kanallar": [
   {
    "no": 1,
@@ -111,7 +111,13 @@
    "name": "ATV Avrupa",
    "urls": [
     "https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8"
-   ]
+   ],
+   "sayfa": "https://securevideotoken.tmgrup.com.tr/webtv/secure?578051&url=https%3A%2F%2Ftrkvz-live.ercdn.net%2Fatvavrupa%2Fatvavrupa.m3u8&url2=https%3A%2F%2Ftrkvz-live.ercdn.net%2Fatvavrupa%2Fatvavrupa.m3u8",
+   "basliklar": {
+    "Referer": "https://www.atvavrupa.tv/",
+    "Origin": "https://www.atvavrupa.tv",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   }
   },
   {
    "no": 16,
