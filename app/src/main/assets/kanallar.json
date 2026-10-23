@@ -1,5 +1,5 @@
 {
- "surum": 12,
+ "surum": 13,
  "kanallar": [
   {
    "no": 1,
@@ -309,9 +309,8 @@
   {
    "no": 34,
    "name": "Ülke TV",
-   "urls": [
-    "http://217.174.229.138:8000/play/a0el"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCi65FGbYYj-OzJm2luB_fNQ/live"
   },
   {
    "no": 35,
@@ -432,9 +431,8 @@
   {
    "no": 49,
    "name": "TVNET",
-   "urls": [
-    "https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UC8rh34IlJTN0lDZlTwzWzjg/live"
   },
   {
    "no": 50,
@@ -838,17 +836,14 @@
   {
    "no": 103,
    "name": "Bursa TV",
-   "urls": [
-    "https://win1.yayin.com.tr/bursatv/bursatv/playlist.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCSe1AE8e84G6859VHeryhbg/live"
   },
   {
    "no": 104,
    "name": "Cay TV",
-   "urls": [
-    "https://edge1.socialsmart.tv/caytv/bant1/playlist.m3u8",
-    "https://edge1.socialsmart.tv/caytv/bant1/chunks.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCdou6H7ZfkB4AF9bTtlUdsw/live"
   },
   {
    "no": 105,
@@ -1411,9 +1406,8 @@
   {
    "no": 180,
    "name": "A Para",
-   "urls": [
-    "https://trkvz-live.ercdn.net/aparahd/aparahd.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCzrGg6iyRDuUSnO0cQ5oLcA/live"
   },
   {
    "no": 181,
@@ -1516,9 +1510,8 @@
   {
    "no": 195,
    "name": "Sıfır TV",
-   "urls": [
-    "https://ahr7chck.rocketcdn.com/sifirtv.stream/chunklist.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCDX7Vf8VLBHdC-HZtKG9gOQ/live"
   },
   {
    "no": 196,
@@ -1579,9 +1572,8 @@
   {
    "no": 204,
    "name": "Semerkand Way",
-   "urls": [
-    "https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_6409fdaa68111.smil/playlist.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCHk7qp3R2xHSkm51EFcTvLQ/live"
   },
   {
    "no": 205,
@@ -2016,9 +2008,8 @@
   {
    "no": 266,
    "name": "Genç TV",
-   "urls": [
-    "https://sc-kuzeykibrissmarttv.ercdn.net/kibrisgenctv/bant1/playlist.m3u8"
-   ]
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UC2uNsE15UivJCyuxbRu6tKA/live"
   },
   {
    "no": 267,
