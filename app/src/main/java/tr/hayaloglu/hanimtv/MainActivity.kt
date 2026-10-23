@@ -49,7 +49,7 @@ class MainActivity : Activity() {
         const val LISTE_KAPANMA_SURESI = 20_000L
         const val RAKAM_BEKLEME = 1_800L
         const val TAKILMA_SINIRI = 10_000L
-        const val KANAL_GECIS_GECIKMESI = 350L
+        const val KANAL_GECIS_GECIKMESI = 180L
         const val LISTE_GUNCELLEME_ARALIGI = 6 * 60 * 60 * 1000L
         const val SAGLIK_KONTROL_ARALIGI = 30 * 60 * 1000L
         const val SURUM_KONTROL_ARALIGI = 12 * 60 * 60 * 1000L
@@ -189,7 +189,9 @@ class MainActivity : Activity() {
         // 100 Mbps bağlantı için başlangıçta en yüksek kaliteyle açılır; hız düşerse geçici olarak kaliteyi indirir.
         val bantGenisligi = DefaultBandwidthMeter.Builder(this).setInitialBitrateEstimate(20_000_000L).build()
         val tampon = DefaultLoadControl.Builder()
-            .setBufferDurationsMs(15_000, 50_000, 2_500, 5_000)
+            // Yayın 0,7 saniyelik görüntü gelince başlar (eskiden 2,5 saniye bekliyordu); takılırsa 2 saniye toplayıp devam eder.
+            .setBufferDurationsMs(15_000, 50_000, 700, 2_000)
+            .setPrioritizeTimeOverSizeThresholds(true)
             .build()
         val http = DefaultHttpDataSource.Factory()
             .setUserAgent(Ag.TARAYICI)
@@ -326,8 +328,17 @@ class MainActivity : Activity() {
         }
         // Kanalın kendi sitesinden o anki taze yayın linkini (anahtarıyla) al, sonra sabit linkleri yedek olarak kullan.
         val istek = ++sayfaIstegi
+        // Son 5 dakika içinde alınmış anahtar varsa tekrar siteye gitmeden hemen kullan.
+        sayfaOnbellegi[k.no]?.let { (link, zaman) ->
+            if (System.currentTimeMillis() - zaman < 5 * 60_000L) {
+                aktifLinkler = listOf(link) + k.linkler.filter { it != link }
+                baslat(k, 0)
+                return
+            }
+        }
         arkaPlan.execute {
             val taze = SayfadanLink.bul(sayfa, k.basliklar)
+            if (taze != null) sayfaOnbellegi[k.no] = taze to System.currentTimeMillis()
             ana.post {
                 if (istek != sayfaIstegi || kanallar.getOrNull(aktif)?.no != k.no) return@post
                 aktifLinkler = listOfNotNull(taze) + k.linkler.filter { it != taze }
@@ -342,6 +353,7 @@ class MainActivity : Activity() {
     /** O anda denenen linkler: varsa kanalın sitesinden alınan taze link, ardından sabit linkler. */
     private var aktifLinkler: List<String> = emptyList()
     private var sayfaIstegi = 0
+    private val sayfaOnbellegi = ConcurrentHashMap<Int, Pair<String, Long>>()
 
     private fun baslat(k: Kanal, link: Int) {
         linkSirasi = link
@@ -393,6 +405,7 @@ class MainActivity : Activity() {
             return
         }
         calismayanlar.add(k.no)
+        sayfaOnbellegi.remove(k.no)
         if (listeAcik) listeyiCiz()
         hataSayisi++
         durumGoster("Yayın şu an gelmiyor, tekrar deneniyor… (${aktifLinkler.size} link · $sonHata)")
