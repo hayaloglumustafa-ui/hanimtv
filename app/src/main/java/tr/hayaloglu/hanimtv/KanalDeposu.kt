@@ -41,7 +41,7 @@ object KanalDeposu {
     class Sonuc(val basarili: Boolean, val liste: List<Kanal>?)
 
     fun uzaktanKontrol(ctx: Context, mevcut: List<Kanal>): Sonuc {
-        val metin = Ag.metinIndir(UZAK_LISTE) ?: return Sonuc(false, null)
+        val metin = Ag.githubDosyasi("app/src/main/assets/kanallar.json") ?: return Sonuc(false, null)
         val yeni = coz(metin) ?: return Sonuc(false, null)
         surumuKaydet(ctx, metin, zamaniKaydet = true)
         if (yeni == mevcut) return Sonuc(true, null)

@@ -50,6 +50,16 @@ object Ag {
         }
     }
 
+    /**
+     * GitHub'daki bir dosyayı önbelleğe takılmadan, doğrudan en yeni haliyle indirir.
+     * Olmazsa normal (en fazla 5 dakika gecikmeli) adresten dener.
+     */
+    fun githubDosyasi(yol: String, enFazlaBayt: Int = 2_000_000): String? {
+        val api = "https://api.github.com/repos/hayaloglumustafa-ui/hanimtv/contents/$yol?ref=main"
+        return metinIndir(api, enFazlaBayt, ekBasliklar = mapOf("Accept" to "application/vnd.github.raw"))
+            ?: metinIndir("https://raw.githubusercontent.com/hayaloglumustafa-ui/hanimtv/main/$yol", enFazlaBayt)
+    }
+
     /** Kanal testi için: link açılıyorsa null, açılmıyorsa kısa sebebini döndürür. */
     fun linkSorunu(adres: String, basliklar: Map<String, String> = emptyMap()): String? {
         var b: HttpURLConnection? = null

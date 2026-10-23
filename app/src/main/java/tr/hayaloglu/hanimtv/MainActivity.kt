@@ -514,8 +514,24 @@ class MainActivity : Activity() {
         return l
     }
 
+    private var sonSurumKontrolu = 0L
+
     private fun listeyiAc() {
         if (kanallar.isEmpty()) return
+        // Liste her açıldığında (en fazla 10 dakikada bir) yeni sürüm olup olmadığına da bakılır.
+        val simdi = System.currentTimeMillis()
+        if (simdi - sonSurumKontrolu > 10 * 60_000L) {
+            sonSurumKontrolu = simdi
+            arkaPlan.execute {
+                val s = Guncelleyici.kontrolEt(this)
+                ana.post {
+                    if (s != null && yeniSurum == null) {
+                        yeniSurum = s
+                        if (listeAcik) listeyiCiz()
+                    }
+                }
+            }
+        }
         ayarModu = false
         listeSecili = ogeler().indexOf(aktif).coerceAtLeast(0)
         listeKutusu.visibility = View.VISIBLE

@@ -30,7 +30,7 @@ object Guncelleyici {
     }
 
     fun kontrolEt(ctx: Context): YeniSurum? {
-        val metin = Ag.metinIndir(SURUM_ADRESI, enFazlaBayt = 10_000) ?: return null
+        val metin = Ag.githubDosyasi("surum.json", enFazlaBayt = 10_000) ?: return null
         return try {
             val o = JSONObject(metin)
             val kod = o.getInt("surumKodu")
