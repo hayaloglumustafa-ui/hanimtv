@@ -1,5 +1,5 @@
 {
- "surum": 4,
+ "surum": 5,
  "kanallar": [
   {
    "no": 1,
@@ -145,6 +145,9 @@
    "no": 20,
    "name": "NOW TV",
    "urls": [
+    "https://nowtv.daioncdn.net/nowtv/nowtv.m3u8",
+    "https://nowtv-live-ad.ercdn.net/nowtv/playlist.m3u8",
+    "https://nowtv.daioncdn.net/nowtv/nowtv.m3u8?st=8DIpY0ejlKo4Tgzl5g6zuA&e=1792783382",
     "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8"
    ]
   },
