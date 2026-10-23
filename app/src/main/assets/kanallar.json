@@ -1,5 +1,5 @@
 {
- "surum": 18,
+ "surum": 19,
  "kanallar": [
   {
    "no": 1,
@@ -1600,6 +1600,7 @@
    "no": 187,
    "name": "CGTN Belgesel",
    "urls": [
+    "https://dogusdyg-drone.lg.mncdn.com/dogusdyg-drone/cgtn/playlist.m3u8",
     "https://mn-nl.mncdn.com/dogusdyg_drone/cgtn/playlist.m3u8"
    ]
   },
@@ -1897,6 +1898,7 @@
    "no": 225,
    "name": "Dim TV",
    "urls": [
+    "https://canli.dimtv.tv/hls/dim/index.m3u8",
     "https://live.artidijitalmedya.com/artidijital_dimtv/dimtv/playlist.m3u8"
    ]
   },
@@ -2131,6 +2133,7 @@
    "no": 252,
    "name": "Üsküdar Üniversite TV",
    "urls": [
+    "https://b01c02nl.mediatriple.net/videoonlylive/psikoyorum_live/broadcast_6128b034550bd.smil/playlist.m3u8",
     "http://uskudarunv.mediatriple.net/uskudarunv/uskudar2/playlist.m3u8"
    ],
    "sayfa": "https://tv.uskudar.edu.tr/canli-yayin",
