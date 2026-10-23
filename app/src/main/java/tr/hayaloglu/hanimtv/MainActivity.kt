@@ -25,7 +25,10 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.DefaultHttpDataSource
+import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.HttpDataSource
+import androidx.media3.datasource.ResolvingDataSource
+import android.net.Uri
 import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
@@ -233,14 +236,35 @@ class MainActivity : Activity() {
     }
 
     /** Kanalın istediği ek başlıklarla (Referer, Origin) yayın kaynağı hazırlar. */
-    private fun kaynakFabrikasi(basliklar: Map<String, String>): DefaultMediaSourceFactory {
+    private fun kaynakFabrikasi(basliklar: Map<String, String>, anaLink: String = ""): DefaultMediaSourceFactory {
         val http = DefaultHttpDataSource.Factory()
             .setUserAgent(basliklar["User-Agent"] ?: Ag.TARAYICI)
             .setAllowCrossProtocolRedirects(true)
             .setConnectTimeoutMs(8_000)
             .setReadTimeoutMs(8_000)
             .setDefaultRequestProperties(basliklar - "User-Agent")
-        return DefaultMediaSourceFactory(this).setDataSourceFactory(DefaultDataSource.Factory(this, http))
+        val temel = DefaultDataSource.Factory(this, http)
+        return DefaultMediaSourceFactory(this).setDataSourceFactory(anahtarliFabrika(temel, anaLink))
+    }
+
+    /**
+     * Anahtarlı (token) yayınlarda, ana linkteki anahtar parametrelerini aynı yayın sunucusuna giden
+     * bütün isteklere (alt listeler ve görüntü parçaları) ekler. Sitelerin kendi oynatıcıları da böyle yapar.
+     */
+    private fun anahtarliFabrika(temel: DataSource.Factory, anaLink: String): DataSource.Factory {
+        val ana = runCatching { Uri.parse(anaLink) }.getOrNull() ?: return temel
+        if (ana.getQueryParameter("token") == null) return temel
+        val parametreler = ana.queryParameterNames.associateWith { ana.getQueryParameter(it) ?: "" }
+        val anaAlan = ana.host?.split('.')?.takeLast(2)?.joinToString(".") ?: return temel
+        return ResolvingDataSource.Factory(temel) { istek ->
+            val u = istek.uri
+            val alan = u.host?.split('.')?.takeLast(2)?.joinToString(".")
+            if (alan == anaAlan && u.getQueryParameter("token") == null) {
+                val yeni = u.buildUpon()
+                parametreler.forEach { (ad, deger) -> if (u.getQueryParameter(ad) == null) yeni.appendQueryParameter(ad, deger) }
+                istek.withUri(yeni.build())
+            } else istek
+        }
     }
 
     /** Ekranda gösterilecek kısa hata sebebi; bana fotoğrafı gönderildiğinde sorunu anlamayı sağlar. */
@@ -322,7 +346,7 @@ class MainActivity : Activity() {
     private fun baslat(k: Kanal, link: Int) {
         linkSirasi = link
         val adres = aktifLinkler.getOrNull(link) ?: return
-        oynatici.setMediaSource(kaynakFabrikasi(k.basliklar).createMediaSource(yayinOgesi(adres)))
+        oynatici.setMediaSource(kaynakFabrikasi(k.basliklar, adres).createMediaSource(yayinOgesi(adres)))
         oynatici.prepare()
         oynatici.playWhenReady = true
     }

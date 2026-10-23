@@ -1,5 +1,5 @@
 {
- "surum": 7,
+ "surum": 8,
  "kanallar": [
   {
    "no": 1,
@@ -227,7 +227,8 @@
    ],
    "basliklar": {
     "Referer": "https://www.tlctv.com.tr/",
-    "Origin": "https://www.tlctv.com.tr"
+    "Origin": "https://www.tlctv.com.tr",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
    "sayfa": "https://www.tlctv.com.tr/canli-izle"
   },
@@ -241,7 +242,8 @@
    ],
    "basliklar": {
     "Referer": "https://www.dmax.com.tr/",
-    "Origin": "https://www.dmax.com.tr"
+    "Origin": "https://www.dmax.com.tr",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
    "sayfa": "https://www.dmax.com.tr/canli-izle"
   },
