@@ -1,5 +1,5 @@
 {
- "surum": 3,
+ "surum": 4,
  "kanallar": [
   {
    "no": 1,
@@ -137,6 +137,7 @@
    "no": 19,
    "name": "Show TV Avrupa",
    "urls": [
+    "https://ciner.daioncdn.net/showturk/showturk.m3u8?app=3a516c79-a14a-4585-9204-9080fb8ecb61",
     "https://raw.githubusercontent.com/bnyusuf67-crypto/streams/refs/heads/main/streams/shturk.m3u8"
    ]
   },
@@ -151,6 +152,8 @@
    "no": 21,
    "name": "Beyaz TV",
    "urls": [
+    "https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8",
+    "https://beyaztv.daioncdn.net/beyaztv/beyaztv.m3u8?app=fcd5c66b-da9d-44ba-a410-4f34805c397d",
     "https://mn-nl.mncdn.com/blutv_beyaztv2/live.m3u8"
    ]
   },
@@ -184,7 +187,8 @@
    "name": "TLC",
    "urls": [
     "https://dogus.daioncdn.net/tlc/tlc.m3u8?app=web",
-    "http://dygvideo.dygdigital.com/live/hls/tlctvdai?m3u8"
+    "http://dygvideo.dygdigital.com/live/hls/tlctvdai?m3u8",
+    "https://trn03.tulix.tv/gt-tlc-tv/index.m3u8"
    ]
   },
   {
@@ -192,7 +196,8 @@
    "name": "DMAX",
    "urls": [
     "https://dogus.daioncdn.net/dmax/dmax.m3u8?app=web",
-    "http://dygvideo.dygdigital.com/live/hls/dmaxdai?m3u8"
+    "http://dygvideo.dygdigital.com/live/hls/dmaxdai?m3u8",
+    "https://trn03.tulix.tv/gt-dmax-tv/index.m3u8"
    ]
   },
   {
@@ -938,6 +943,7 @@
    "no": 129,
    "name": "Kanal 34",
    "urls": [
+    "https://live.euromediacenter.com/kanal34/index.m3u8",
     "https://vdo.digitalbox.xyz:3266/live/kanal34tvlive.m3u8"
    ]
   },
@@ -959,6 +965,7 @@
    "no": 132,
    "name": "Kanal Hayat",
    "urls": [
+    "https://livecdn.use1-0004.jwplive.com/live/sites/WpgVdplm/media/icNwL50b/live.isml/live.m3u8",
     "https://tbn02a.ltnschedule.com/hls/nx21i.m3u8"
    ]
   },
@@ -1182,6 +1189,7 @@
    "no": 163,
    "name": "TV 41",
    "urls": [
+    "https://live.artidijitalmedya.com/artidijital_tv41/tv41/chunks.m3u8",
     "http://stream.taksimbilisim.com:1935/tv41/bant1/TV41.m3u8",
     "http://stream.taksimbilisim.com:1935/tv41/smil:tv41.smil/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8"
