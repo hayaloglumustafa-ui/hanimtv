@@ -1,4 +1,5 @@
 # HanımTV'nin APK dosyasını GitHub'ın sunucularında otomatik üretir.
+# Not: imza dosyasının yedeği sahibinin bilgisayarında saklanıyor.
 # Kodda bir değişiklik olunca kendiliğinden çalışır. Sadece kanal listesi değişirse çalışmaz,
 # çünkü kanal listesi uygulamaya Wi-Fi üzerinden zaten kendiliğinden gelir.
 name: HanimTV APK
