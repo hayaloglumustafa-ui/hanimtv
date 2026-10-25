@@ -64,6 +64,7 @@ class MainActivity : Activity() {
         const val MENU_GUNCELLEME = 6
         const val MENU_REHBER = 7
         const val SON_IZLENEN_SAYISI = 10
+        const val MENU_SAYFA = 8
 
         class Tema(val ad: String, val zemin: Int, val vurgu: Int)
 
@@ -979,7 +980,7 @@ class MainActivity : Activity() {
     private fun menuSatirlariniKur() {
         val kap = findViewById<LinearLayout>(R.id.menuSatirlari)
         val yogunluk = resources.displayMetrics.density
-        repeat(SAYFA_BOYU) {
+        repeat(MENU_SAYFA) {
             val t = TextView(this).apply {
                 setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
                 setTextColor(BEYAZ)
@@ -1132,13 +1133,13 @@ class MainActivity : Activity() {
         ana.postDelayed(menuyuKendiligindenKapat, LISTE_KAPANMA_SURESI)
         val (baslik, l) = menuIcerigi()
         menuSecili = menuSecili.coerceIn(0, maxOf(0, l.size - 1))
-        val sayfa = menuSecili / SAYFA_BOYU
-        val sayfaSayisi = maxOf(1, (l.size + SAYFA_BOYU - 1) / SAYFA_BOYU)
+        val sayfa = menuSecili / MENU_SAYFA
+        val sayfaSayisi = maxOf(1, (l.size + MENU_SAYFA - 1) / MENU_SAYFA)
         menuBaslik.text = if (sayfaSayisi > 1) "$baslik · ${sayfa + 1}/$sayfaSayisi" else baslik
         val secilebilir = l.any { it.is_ != null }
-        for (i in 0 until SAYFA_BOYU) {
+        for (i in 0 until MENU_SAYFA) {
             val t = menuSatirlari[i]
-            val satir = l.getOrNull(sayfa * SAYFA_BOYU + i)
+            val satir = l.getOrNull(sayfa * MENU_SAYFA + i)
             if (satir == null) {
                 t.visibility = View.GONE
                 continue
@@ -1146,7 +1147,7 @@ class MainActivity : Activity() {
             t.text = satir.yazi
             t.setTextColor(satir.renk)
             t.visibility = View.VISIBLE
-            t.background = if (secilebilir && sayfa * SAYFA_BOYU + i == menuSecili) seciliZemin() else null
+            t.background = if (secilebilir && sayfa * MENU_SAYFA + i == menuSecili) seciliZemin() else null
         }
     }
 
@@ -1156,8 +1157,8 @@ class MainActivity : Activity() {
         when (tus) {
             KeyEvent.KEYCODE_DPAD_UP -> menuSecili = (menuSecili - 1 + adet) % adet
             KeyEvent.KEYCODE_DPAD_DOWN -> menuSecili = (menuSecili + 1) % adet
-            KeyEvent.KEYCODE_CHANNEL_UP -> menuSecili = (menuSecili - SAYFA_BOYU).coerceAtLeast(0)
-            KeyEvent.KEYCODE_CHANNEL_DOWN -> menuSecili = (menuSecili + SAYFA_BOYU).coerceAtMost(adet - 1)
+            KeyEvent.KEYCODE_CHANNEL_UP -> menuSecili = (menuSecili - MENU_SAYFA).coerceAtLeast(0)
+            KeyEvent.KEYCODE_CHANNEL_DOWN -> menuSecili = (menuSecili + MENU_SAYFA).coerceAtMost(adet - 1)
             KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER, KeyEvent.KEYCODE_DPAD_RIGHT -> {
                 l.getOrNull(menuSecili)?.is_?.invoke()
                 return true

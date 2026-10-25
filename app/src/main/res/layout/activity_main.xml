@@ -86,7 +86,7 @@
         android:layout_gravity="start"
         android:orientation="vertical"
         android:paddingStart="18dp"
-        android:paddingTop="36dp"
+        android:paddingTop="78dp"
         android:paddingEnd="18dp"
         android:visibility="gone">
 
