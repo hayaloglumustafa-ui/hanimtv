@@ -1,5 +1,5 @@
 {
- "surum": 21,
+ "surum": 22,
  "kanallar": [
   {
    "no": 1,
@@ -2141,6 +2141,188 @@
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
    "sayfa": "https://www.kadirga.com.tr/kadirga-tv-canli-yayin.htm"
+  },
+  {
+   "name": "AzTV",
+   "urls": [
+    "https://str.yodacdn.net/azertv/index.m3u8"
+   ],
+   "sayfa": "https://yodaplayer.yodacdn.net/aztv/index.php",
+   "basliklar": {
+    "Referer": "https://yodaplayer.yodacdn.net/aztv/index.php",
+    "Origin": "https://yodaplayer.yodacdn.net",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 255
+  },
+  {
+   "name": "İctimai TV",
+   "urls": [
+    "https://live.itv.az/itv.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 256
+  },
+  {
+   "name": "Mədəniyyət TV",
+   "urls": [
+    "https://str2.yodacdn.net/medeniyyettele/index.m3u8"
+   ],
+   "sayfa": "https://yodaplayer.yodacdn.net/medeniyyet/index.php",
+   "basliklar": {
+    "Referer": "https://yodaplayer.yodacdn.net/medeniyyet/index.php",
+    "Origin": "https://yodaplayer.yodacdn.net",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 257
+  },
+  {
+   "name": "Naxçıvan TV",
+   "urls": [
+    "https://str1.yodacdn.net/ntv/video.m3u8"
+   ],
+   "sayfa": "https://yodaplayer.yodacdn.net/ntv/index.php",
+   "basliklar": {
+    "Referer": "https://yodaplayer.yodacdn.net/ntv/index.php",
+    "Origin": "https://yodaplayer.yodacdn.net",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 258
+  },
+  {
+   "name": "Kanal 35",
+   "urls": [
+    "https://str.yodacdn.net/kanal35/video.m3u8"
+   ],
+   "sayfa": "https://yodaplayer.yodacdn.net/ntv/index.php",
+   "basliklar": {
+    "Referer": "https://yodaplayer.yodacdn.net/ntv/index.php",
+    "Origin": "https://yodaplayer.yodacdn.net",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 259
+  },
+  {
+   "name": "Azad TV (ATV)",
+   "urls": [
+    "https://lives.atv.az:5443/ATV_TV_STREAM/streams/atvcanli.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 260
+  },
+  {
+   "name": "Xəzər TV",
+   "urls": [
+    "https://www.xezerxeber.az/stream/index.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 261
+  },
+  {
+   "name": "Baku TV",
+   "urls": [
+    "https://rtmp.baku.tv/hls/bakutv.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 262
+  },
+  {
+   "name": "Kanal S",
+   "urls": [
+    "https://lives.atv.az:5443/KANAL-S/streams/kanals.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 263
+  },
+  {
+   "name": "APA TV",
+   "urls": [
+    "http://stream.apa.tv/apastream/index.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 264
+  },
+  {
+   "name": "EL TV",
+   "urls": [
+    "https://live.eltv.az/live/eltv/playlist.m3u8",
+    "http://85.132.53.162:1935/live/eltv/playlist.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 265
+  },
+  {
+   "name": "Kəpəz TV",
+   "urls": [
+    "http://85.132.78.122:8050/hls/stream/index.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 266
+  },
+  {
+   "name": "AzStar TV",
+   "urls": [
+    "https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8",
+    "http://live.azstartv.com/azstar/smil:azstar.smil/playlist.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 267
+  },
+  {
+   "name": "Ayaz TV",
+   "urls": [
+    "https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 268
+  },
+  {
+   "name": "Real TV",
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCjpoTfA8TXO6QfAWiAB67eA/live",
+   "no": 269
+  },
+  {
+   "name": "KN Music TV",
+   "urls": [
+    "https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8"
+   ],
+   "basliklar": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+   },
+   "no": 270
+  },
+  {
+   "name": "Muz TV",
+   "urls": [],
+   "youtube": "https://www.youtube.com/channel/UCgHYcHd2SuX0ees5q0OWicQ/live",
+   "no": 271
+  },
+  {
+   "name": "MTV Azerbaijan",
+   "urls": [],
+   "youtube": "https://www.youtube.com/@MTVAzerbaijan/live",
+   "no": 272
   }
  ]
 }

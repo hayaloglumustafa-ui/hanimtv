@@ -331,7 +331,7 @@ class MainActivity : Activity() {
         val istek = ++sayfaIstegi
         // Son 5 dakika içinde alınmış anahtar varsa tekrar siteye gitmeden hemen kullan.
         sayfaOnbellegi[k.no]?.let { (link, zaman) ->
-            if (System.currentTimeMillis() - zaman < 5 * 60_000L && !link.startsWith("youtube:")) {
+            if (System.currentTimeMillis() - zaman < 5 * 60_000L && !link.startsWith("youtube:") && !link.startsWith("token:")) {
                 aktifLinkler = listOf(link) + k.linkler.filter { it != link }
                 baslat(k, 0)
                 return
@@ -352,7 +352,11 @@ class MainActivity : Activity() {
                     } else durumGoster("YouTube uygulaması açılamadı")
                     return@post
                 }
-                aktifLinkler = listOfNotNull(taze) + k.linkler.filter { it != taze }
+                aktifLinkler = if (taze != null && taze.startsWith("token:")) {
+                    // Sayfadan sadece anahtar geldi: sabit linklere ekle.
+                    val anahtar = taze.removePrefix("token:")
+                    k.linkler.map { l -> if (l.contains("{token}")) l.replace("{token}", anahtar) else l + (if (l.contains('?')) "&" else "?") + "token=" + anahtar }
+                } else listOfNotNull(taze) + k.linkler.filter { it != taze }
                 if (aktifLinkler.isEmpty()) {
                     sonHata = "sitede yayın linki bulunamadı"
                     sonrakiLinkiDene()
@@ -791,7 +795,16 @@ class MainActivity : Activity() {
                         else -> {
                             val adaylar = ArrayList<String>()
                             var siteYoutube = false
-                            k.sayfa?.let { s -> SayfadanLink.bul(s, k.basliklar)?.let { if (it.startsWith("youtube:")) siteYoutube = true else adaylar.add(it) } }
+                            k.sayfa?.let { s -> SayfadanLink.bul(s, k.basliklar)?.let {
+                                when {
+                                    it.startsWith("youtube:") -> siteYoutube = true
+                                    it.startsWith("token:") -> {
+                                        val a = it.removePrefix("token:")
+                                        adaylar.addAll(k.linkler.map { l -> l + (if (l.contains('?')) "&" else "?") + "token=" + a })
+                                    }
+                                    else -> adaylar.add(it)
+                                }
+                            } }
                             adaylar.addAll(k.linkler.take(4))
                             if (siteYoutube) null
                             else if (adaylar.isEmpty()) "link yok"
