@@ -82,6 +82,7 @@ class MainActivity : Activity() {
     private lateinit var bilgiKutusu: View
     private lateinit var bilgiNumara: TextView
     private lateinit var bilgiIsim: TextView
+    private lateinit var bilgiAkis: TextView
     private lateinit var listeKutusu: View
     private lateinit var listeBaslik: TextView
     private lateinit var durumYazisi: TextView
@@ -122,6 +123,7 @@ class MainActivity : Activity() {
         bilgiKutusu = findViewById(R.id.bilgiKutusu)
         bilgiNumara = findViewById(R.id.bilgiNumara)
         bilgiIsim = findViewById(R.id.bilgiIsim)
+        bilgiAkis = findViewById(R.id.bilgiAkis)
         listeKutusu = findViewById(R.id.listeKutusu)
         listeBaslik = findViewById(R.id.listeBaslik)
         durumYazisi = findViewById(R.id.durumYazisi)
@@ -135,6 +137,7 @@ class MainActivity : Activity() {
         gorunumuUygula()
 
         kanallar = KanalDeposu.yukle(this)
+        Epg.yukle(this)
         val sonKanal = ayarlar.getInt("sonKanal", 1)
         aktif = kanallar.indexOfFirst { it.no == sonKanal }.coerceAtLeast(0)
         sonOynayan = aktif
@@ -146,6 +149,7 @@ class MainActivity : Activity() {
         ana.postDelayed(listeGuncelle, 5_000)
         ana.postDelayed(surumKontrol, 20_000)
         ana.postDelayed(saglikKontrol, 60_000)
+        ana.postDelayed(akisGuncelle, 15_000)
     }
 
     override fun onStart() {
@@ -187,6 +191,7 @@ class MainActivity : Activity() {
         kalinYazi = yaziTipi(600)
         bilgiNumara.typeface = kalinYazi
         bilgiIsim.typeface = kalinYazi
+        bilgiAkis.typeface = normalYazi
         listeBaslik.typeface = normalYazi
         durumYazisi.typeface = normalYazi
     }
@@ -331,6 +336,7 @@ class MainActivity : Activity() {
             return
         }
         val oncekiKanal = sonOynayan
+        if (link == 0 && indeks != oncekiKanal) geriKanal = oncekiKanal
         sonOynayan = indeks
         if (link == 0 && ayarlar.getInt("sonKanal", -1) != k.no) {
             // commit(): elektrik kesilse bile son kanal anında kaydedilmiş olur.
@@ -408,6 +414,8 @@ class MainActivity : Activity() {
 
     /** En son normal şekilde oynatılan kanal. YouTube'dan geri dönünce bu kanal açılır. */
     private var sonOynayan = 0
+    /** Geri tuşuyla dönülecek, bir önceki izlenen kanal. */
+    private var geriKanal = -1
     private var youtubeIstegi = 0
 
     /**
@@ -527,9 +535,12 @@ class MainActivity : Activity() {
         bilgiNumara.text = numara
         bilgiIsim.text = isim
         bilgiIsim.visibility = if (isim.isEmpty()) View.GONE else View.VISIBLE
+        val akis = if (isim.isEmpty()) null else Epg.yazi(isim)
+        bilgiAkis.text = akis ?: ""
+        bilgiAkis.visibility = if (akis == null) View.GONE else View.VISIBLE
         bilgiKutusu.visibility = View.VISIBLE
         ana.removeCallbacks(bilgiyiGizle)
-        ana.postDelayed(bilgiyiGizle, BILGI_SURESI)
+        ana.postDelayed(bilgiyiGizle, if (akis == null) BILGI_SURESI else BILGI_SURESI + 2_000L)
     }
 
     private val bilgiyiGizle = Runnable { bilgiKutusu.visibility = View.GONE }
@@ -693,6 +704,7 @@ class MainActivity : Activity() {
     private var ayarSecili = 0
     private val seffaflikAdlari = arrayOf("Az", "Orta", "Çok")
     private val boyutAdlari = arrayOf("Küçük", "Orta", "Büyük")
+    private val goruntuAdlari = arrayOf("Orijinal", "Ekranı doldur", "Uzat")
 
     private fun ayarSatirlari(): List<String> {
         val seffaflik = ayarlar.getInt("seffaflik", 1)
@@ -709,6 +721,7 @@ class MainActivity : Activity() {
             "Açılışta HanımTV başlasın: " + if (acilis) "Açık" else "Kapalı",
             "Açılmayan kanalları gizle: " + if (gizle) "Açık" else "Kapalı",
             "Uyku zamanlayıcısı: " + uykuYazisi(),
+            "Görüntü: " + goruntuAdlari[ayarlar.getInt("goruntu", 0).coerceIn(0, 2)],
             "Kumanda rehberi",
             "Sürüm 1.0.${Guncelleyici.mevcutSurum(this)} · Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman",
         )
@@ -763,14 +776,15 @@ class MainActivity : Activity() {
             3 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
             4 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
             5 -> uykuDegistir()
-            6 -> {
+            6 -> e.putInt("goruntu", (ayarlar.getInt("goruntu", 0) + 1) % 3)
+            7 -> {
                 listeyiKapat()
                 menuyuAc(MENU_REHBER)
                 return
             }
         }
         e.commit()
-        if (sira == 1 || sira == 2) gorunumuUygula()
+        if (sira == 1 || sira == 2 || sira == 6) gorunumuUygula()
     }
 
     /** Seçilen şeffaflığı ve yazı boyutunu bütün kutulara uygular. */
@@ -802,6 +816,8 @@ class MainActivity : Activity() {
         listeBaslik.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f * oran)
         bilgiNumara.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f * oran)
         bilgiIsim.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f * oran)
+        bilgiAkis.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f * oran)
+        oynaticiGorunum.resizeMode = intArrayOf(0, 4, 3)[ayarlar.getInt("goruntu", 0).coerceIn(0, 2)]
         durumYazisi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f * oran)
         listeKutusu.layoutParams = listeKutusu.layoutParams.apply {
             width = (440 * oran * resources.displayMetrics.density).toInt()
@@ -1085,7 +1101,8 @@ class MainActivity : Activity() {
             "Sol tuş: bu menü",
             "Sağ tuş: kanal bilgisi",
             "Listede sağ / sol: sayfa",
-            "Geri: kapat / bir önceki",
+            "Geri: önceki kanala dön",
+            "Menüde geri: bir önceki ekran",
         ).map { MenuSatiri(it, BEYAZ, null) }
         else -> "HanımTV" to listOf(
             MenuSatiri("Son izlenenler") { menuyeGir(MENU_SON) },
@@ -1227,7 +1244,10 @@ class MainActivity : Activity() {
             in KeyEvent.KEYCODE_0..KeyEvent.KEYCODE_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_0)
             in KeyEvent.KEYCODE_NUMPAD_0..KeyEvent.KEYCODE_NUMPAD_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_NUMPAD_0)
             // Geri tuşu uygulamadan yanlışlıkla çıkarmaz; sadece kanal bilgisini gösterir. Çıkmak için ev tuşu kullanılır.
-            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_INFO ->
+            // Geri tuşu: bir önceki kanala dön (reklam arasında iki kanal arasında gidip gelmek için).
+            KeyEvent.KEYCODE_BACK -> if (geriKanal in kanallar.indices && geriKanal != aktif) kanalaGit(geriKanal)
+                else kanallar.getOrNull(aktif)?.let { bilgiyiGoster(it.no.toString(), it.isim) }
+            KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_INFO ->
                 kanallar.getOrNull(aktif)?.let { bilgiyiGoster(it.no.toString(), it.isim) }
             else -> return super.onKeyDown(keyCode, event)
         }
@@ -1237,6 +1257,14 @@ class MainActivity : Activity() {
     // ---------------------------------------------------------------- Arka plan işleri
 
     /** Kanal listesini GitHub'dan günceller. Sıra sadece sizin dosyanızdaki "no" değerlerine göre olur. */
+    /** Yayın akışını 3 saatte bir yeniler; olmazsa 20 dakika sonra tekrar dener. */
+    private val akisGuncelle: Runnable = object : Runnable { override fun run() {
+        arkaPlan.execute {
+            val tamam = Epg.guncelle(this@MainActivity)
+            ana.postDelayed(this, if (tamam) 3 * 60 * 60 * 1000L else 20 * 60 * 1000L)
+        }
+    } }
+
     private val listeGuncelle: Runnable = object : Runnable { override fun run() {
         val mevcut = kanallar
         arkaPlan.execute {

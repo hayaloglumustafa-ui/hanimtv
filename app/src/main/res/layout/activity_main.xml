@@ -49,6 +49,19 @@
             android:singleLine="true"
             android:textColor="#FFFFFFFF"
             android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/bilgiAkis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="end"
+            android:maxWidth="420dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="#D9FFFFFF"
+            android:textSize="17sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <!-- Ortada, orta şeffaflıkta kanal listesi -->

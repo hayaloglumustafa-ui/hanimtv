@@ -46,9 +46,24 @@ jobs:
             exit 1
           fi
 
+      # İmza dosyası GitHub'ın gizli ayarlarında (HANIMTV_IMZA_DOSYASI) saklanır.
+      # O ayar henüz eklenmediyse depodaki eski dosya kullanılır.
+      - name: İmza dosyasını hazırla
+        env:
+          DOSYA: ${{ secrets.HANIMTV_IMZA_DOSYASI }}
+        run: |
+          if [ -n "$DOSYA" ]; then
+            echo "$DOSYA" | base64 -d > "$RUNNER_TEMP/hanimtv.p12"
+          elif [ -f imza/hanimtv.p12 ]; then
+            cp imza/hanimtv.p12 "$RUNNER_TEMP/hanimtv.p12"
+          else
+            echo "::error::HANIMTV_IMZA_DOSYASI adlı gizli ayar eklenmemiş."
+            exit 1
+          fi
+
       - name: APK üret
         env:
-          HANIMTV_KEYSTORE_FILE: ${{ github.workspace }}/imza/hanimtv.p12
+          HANIMTV_KEYSTORE_FILE: ${{ runner.temp }}/hanimtv.p12
           HANIMTV_KEYSTORE_PASSWORD: ${{ secrets.HANIMTV_IMZA_SIFRESI }}
           HANIMTV_KEY_PASSWORD: ${{ secrets.HANIMTV_IMZA_SIFRESI }}
           HANIMTV_KEY_ALIAS: hanimtv
