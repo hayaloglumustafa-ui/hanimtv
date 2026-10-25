@@ -1,26 +1,29 @@
 {
- "surum": 23,
+ "surum": 24,
  "kanallar": [
   {
    "no": 1,
    "name": "TRT 1",
    "urls": [
     "https://tv-trt1.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 2,
    "name": "TRT 2",
    "urls": [
     "https://tv-trt2.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 3,
    "name": "TRT Haber",
    "urls": [
     "https://tv-trthaber.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 4,
@@ -28,42 +31,48 @@
    "urls": [
     "https://tv-trtspor1.medya.trt.com.tr/master.m3u8",
     "https://corestream.siteyaptim.live/trt-spor/index.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 5,
    "name": "TRT Spor Yıldız",
    "urls": [
     "https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 6,
    "name": "A Spor",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 7,
    "name": "HT Spor",
    "urls": [
     "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 8,
    "name": "TRT Genç",
    "urls": [
     "https://tv-trtgenc.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 9,
    "name": "TRT Türk",
    "urls": [
     "https://tv-trtturk.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 10,
@@ -71,7 +80,8 @@
    "urls": [
     "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",
     "https://stream8.cinerama.uz/1208/tracks-v1a1/mono.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 11,
@@ -80,7 +90,8 @@
     "https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8",
     "http://hls127.freeott.top:8080/TRT_BELGESEL_TR/video.m3u8",
     "https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 12,
@@ -89,14 +100,16 @@
     "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
     "https://mumbai-edge.smartplaytv.in/TRTWorld/index.m3u8",
     "https://cdn.pishow.tv/ott/live/266/master.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 13,
    "name": "TRT Avaz",
    "urls": [
     "https://tv-trtavaz.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 14,
@@ -104,7 +117,8 @@
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8",
     "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 15,
@@ -117,7 +131,8 @@
     "Referer": "https://www.atvavrupa.tv/",
     "Origin": "https://www.atvavrupa.tv",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Avrupa"
   },
   {
    "no": 16,
@@ -128,7 +143,8 @@
    "basliklar": {
     "Referer": "https://www.kanald.com.tr/",
     "Origin": "https://www.kanald.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 17,
@@ -136,7 +152,8 @@
    "urls": [
     "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8",
     "http://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 18,
@@ -147,7 +164,8 @@
    "basliklar": {
     "Referer": "https://www.startv.com.tr/",
     "Origin": "https://www.startv.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 19,
@@ -157,7 +175,8 @@
    "basliklar": {
     "Referer": "https://www.eurostartv.com.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Avrupa"
   },
   {
    "no": 20,
@@ -169,7 +188,8 @@
    "basliklar": {
     "Referer": "https://www.showtv.com.tr/",
     "Origin": "https://www.showtv.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 21,
@@ -181,7 +201,8 @@
    "basliklar": {
     "Referer": "https://www.showturk.com.tr/",
     "Origin": "https://www.showturk.com.tr"
-   }
+   },
+   "kategori": "Avrupa"
   },
   {
    "no": 22,
@@ -196,7 +217,8 @@
     "Origin": "https://www.nowtv.com.tr",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "sayfa": "https://www.nowtv.com.tr/canli-yayin"
+   "sayfa": "https://www.nowtv.com.tr/canli-yayin",
+   "kategori": "Ulusal"
   },
   {
    "no": 23,
@@ -209,7 +231,8 @@
    "basliklar": {
     "Referer": "https://beyaztv.com.tr/",
     "Origin": "https://beyaztv.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 24,
@@ -224,7 +247,8 @@
    "basliklar": {
     "Referer": "https://www.tv8.com.tr/",
     "Origin": "https://www.tv8.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 25,
@@ -237,14 +261,16 @@
    "basliklar": {
     "Referer": "https://www.tv8bucuk.com/",
     "Origin": "https://www.tv8bucuk.com"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 26,
    "name": "360",
    "urls": [
     "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 27,
@@ -259,7 +285,8 @@
     "Origin": "https://www.tlctv.com.tr",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "sayfa": "https://www.tlctv.com.tr/canli-izle"
+   "sayfa": "https://www.tlctv.com.tr/canli-izle",
+   "kategori": "Belgesel"
   },
   {
    "no": 28,
@@ -274,14 +301,16 @@
     "Origin": "https://www.dmax.com.tr",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "sayfa": "https://www.dmax.com.tr/canli-izle"
+   "sayfa": "https://www.dmax.com.tr/canli-izle",
+   "kategori": "Belgesel"
   },
   {
    "no": 29,
    "name": "A2",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 30,
@@ -294,7 +323,8 @@
    "basliklar": {
     "Referer": "https://www.teve2.com.tr/",
     "Origin": "https://www.teve2.com.tr"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 31,
@@ -302,26 +332,30 @@
    "urls": [
     "https://kanal7.blutv.com/blutv_kanal7_live/live.m3u8",
     "https://kanal7-live.daioncdn.net/kanal7/kanal7.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 32,
    "name": "Kanal 7 Avrupa",
    "urls": [
     "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 33,
    "name": "Akit TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCbaLyHJp6S9Lsj6oT9aJsQw/live"
+   "youtube": "https://www.youtube.com/channel/UCbaLyHJp6S9Lsj6oT9aJsQw/live",
+   "kategori": "Ulusal"
   },
   {
    "no": 34,
    "name": "Ülke TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCi65FGbYYj-OzJm2luB_fNQ/live"
+   "youtube": "https://www.youtube.com/channel/UCi65FGbYYj-OzJm2luB_fNQ/live",
+   "kategori": "Ulusal"
   },
   {
    "no": 35,
@@ -336,26 +370,30 @@
    "basliklar": {
     "Referer": "https://www.tv100.com/",
     "Origin": "https://www.tv100.com"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 36,
    "name": "Sözcü TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCOulx_rep5O4i9y6AyDqVvw/live"
+   "youtube": "https://www.youtube.com/channel/UCOulx_rep5O4i9y6AyDqVvw/live",
+   "kategori": "Haber"
   },
   {
    "no": 37,
    "name": "Halk TV",
    "urls": [
     "https://halktv-live.daioncdn.net/halktv/halktv.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 38,
    "name": "KRT",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCVKWwHoLwUMMa80cu_1uapA/live"
+   "youtube": "https://www.youtube.com/channel/UCVKWwHoLwUMMa80cu_1uapA/live",
+   "kategori": "Haber"
   },
   {
    "no": 39,
@@ -366,7 +404,8 @@
    "basliklar": {
     "Referer": "https://www.haberturk.com/",
     "Origin": "https://www.haberturk.com"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 40,
@@ -377,35 +416,40 @@
    "basliklar": {
     "Referer": "https://www.cnnturk.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 41,
    "name": "NTV",
    "urls": [
     "https://dogus.daioncdn.net/ntv/ntv.m3u8?app=ntv_web"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 42,
    "name": "CNBC-e",
    "urls": [
     "https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 43,
    "name": "A Haber",
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 44,
    "name": "Flash Haber TV",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 45,
@@ -413,7 +457,8 @@
    "urls": [
     "https://lidertv.radyotelekom.com.tr/player/m3u8/9217b6e91d17c38f7d171eb2b3670349/playlist.m3u8",
     "http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 46,
@@ -427,7 +472,8 @@
    "basliklar": {
     "Referer": "https://www.bloomberght.com/",
     "Origin": "https://www.bloomberght.com"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 47,
@@ -435,21 +481,24 @@
    "urls": [
     "https://canli.tgrthaber.com/tgrt.m3u8",
     "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe4598be8e5d.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 48,
    "name": "Haber Global",
    "urls": [
     "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 49,
    "name": "TVNET",
    "urls": [
     "https://tvnet-live.lg.mncdn.com/tvnet-live/tvnet/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 50,
@@ -461,14 +510,16 @@
    "basliklar": {
     "Referer": "https://www.tele1.com.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 51,
    "name": "TV 24",
    "urls": [
     "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 52,
@@ -476,14 +527,16 @@
    "urls": [
     "http://185.234.111.229:8000/play/a05u",
     "https://tv.ensonhaber.com/benguturk/benguturk.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 53,
    "name": "Ekotürk",
    "urls": [
     "https://cdn.ekoturk.net/hls/master.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 54,
@@ -496,21 +549,24 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 55,
    "name": "TR24",
    "urls": [
     "https://tv.ensonhaber.com/tv24/tv24.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 56,
    "name": "Finans Türk",
    "urls": [
     "https://yayin30.haber100.com/live/finansturk/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 57,
@@ -523,21 +579,24 @@
    "basliklar": {
     "Referer": "https://gzttv.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 58,
    "name": "DHA",
    "urls": [
     "https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 59,
    "name": "TBMM TV",
    "urls": [
     "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 60,
@@ -548,7 +607,8 @@
     "https://dogus.daioncdn.net/kralpoptv/kralpoptv.m3u8?app=kralpoptv_web",
     "http://dygvideo.dygdigital.com/live/hls/puhukralpopdai?m3u8",
     "https://dogus.daioncdn.net/kralpoptv/kralpoptv.m3u8?app=f38a38b4-ce55-4040-8676-9826937d6128"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 61,
@@ -556,7 +616,8 @@
    "urls": [
     "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_powertv/powertv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 62,
@@ -566,42 +627,48 @@
     "https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8",
     "https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8",
     "https://mn-nl.mncdn.com/blutv_powerturk/smil:powerturk_sd.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 63,
    "name": "Power Türk Taptaze",
    "urls": [
     "https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 64,
    "name": "Power Türk Akustik",
    "urls": [
     "https://livetv.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 65,
    "name": "Power Türk Slow",
    "urls": [
     "https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 66,
    "name": "Power Love",
    "urls": [
     "https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 67,
    "name": "Power Dance",
    "urls": [
     "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 68,
@@ -610,7 +677,8 @@
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
     "https://mn-nl.mncdn.com/blutv_nr12/live.m3u8",
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e17cd6360b_1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 69,
@@ -618,7 +686,8 @@
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8",
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e18f9c54e6.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 70,
@@ -626,7 +695,8 @@
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8",
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e19877b340.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 71,
@@ -634,14 +704,16 @@
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8",
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e2aa89e721.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 72,
    "name": "Dream Türk",
    "urls": [
     "https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 73,
@@ -649,63 +721,72 @@
    "urls": [
     "http://54.36.110.140/live3/live3.m3u8",
     "https://iko-live.akamaized.net/MedMusicTV/master.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 74,
    "name": "TRT 3",
    "urls": [
     "https://tv-trt3.live.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 75,
    "name": "TRT Çocuk",
    "urls": [
     "https://tv-trtcocuk.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 76,
    "name": "TRT Kurdî",
    "urls": [
     "https://tv-trtkurdi.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 77,
    "name": "TRT Arabi",
    "urls": [
     "https://tv-trtarabi.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 78,
    "name": "TRT Diyanet Çocuk",
    "urls": [
     "https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 79,
    "name": "TRT EBA İlkokul",
    "urls": [
     "https://tv-e-okul00.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 80,
    "name": "TRT EBA Ortaokul",
    "urls": [
     "https://tv-e-okul01.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 81,
    "name": "TRT EBA Lise",
    "urls": [
     "https://tv-e-okul02.medya.trt.com.tr/master.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 82,
@@ -713,7 +794,8 @@
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8",
     "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 83,
@@ -721,14 +803,16 @@
    "urls": [
     "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8",
     "http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 84,
    "name": "Diyanet TV",
    "urls": [
     "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 85,
@@ -738,28 +822,32 @@
     "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD.stream/playlist.m3u8",
     "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD_principal_SRT/playlist.m3u8",
     "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01602-themahqfrance-vivekanald-samsungspain/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 86,
    "name": "TGRT Belgesel",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 87,
    "name": "TJK TV",
    "urls": [
     "https://tjktv-live.tjk.org/tjktv.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 88,
    "name": "TJK TV 2",
    "urls": [
     "https://tjktv-live.tjk.org/tjktv2/tjktv2.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 89,
@@ -768,28 +856,32 @@
     "https://tv-trtspor2.medya.trt.com.tr/master.m3u8",
     "https://tv-trtspor2-esdai.medya.trt.com.tr/master.m3u8",
     "https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?&app=2c6690bb-4021-4292-8ddc-c93a3cf04a3a"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 90,
    "name": "4U TV",
    "urls": [
     "https://hls.4utv.live/hls/stream.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 91,
    "name": "Aksu TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_aksutv/aksutv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 92,
    "name": "Al-Zahra TV Turkic",
    "urls": [
     "https://live.al-zahratv.com/live/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 93,
@@ -797,14 +889,16 @@
    "urls": [
     "https://api-tv3.yayin.com.tr/postatv/postatv/playlist.m3u8",
     "http://cdn-postatv.yayin.com.tr/postatv/postatv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 94,
    "name": "Almahriah TV",
    "urls": [
     "https://starmenajo.com/hls/almahriah/index.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 95,
@@ -817,21 +911,24 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 96,
    "name": "Anadolu Net TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_anadolunet/anadolunet/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 97,
    "name": "ARAS TV",
    "urls": [
     "http://1.rtmp.org/tv217/yayin.stream/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 98,
@@ -839,7 +936,8 @@
    "urls": [
     "https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8",
     "http://stream2.taksimbilisim.com:1935/alanyatv/alanyatv.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 99,
@@ -847,7 +945,8 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_brtv/brtv/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 100,
@@ -856,13 +955,15 @@
     "https://live.artidijitalmedya.com/artidijital_astv/astv/playlist.m3u8",
     "https://waw2.artiyerelmedya.net/astv/bant1/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_astv/astv/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 101,
    "name": "Bursa TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCSe1AE8e84G6859VHeryhbg/live"
+   "youtube": "https://www.youtube.com/channel/UCSe1AE8e84G6859VHeryhbg/live",
+   "kategori": "Yerel"
   },
   {
    "no": 102,
@@ -875,42 +976,48 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 103,
    "name": "Deniz Postası TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_denizpostasi/denizpostasi/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 104,
    "name": "Diyar TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 105,
    "name": "Dost TV",
    "urls": [
     "https://dost.stream.emsal.im/tv/live.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 106,
    "name": "Edessa TV",
    "urls": [
     "https://canli.edessatv.com/hls/stream.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 107,
    "name": "Er TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_ertv_new/ertv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 108,
@@ -922,7 +1029,8 @@
    "basliklar": {
     "Referer": "https://www.erzurum.bel.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 109,
@@ -930,14 +1038,16 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_estv/estv/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_estv/estv/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 110,
    "name": "ETV Kayseri",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_etv/etv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 111,
@@ -950,7 +1060,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 112,
@@ -960,7 +1071,8 @@
     "https://fbtv.fenerbahce.org/fenerbahcetv.stream_720p/playlist.m3u8",
     "https://fbtv.fenerbahce.org/fenerbahcetv.stream/playlist.m3u8",
     "https://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 113,
@@ -968,7 +1080,8 @@
    "urls": [
     "https://edge.taksimbilisim.com/ftvturk/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/ftvturk/bant1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 114,
@@ -977,7 +1090,8 @@
     "https://cdn-haber61tv.yayin.com.tr/haber61tv/smil:haber61tv.smil/index.m3u8",
     "https://win8.yayin.com.tr/haber61tv/smil:haber61tv.smil/playlist.m3u8",
     "https://cdn-haber61tv.yayin.com.tr/haber61tv/haber61tv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 115,
@@ -985,7 +1099,8 @@
    "urls": [
     "https://59cba4d34b678.streamlock.net/canlitv/hunattv/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_hunattv/hunattv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 116,
@@ -998,28 +1113,32 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 117,
    "name": "Ilke TV",
    "urls": [
     "https://stream.ilketv.com.tr/hls/ilkecanli.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 118,
    "name": "Kanal 12",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanal12/kanal12/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 119,
    "name": "Kanal 15",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanal15/kanal15/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 120,
@@ -1028,7 +1147,8 @@
     "https://cdn-kanal23.yayin.com.tr/kanal23/index.m3u8",
     "https://live.artidijitalmedya.com/artidijital_kanal23/kanal23/playlist.m3u8",
     "https://cdn13-kanal23.yayin.com.tr/kanal23/kanal23/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 121,
@@ -1036,7 +1156,8 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 122,
@@ -1053,7 +1174,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 123,
@@ -1066,7 +1188,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 124,
@@ -1079,7 +1202,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 125,
@@ -1087,21 +1211,24 @@
    "urls": [
     "https://live.euromediacenter.com/kanal34/index.m3u8",
     "https://vdo.digitalbox.xyz:3266/live/kanal34tvlive.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 126,
    "name": "KANAL 58",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanal58/kanal58/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 127,
    "name": "Kanal Firat",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanalfirat/kanalfirat/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 128,
@@ -1114,21 +1241,24 @@
    "basliklar": {
     "Referer": "https://www.kanalhayat.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Dini"
   },
   {
    "no": 129,
    "name": "Kanal V",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 130,
    "name": "Kay TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kaytv/kaytv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 131,
@@ -1136,21 +1266,24 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_38kenttv/38kenttv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 132,
    "name": "Kocaeli TV",
    "urls": [
     "https://edge.taksimbilisim.com/kocaelitv/bant1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 133,
    "name": "Konya Olay TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_konyaolaytv/konyaolaytv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 134,
@@ -1159,14 +1292,16 @@
     "https://lbl.netmedya.net/hls/lalegultv.m3u8",
     "http://lalegultv.netmedya.net/hls/lalegultv.m3u8",
     "http://lalegultv.netmedya.net/lalegul-tv/lalegultv.stream/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 135,
    "name": "Life TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 136,
@@ -1179,35 +1314,40 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 137,
    "name": "Luys TV",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtpayqrfkgirxelive/broadcast_5e91c5ac96898.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 138,
    "name": "MaviKaradeniz",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_mavikaradeniz/mavikaradeniz/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 139,
    "name": "Mekameleen TV",
    "urls": [
     "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 140,
    "name": "Meltem TV",
    "urls": [
     "https://vhxyrsly.rocketcdn.com/meltemtv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 141,
@@ -1215,7 +1355,8 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 142,
@@ -1227,7 +1368,8 @@
    "basliklar": {
     "Referer": "https://www.mturktv.net/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 143,
@@ -1241,20 +1383,23 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Belgesel"
   },
   {
    "no": 144,
    "name": "Olay Türk TV Kayseri",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 145,
    "name": "Qaf TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCn56emw1UprS3TSLkJ9lwfw/live"
+   "youtube": "https://www.youtube.com/channel/UCn56emw1UprS3TSLkJ9lwfw/live",
+   "kategori": "Dini"
   },
   {
    "no": 146,
@@ -1262,35 +1407,40 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8",
     "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 147,
    "name": "Satranç TV",
    "urls": [
     "http://139.162.182.79/live/test/index.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 148,
    "name": "Semerkand TV",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_58d915bd40efc.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 149,
    "name": "Sercem TV",
    "urls": [
     "https://canli.sercemtv.com.tr/hls/0/stream.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 150,
    "name": "Spacetoon Turkey",
    "urls": [
     "https://live-tr-next.spacetoongo.com/ST_TR_NEXT/hls/h7qefeiwfbjn1.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 151,
@@ -1299,28 +1449,32 @@
     "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/playlist.m3u8",
     "https://tr.socialsmart.tv/suntv/bant1/chunks.m3u8",
     "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 152,
    "name": "Tempo TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_tempotv/tempotv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 153,
    "name": "Tivi 6",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_tivi6/tivi6/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 154,
    "name": "Ton TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_tontv/tontv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 155,
@@ -1330,7 +1484,8 @@
     "Referer": "https://torba.web.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "youtube": "https://www.youtube.com/channel/UC83Z7COVxDzPer1U-E5BrdQ/live"
+   "youtube": "https://www.youtube.com/channel/UC83Z7COVxDzPer1U-E5BrdQ/live",
+   "kategori": "Yerel"
   },
   {
    "no": 156,
@@ -1344,7 +1499,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 157,
@@ -1352,7 +1508,8 @@
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8",
     "http://mc1.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 158,
@@ -1362,7 +1519,8 @@
     "http://stream.taksimbilisim.com:1935/tv41/bant1/TV41.m3u8",
     "http://stream.taksimbilisim.com:1935/tv41/smil:tv41.smil/playlist.m3u8",
     "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 159,
@@ -1376,7 +1534,8 @@
    "basliklar": {
     "Referer": "https://www.tv42haber.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 160,
@@ -1389,7 +1548,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 161,
@@ -1397,82 +1557,94 @@
    "urls": [
     "https://canli.tvden.com.tr/hls/live.m3u8",
     "http://canli.tvden.com.tr/hls/live.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 162,
    "name": "TV4",
    "urls": [
     "https://turkmedya-live.ercdn.net/tv4/tv4.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 163,
    "name": "Urfa Natik TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 164,
    "name": "Van 65 TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 165,
    "name": "Vav TV",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 166,
    "name": "Zarok TV",
    "urls": [
     "https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 167,
    "name": "Çiftçi TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 168,
    "name": "Koza TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UC4Ohyy56H4EZAy0Pagsv3iA/live"
+   "youtube": "https://www.youtube.com/channel/UC4Ohyy56H4EZAy0Pagsv3iA/live",
+   "kategori": "Yerel"
   },
   {
    "no": 169,
    "name": "Ulusal Kanal",
    "urls": [
     "https://internettv.guventechnology.com/hls/ulusaltv/index.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 170,
    "name": "Ne'o Haber",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCheBjwXbUcLTSE4ARf2NJXw/live"
+   "youtube": "https://www.youtube.com/channel/UCheBjwXbUcLTSE4ARf2NJXw/live",
+   "kategori": "Haber"
   },
   {
    "no": 171,
    "name": "Ekol TV",
    "urls": [
     "https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 172,
    "name": "TV 5",
    "urls": [
     "https://ip252.ozelip.com:1936/protv5/protv5/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 173,
@@ -1480,14 +1652,16 @@
    "urls": [
     "https://cdn4.yayin.com.tr/telenews/video.m3u8",
     "https://cdn-telenews.yayin.com.tr/telenews/index.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 174,
    "name": "Yeniçağ TV",
    "urls": [
     "https://live.euromediacenter.com/yenicagtv/tracks-v1a1/mono.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 175,
@@ -1499,35 +1673,40 @@
     "Referer": "https://www.apara.com.tr/",
     "Origin": "https://www.apara.com.tr",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Haber"
   },
   {
    "no": 176,
    "name": "Number One Türk",
    "urls": [
     "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 177,
    "name": "TYT Türk",
    "urls": [
     "https://tytturk-live.ercdn.net/tytturk/tytturk.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 178,
    "name": "Bi 1! Kanal",
    "urls": [
     "https://bikanal-live.ercdn.net/bikanal/bikanal.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 179,
    "name": "Cine 1 TV",
    "urls": [
     "http://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 180,
@@ -1535,28 +1714,32 @@
    "urls": [
     "https://dogusdyg-drone.lg.mncdn.com/dogusdyg-drone/cgtn/playlist.m3u8",
     "https://mn-nl.mncdn.com/dogusdyg_drone/cgtn/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 181,
    "name": "Sağlık Channel",
    "urls": [
     "https://live.euromediacenter.com/saglikchannel/index.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 182,
    "name": "Show Max",
    "urls": [
     "http://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showmax/showmax.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 183,
    "name": "Ekol Sports",
    "urls": [
     "https://ekoltv-live.ercdn.net/ekolsport/ekolsport.m3u8"
-   ]
+   ],
+   "kategori": "Spor"
   },
   {
    "no": 184,
@@ -1568,20 +1751,23 @@
    "basliklar": {
     "Referer": "https://taytv.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Ulusal"
   },
   {
    "no": 185,
    "name": "Sıfır TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCDX7Vf8VLBHdC-HZtKG9gOQ/live"
+   "youtube": "https://www.youtube.com/channel/UCDX7Vf8VLBHdC-HZtKG9gOQ/live",
+   "kategori": "Ulusal"
   },
   {
    "no": 186,
    "name": "Zarok Soranî",
    "urls": [
     "https://zindisorani.zaroktv.com.tr/hls/stream.m3u8"
-   ]
+   ],
+   "kategori": "Çocuk"
   },
   {
    "no": 187,
@@ -1593,7 +1779,8 @@
    "basliklar": {
     "Referer": "https://www.agrotv.com.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Belgesel"
   },
   {
    "no": 188,
@@ -1605,27 +1792,31 @@
     "Referer": "https://player.tvkur.com/",
     "Origin": "https://player.tvkur.com",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Belgesel"
   },
   {
    "no": 189,
    "name": "Su TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_sutv/sutv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 190,
    "name": "Yol TV",
    "urls": [
     "https://live.yoltv.com/hls/stream.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 191,
    "name": "Semerkand Way",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCHk7qp3R2xHSkm51EFcTvLQ/live"
+   "youtube": "https://www.youtube.com/channel/UCHk7qp3R2xHSkm51EFcTvLQ/live",
+   "kategori": "Dini"
   },
   {
    "no": 192,
@@ -1633,126 +1824,144 @@
    "urls": [
     "https://cdn4.yayin.com.tr/rehbertv/video.m3u8",
     "https://cdn4.yayin.com.tr/rehbertv/tracks-v1a1/mono.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 193,
    "name": "ABN Turkey",
    "urls": [
     "https://mediaserver.abnvideos.com/streams/turkish__discipleship.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 194,
    "name": "Vav TV Aile",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/aile-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 195,
    "name": "Vav TV İslam",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/islamtv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 196,
    "name": "Vav TV İlmihal",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/ilm-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 197,
    "name": "Vav TV Kur'an-ı Kerim",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kurani-kerim-dersleri-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 198,
    "name": "Vav TV Kültür Sanat",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 199,
    "name": "Vav TV Mukabele",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/mukabele-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 200,
    "name": "Vav TV Belgesel",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/belgesel-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 201,
    "name": "Vav TV Tarih",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/Tarih-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 202,
    "name": "Vav TV Sağlık",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/saglikli-gunler/playlist/1.m3u8"
-   ]
+   ],
+   "kategori": "Belgesel"
   },
   {
    "no": 203,
    "name": "Vav TV Vaaz",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/vaaz-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 204,
    "name": "Vav TV Asr-ı Şerif",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/asr-i-serif-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 205,
    "name": "Vav TV Asr-ı Saadet",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/asr-i-saadet-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 206,
    "name": "Vav TV İlahiler",
    "urls": [
     "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/ilahiler-tv/playlist/0.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 207,
    "name": "Alanya TV",
    "urls": [
     "https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 208,
    "name": "Art Antalya World",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_artworld/artworld/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 209,
    "name": "Afyon TV3",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_tv3/tv3/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 210,
@@ -1760,7 +1969,8 @@
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanal16/kanal16/chunks.m3u8",
     "https://live.euromediacenter.com/on6tvyayin/index.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 211,
@@ -1768,7 +1978,8 @@
    "urls": [
     "https://canli.dimtv.tv/hls/dim/index.m3u8",
     "https://live.artidijitalmedya.com/artidijital_dimtv/dimtv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 212,
@@ -1776,7 +1987,8 @@
    "urls": [
     "https://radyotelekomtv.com/player/m3u8/12851f53513eaaa25fb1c9cb6800ce67/12851f53513eaaa25fb1c9cb6800ce67.m3u8",
     "http://egemaxtv.radyotelekom.com.tr:29010/egemaxtv/egemaxtv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 213,
@@ -1788,28 +2000,32 @@
    "basliklar": {
     "Referer": "https://www.ercistv.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 214,
    "name": "Erciyes TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_erciyestv/erciyestv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 215,
    "name": "Edirne TV",
    "urls": [
     "https://yayin.edirnetv.com:8088/hls/etvcanliyayin.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 216,
    "name": "Esenler Şehir TV",
    "urls": [
     "https://yayin30.haber100.com/live/sehirekrani/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 217,
@@ -1822,40 +2038,46 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 218,
    "name": "GRT Gaziantep",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_grt/grt/chunks.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 219,
    "name": "İzmir Time 35",
    "urls": [
     "https://cdn-time35tv.yayin.com.tr/time35tv/time35tv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 220,
    "name": "Kanal 53",
    "urls": [
     "https://kanal53.ozelip.com:3448/hybrid/play.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 221,
    "name": "Kanal Z",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCh86Kkpj3ppqNOkUdlSZUVg/live"
+   "youtube": "https://www.youtube.com/channel/UCh86Kkpj3ppqNOkUdlSZUVg/live",
+   "kategori": "Yerel"
   },
   {
    "no": 222,
    "name": "Karadeniz TV",
    "urls": [],
-   "youtube": "https://www.youtube.com/channel/UCj-bH6snrfbdY6bq5e04kLg/live"
+   "youtube": "https://www.youtube.com/channel/UCj-bH6snrfbdY6bq5e04kLg/live",
+   "kategori": "Yerel"
   },
   {
    "no": 223,
@@ -1868,28 +2090,32 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 224,
    "name": "K+ Kayseri",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_kanalplus/kanalplus/mpeg/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 225,
    "name": "Konya KTV",
    "urls": [
     "https://cdn-ktvtv.yayin.com.tr/ktvtv/ktvtv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 226,
    "name": "Vuslat TV",
    "urls": [
     "https://live.artidijitalmedya.com/artidijital_vuslattv/vuslattv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Dini"
   },
   {
    "no": 227,
@@ -1897,14 +2123,16 @@
    "urls": [
     "https://edge.taksimbilisim.com/muglaturk/bant1/playlist.m3u8",
     "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 228,
    "name": "Ordu Bel TV",
    "urls": [
     "https://cdn1-ordubeltv.yayin.com.tr/ordubeltv/ordubeltv/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 229,
@@ -1912,21 +2140,24 @@
    "urls": [
     "https://cdn4.yayin.com.tr/haberrize/video.m3u8",
     "http://cdn4.yayin.com.tr/haberrize/tracks-v1a1/mono.m3u8"
-   ]
+   ],
+   "kategori": "Haber"
   },
   {
    "no": 230,
    "name": "Slow Karadeniz TV",
    "urls": [
     "https://yayin.slowkaradeniztv.com:3390/hybrid/play.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 231,
    "name": "Türkmeneli TV",
    "urls": [
     "https://135962.global.ssl.fastly.net/5ff366a512987e2c0a3dabfe/live_14378e1002eb11ef9cb025207067897a/index.fmp4.m3u8"
-   ]
+   ],
+   "kategori": "Yerel"
   },
   {
    "no": 232,
@@ -1939,56 +2170,64 @@
    "basliklar": {
     "Referer": "https://tv.uskudar.edu.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Dini"
   },
   {
    "no": 233,
    "name": "Viyana TV",
    "urls": [
     "http://nrttn172.kesintisizyayin.com:29010/nrttn/nrttn/playlist.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 234,
    "name": "Brüksel Türk",
    "urls": [
     "https://live.euromediacenter.com/brukselturk/index.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 235,
    "name": "Balkan Türk",
    "urls": [
     "https://live.euromediacenter.com/balkanturktv/index.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 236,
    "name": "Kanal Avrupa",
    "urls": [
     "http://cdn-kanalavrupa.yayin.com.tr/kanalavrupa/index.m3u8"
-   ]
+   ],
+   "kategori": "Avrupa"
   },
   {
    "no": 237,
    "name": "Ezgi TV",
    "urls": [
     "https://live.euromediacenter.com/ezgitv/index.m3u8"
-   ]
+   ],
+   "kategori": "Müzik"
   },
   {
    "no": 238,
    "name": "Kızıl Elma TV",
    "urls": [
     "https://live.euromediacenter.com/kizilelma/index.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 239,
    "name": "Bozkurt TV",
    "urls": [
     "https://live.euromediacenter.com/bozkurttv/index.m3u8"
-   ]
+   ],
+   "kategori": "Ulusal"
   },
   {
    "no": 240,
@@ -1996,14 +2235,16 @@
    "urls": [
     "https://edge.kuzeykibrissmart.tv/brt1hd/bant1/playlist.m3u8",
     "https://edge.kuzeykibrissmart.tv/brt1hd/bant1/playlist.m3u8?hash=575af483b73a7e1874add233dc58aae1"
-   ]
+   ],
+   "kategori": "KKTC"
   },
   {
    "no": 241,
    "name": "BRT 2",
    "urls": [
     "https://edge.kuzeykibrissmart.tv/brt2hd/bant1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "KKTC"
   },
   {
    "no": 242,
@@ -2015,7 +2256,8 @@
    "basliklar": {
     "Referer": "https://adatv.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "KKTC"
   },
   {
    "no": 243,
@@ -2027,7 +2269,8 @@
    "basliklar": {
     "Referer": "https://www.kanalt.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "KKTC"
   },
   {
    "no": 244,
@@ -2035,7 +2278,8 @@
    "urls": [
     "https://edge.kuzeykibrissmart.tv/kibrisgenctv/bant1/playlist.m3u8"
    ],
-   "youtube": "https://www.youtube.com/channel/UC2uNsE15UivJCyuxbRu6tKA/live"
+   "youtube": "https://www.youtube.com/channel/UC2uNsE15UivJCyuxbRu6tKA/live",
+   "kategori": "KKTC"
   },
   {
    "no": 245,
@@ -2047,7 +2291,8 @@
    "basliklar": {
     "Referer": "https://www.kibristv.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "KKTC"
   },
   {
    "no": 246,
@@ -2059,7 +2304,8 @@
    "basliklar": {
     "Referer": "http://www.kanalsim.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "KKTC"
   },
   {
    "no": 247,
@@ -2067,14 +2313,16 @@
    "urls": [
     "https://edge.kuzeykibrissmart.tv/tv2020/bant1/playlist.m3u8",
     "https://sc-kuzeykibrissmarttv.ercdn.net/tv2020/bantp1/playlist.m3u8"
-   ]
+   ],
+   "kategori": "KKTC"
   },
   {
    "no": 248,
    "name": "KK TV",
    "urls": [
     "http://old.kuzeykibris.tv/m3u8/kktv.m3u8"
-   ]
+   ],
+   "kategori": "KKTC"
   },
   {
    "no": 249,
@@ -2086,7 +2334,8 @@
    "basliklar": {
     "Referer": "https://player.socialsmart.tv/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 250,
@@ -2097,7 +2346,8 @@
    "basliklar": {
     "Referer": "https://player.taksimbilisim.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 251,
@@ -2108,7 +2358,8 @@
    "basliklar": {
     "Referer": "https://player.taksimbilisim.com/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 252,
@@ -2119,7 +2370,8 @@
    "basliklar": {
     "Referer": "https://on4.com.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 253,
@@ -2130,7 +2382,8 @@
    "basliklar": {
     "Referer": "https://kontv.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-   }
+   },
+   "kategori": "Yerel"
   },
   {
    "no": 254,
@@ -2140,7 +2393,8 @@
     "Referer": "https://www.kadirga.com.tr/",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "sayfa": "https://www.kadirga.com.tr/kadirga-tv-canli-yayin.htm"
+   "sayfa": "https://www.kadirga.com.tr/kadirga-tv-canli-yayin.htm",
+   "kategori": "Yerel"
   },
   {
    "name": "AzTV",
@@ -2153,7 +2407,8 @@
     "Origin": "https://yodaplayer.yodacdn.net",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 255
+   "no": 255,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Mədəniyyət TV",
@@ -2166,7 +2421,8 @@
     "Origin": "https://yodaplayer.yodacdn.net",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 256
+   "no": 256,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Naxçıvan TV",
@@ -2179,7 +2435,8 @@
     "Origin": "https://yodaplayer.yodacdn.net",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 257
+   "no": 257,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Kanal 35",
@@ -2192,7 +2449,8 @@
     "Origin": "https://yodaplayer.yodacdn.net",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 258
+   "no": 258,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Azad TV (ATV)",
@@ -2202,7 +2460,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 259
+   "no": 259,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Xəzər TV",
@@ -2214,7 +2473,8 @@
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
    "no": 260,
-   "sayfa": "https://xezerxeber.az/az/live"
+   "sayfa": "https://xezerxeber.az/az/live",
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Baku TV",
@@ -2224,7 +2484,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 261
+   "no": 261,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Kanal S",
@@ -2234,7 +2495,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 262
+   "no": 262,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "APA TV",
@@ -2244,7 +2506,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 263
+   "no": 263,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "EL TV",
@@ -2255,7 +2518,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 264
+   "no": 264,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Kəpəz TV",
@@ -2265,7 +2529,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 265
+   "no": 265,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "AzStar TV",
@@ -2276,7 +2541,8 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 266
+   "no": 266,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Ayaz TV",
@@ -2286,13 +2552,15 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 267
+   "no": 267,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "Real TV",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCjpoTfA8TXO6QfAWiAB67eA/live",
-   "no": 268
+   "no": 268,
+   "kategori": "Azerbaycan"
   },
   {
    "name": "KN Music TV",
@@ -2302,19 +2570,22 @@
    "basliklar": {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
    },
-   "no": 269
+   "no": 269,
+   "kategori": "Müzik"
   },
   {
    "name": "Muz TV",
    "urls": [],
    "youtube": "https://www.youtube.com/channel/UCgHYcHd2SuX0ees5q0OWicQ/live",
-   "no": 270
+   "no": 270,
+   "kategori": "Müzik"
   },
   {
    "name": "MTV Azerbaijan",
    "urls": [],
    "youtube": "https://www.youtube.com/@MTVAzerbaijan/live",
-   "no": 271
+   "no": 271,
+   "kategori": "Müzik"
   }
  ]
 }

@@ -11,4 +11,6 @@ data class Kanal(
     val basliklar: Map<String, String> = emptyMap(),
     /** Yayını her seferinde yeni bir anahtarla veren kanallar için kanalın canlı yayın sayfası. */
     val sayfa: String? = null,
+    /** Menüdeki kategori (Ulusal, Haber, Spor...). */
+    val kategori: String = "Diğer",
 )

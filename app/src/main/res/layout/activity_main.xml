@@ -78,6 +78,34 @@
             android:orientation="vertical" />
     </LinearLayout>
 
+    <!-- Soldan açılan ana menü -->
+    <LinearLayout
+        android:id="@+id/menuKutusu"
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="36dp"
+        android:paddingEnd="18dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/menuBaslik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:paddingStart="14dp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:id="@+id/menuSatirlari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+
     <!-- Yayın gelmediğinde ekranın altında çıkan kısa mesaj -->
     <TextView
         android:id="@+id/durumYazisi"

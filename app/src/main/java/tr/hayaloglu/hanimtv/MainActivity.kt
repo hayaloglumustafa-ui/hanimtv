@@ -55,6 +55,25 @@ class MainActivity : Activity() {
         const val SURUM_KONTROL_ARALIGI = 12 * 60 * 60 * 1000L
         const val BEYAZ = 0xFFFFFFFF.toInt()
         const val GRI = 0x80FFFFFF.toInt()
+        const val MENU_ANA = 0
+        const val MENU_SON = 1
+        const val MENU_FAVORI = 2
+        const val MENU_KATEGORI = 3
+        const val MENU_KATEGORI_KANAL = 4
+        const val MENU_TEMA = 5
+        const val MENU_GUNCELLEME = 6
+        const val MENU_REHBER = 7
+        const val SON_IZLENEN_SAYISI = 10
+
+        class Tema(val ad: String, val zemin: Int, val vurgu: Int)
+
+        /** İlk tema varsayılandır. */
+        val TEMALAR = arrayOf(
+            Tema("Bordo-altın", 0xFF6E1530.toInt(), 0xFFE8C77A.toInt()),
+            Tema("Lacivert-altın", 0xFF14213D.toInt(), 0xFFD4AF37.toInt()),
+            Tema("Siyah-beyaz", 0xFF000000.toInt(), 0xFFFFFFFF.toInt()),
+            Tema("Zümrüt yeşili", 0xFF0F503C.toInt(), 0xFF9FE1CB.toInt()),
+        )
     }
 
     private lateinit var oynaticiGorunum: PlayerView
@@ -85,6 +104,10 @@ class MainActivity : Activity() {
     private val calismayanlar: MutableSet<Int> = ConcurrentHashMap.newKeySet()
 
     private val listeAcik get() = listeKutusu.visibility == View.VISIBLE
+    private val menuAcik get() = menuKutusu.visibility == View.VISIBLE
+    private lateinit var menuKutusu: View
+    private lateinit var menuBaslik: TextView
+    private val menuSatirlari = ArrayList<TextView>()
 
     // ---------------------------------------------------------------- Açılış
 
@@ -101,10 +124,13 @@ class MainActivity : Activity() {
         listeKutusu = findViewById(R.id.listeKutusu)
         listeBaslik = findViewById(R.id.listeBaslik)
         durumYazisi = findViewById(R.id.durumYazisi)
+        menuKutusu = findViewById(R.id.menuKutusu)
+        menuBaslik = findViewById(R.id.menuBaslik)
         ayarlar = getSharedPreferences("hanimtv", Context.MODE_PRIVATE)
 
         yaziTipleriniUygula()
         listeSatirlariniKur()
+        menuSatirlariniKur()
         gorunumuUygula()
 
         kanallar = KanalDeposu.yukle(this)
@@ -308,6 +334,7 @@ class MainActivity : Activity() {
         if (link == 0 && ayarlar.getInt("sonKanal", -1) != k.no) {
             // commit(): elektrik kesilse bile son kanal anında kaydedilmiş olur.
             ayarlar.edit().putInt("sonKanal", k.no).commit()
+            sonIzlenenEkle(k.isim)
         }
 
         if (k.linkler.isEmpty() && k.sayfa == null) {
@@ -611,7 +638,7 @@ class MainActivity : Activity() {
             }
             t.visibility = View.VISIBLE
             t.typeface = if (indeks == aktif) kalinYazi else normalYazi
-            t.setBackgroundResource(if (konum == listeSecili) R.drawable.secili_satir else 0)
+            t.background = if (konum == listeSecili) seciliZemin() else null
         }
     }
 
@@ -675,13 +702,13 @@ class MainActivity : Activity() {
             if (it == 0L) "—" else java.text.SimpleDateFormat("dd.MM HH:mm", java.util.Locale("tr")).format(java.util.Date(it))
         }
         return listOf(
-            "Kanal listesini şimdi güncelle",
-            "Güncellemeleri kontrol et",
             "Bütün kanalları test et",
             "Şeffaflık: " + seffaflikAdlari[seffaflik],
             "Yazı boyutu: " + boyutAdlari[boyut],
             "Açılışta HanımTV başlasın: " + if (acilis) "Açık" else "Kapalı",
             "Açılmayan kanalları gizle: " + if (gizle) "Açık" else "Kapalı",
+            "Uyku zamanlayıcısı: " + uykuYazisi(),
+            "Kumanda rehberi",
             "Sürüm 1.0.${Guncelleyici.mevcutSurum(this)} · Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman",
         )
     }
@@ -705,7 +732,7 @@ class MainActivity : Activity() {
             t.setTextColor(if (i == s.size - 1) GRI else BEYAZ)
             t.typeface = normalYazi
             t.visibility = View.VISIBLE
-            t.setBackgroundResource(if (i == ayarSecili) R.drawable.secili_satir else 0)
+            t.background = if (i == ayarSecili) seciliZemin() else null
         }
     }
 
@@ -729,16 +756,20 @@ class MainActivity : Activity() {
     private fun ayarUygula(sira: Int) {
         val e = ayarlar.edit()
         when (sira) {
-            0 -> listeyiSimdiGuncelle()
-            1 -> surumuSimdiKontrolEt()
-            2 -> kanalTestiniBaslat()
-            3 -> e.putInt("seffaflik", (ayarlar.getInt("seffaflik", 1) + 1) % 3)
-            4 -> e.putInt("yaziBoyutu", (ayarlar.getInt("yaziBoyutu", 1) + 1) % 3)
-            5 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
-            6 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
+            0 -> kanalTestiniBaslat()
+            1 -> e.putInt("seffaflik", (ayarlar.getInt("seffaflik", 1) + 1) % 3)
+            2 -> e.putInt("yaziBoyutu", (ayarlar.getInt("yaziBoyutu", 1) + 1) % 3)
+            3 -> e.putBoolean("acilistaBasla", !ayarlar.getBoolean("acilistaBasla", true))
+            4 -> e.putBoolean("griGizle", !ayarlar.getBoolean("griGizle", false))
+            5 -> uykuDegistir()
+            6 -> {
+                listeyiKapat()
+                menuyuAc(MENU_REHBER)
+                return
+            }
         }
         e.commit()
-        if (sira == 3 || sira == 4) gorunumuUygula()
+        if (sira == 1 || sira == 2) gorunumuUygula()
     }
 
     /** Seçilen şeffaflığı ve yazı boyutunu bütün kutulara uygular. */
@@ -746,11 +777,24 @@ class MainActivity : Activity() {
         val opaklik = intArrayOf(0xBF, 0x8C, 0x59)[ayarlar.getInt("seffaflik", 1).coerceIn(0, 2)]
         val oran = floatArrayOf(0.85f, 1f, 1.2f)[ayarlar.getInt("yaziBoyutu", 1).coerceIn(0, 2)]
         val yaricap = 12 * resources.displayMetrics.density
+        val tema = TEMALAR[ayarlar.getInt("tema", 0).coerceIn(0, TEMALAR.size - 1)]
         fun zemin() = android.graphics.drawable.GradientDrawable().apply {
-            setColor(opaklik shl 24)
+            setColor((opaklik shl 24) or (tema.zemin and 0xFFFFFF))
             cornerRadius = yaricap
         }
         listeKutusu.background = zemin()
+        menuKutusu.background = android.graphics.drawable.GradientDrawable().apply {
+            setColor((opaklik shl 24) or (tema.zemin and 0xFFFFFF))
+            val r = 18 * resources.displayMetrics.density
+            cornerRadii = floatArrayOf(0f, 0f, r, r, r, r, 0f, 0f)
+        }
+        menuBaslik.setTextColor(tema.vurgu)
+        listeBaslik.setTextColor(tema.vurgu)
+        menuSatirlari.forEach { it.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f * oran) }
+        menuBaslik.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f * oran)
+        menuKutusu.layoutParams = menuKutusu.layoutParams.apply {
+            width = (400 * oran * resources.displayMetrics.density).toInt()
+        }
         bilgiKutusu.background = zemin()
         durumYazisi.background = zemin()
         satirlar.forEach { it.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f * oran) }
@@ -922,18 +966,267 @@ class MainActivity : Activity() {
         }
     }
 
+    // ---------------------------------------------------------------- Soldan açılan menü
+
+    /** Menüde bir satır: görünen yazı ve seçilince yapılacak iş (null ise sadece bilgi satırı). */
+    private class MenuSatiri(val yazi: String, val renk: Int = BEYAZ, val is_: (() -> Unit)?)
+
+    private var menuSeviye = MENU_ANA
+    private var menuSecili = 0
+    private var menuKategori = ""
+    private val menuGecmisi = ArrayList<Pair<Int, Int>>()
+
+    private fun menuSatirlariniKur() {
+        val kap = findViewById<LinearLayout>(R.id.menuSatirlari)
+        val yogunluk = resources.displayMetrics.density
+        repeat(SAYFA_BOYU) {
+            val t = TextView(this).apply {
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
+                setTextColor(BEYAZ)
+                typeface = normalYazi
+                isSingleLine = true
+                ellipsize = android.text.TextUtils.TruncateAt.END
+                gravity = Gravity.CENTER_VERTICAL
+                val y = (8 * yogunluk).toInt()
+                val x = (14 * yogunluk).toInt()
+                setPadding(x, y, x, y)
+            }
+            kap.addView(t, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+            menuSatirlari.add(t)
+        }
+        menuBaslik.typeface = kalinYazi
+    }
+
+    private fun seciliZemin(): android.graphics.drawable.Drawable {
+        val tema = TEMALAR[ayarlar.getInt("tema", 0).coerceIn(0, TEMALAR.size - 1)]
+        val d = resources.displayMetrics.density
+        return android.graphics.drawable.GradientDrawable().apply {
+            setColor((0x55 shl 24) or (tema.vurgu and 0xFFFFFF))
+            setStroke((2 * d).toInt(), tema.vurgu)
+            cornerRadius = 8 * d
+        }
+    }
+
+    private fun isimListesi(anahtar: String): List<String> =
+        ayarlar.getString(anahtar, "").orEmpty().split('\n').filter { it.isNotBlank() }
+
+    private fun isimListesiKaydet(anahtar: String, l: List<String>) {
+        ayarlar.edit().putString(anahtar, l.joinToString("\n")).apply()
+    }
+
+    private fun sonIzlenenEkle(isim: String) {
+        val l = isimListesi("sonIzlenenler").toMutableList()
+        l.remove(isim)
+        l.add(0, isim)
+        isimListesiKaydet("sonIzlenenler", l.take(SON_IZLENEN_SAYISI))
+    }
+
+    private fun indeksBul(isim: String) = kanallar.indexOfFirst { it.isim == isim }
+
+    private fun kanalSatiri(indeks: Int): MenuSatiri {
+        val k = kanallar[indeks]
+        return MenuSatiri(String.format("%-4d %s", k.no, k.isim), if (calismayanlar.contains(k.no)) GRI else BEYAZ) {
+            menuyuKapat()
+            if (indeks != aktif) kanalaGit(indeks) else bilgiyiGoster(k.no.toString(), k.isim)
+        }
+    }
+
+    private fun menuIcerigi(): Pair<String, List<MenuSatiri>> = when (menuSeviye) {
+        MENU_SON -> "Son izlenenler" to isimListesi("sonIzlenenler").map { indeksBul(it) }.filter { it >= 0 }
+            .map { kanalSatiri(it) }.ifEmpty { listOf(MenuSatiri("Henüz kanal izlenmedi", GRI, null)) }
+        MENU_FAVORI -> {
+            val favoriler = isimListesi("favoriler")
+            val k = kanallar.getOrNull(aktif)
+            val l = ArrayList<MenuSatiri>()
+            if (k != null) {
+                val var_ = favoriler.contains(k.isim)
+                l.add(MenuSatiri(if (var_) "✕  ${k.isim} çıkar" else "★  ${k.isim} ekle") {
+                    isimListesiKaydet("favoriler", if (var_) favoriler - k.isim else favoriler + k.isim)
+                    kisaMesaj(if (var_) "${k.isim} favorilerden çıkarıldı" else "${k.isim} favorilere eklendi")
+                    menuyuCiz()
+                })
+            }
+            favoriler.map { indeksBul(it) }.filter { it >= 0 }.sortedBy { kanallar[it].no }.forEach { l.add(kanalSatiri(it)) }
+            "Favoriler" to l
+        }
+        MENU_KATEGORI -> "Kategoriler" to kanallar.map { it.kategori }.distinct().map { ad ->
+            val adet = kanallar.count { it.kategori == ad }
+            MenuSatiri("$ad  ($adet)") { menuyeGir(MENU_KATEGORI_KANAL); menuKategori = ad; menuyuCiz() }
+        }
+        MENU_KATEGORI_KANAL -> menuKategori to kanallar.indices.filter { kanallar[it].kategori == menuKategori }.map { kanalSatiri(it) }
+        MENU_TEMA -> {
+            val secili = ayarlar.getInt("tema", 0)
+            "Tema" to TEMALAR.mapIndexed { i, t ->
+                MenuSatiri((if (i == secili) "●  " else "○  ") + t.ad) {
+                    ayarlar.edit().putInt("tema", i).commit()
+                    gorunumuUygula()
+                    menuyuCiz()
+                }
+            }
+        }
+        MENU_GUNCELLEME -> {
+            val zaman = ayarlar.getLong("listeZamani", 0L).let {
+                if (it == 0L) "—" else java.text.SimpleDateFormat("dd.MM HH:mm", java.util.Locale("tr")).format(java.util.Date(it))
+            }
+            val l = arrayListOf(
+                MenuSatiri("Kanal listesini güncelle") { listeyiSimdiGuncelle() },
+                MenuSatiri("Yeni sürümü kontrol et") { surumuSimdiKontrolEt() },
+            )
+            if (yeniSurum != null) l.add(MenuSatiri(if (guncellemeIniyor) "Yeni sürüm indiriliyor…" else "Yeni sürümü kur") { guncellemeyiBaslat() })
+            l.add(MenuSatiri("Sürüm 1.0.${Guncelleyici.mevcutSurum(this)}", GRI, null))
+            l.add(MenuSatiri("Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman", GRI, null))
+            "Güncellemeler" to l
+        }
+        MENU_REHBER -> "Kumanda rehberi" to listOf(
+            "Yukarı / Aşağı: kanal değiştir",
+            "Rakamlar: kanal numarası",
+            "Orta tuş: kanal listesi",
+            "Sol tuş: bu menü",
+            "Sağ tuş: kanal bilgisi",
+            "Listede sağ / sol: sayfa",
+            "Geri: kapat / bir önceki",
+        ).map { MenuSatiri(it, BEYAZ, null) }
+        else -> "HanımTV" to listOf(
+            MenuSatiri("Son izlenenler") { menuyeGir(MENU_SON) },
+            MenuSatiri("Favoriler") { menuyeGir(MENU_FAVORI) },
+            MenuSatiri("Kategoriler") { menuyeGir(MENU_KATEGORI) },
+            MenuSatiri("Tüm kanallar") { menuyuKapat(); listeyiAc() },
+            MenuSatiri("Tema") { menuyeGir(MENU_TEMA) },
+            MenuSatiri(if (yeniSurum != null) "Güncellemeler  ●" else "Güncellemeler") { menuyeGir(MENU_GUNCELLEME) },
+            MenuSatiri("Ayarlar") {
+                menuyuKapat()
+                listeyiAc()
+                ayarModu = true
+                ayarSecili = 0
+                listeyiCiz()
+            },
+        )
+    }
+
+    private fun menuyuAc(seviye: Int) {
+        if (kanallar.isEmpty()) return
+        menuGecmisi.clear()
+        menuSeviye = seviye
+        menuSecili = 0
+        bilgiKutusu.visibility = View.GONE
+        menuKutusu.visibility = View.VISIBLE
+        menuyuCiz()
+    }
+
+    private fun menuyeGir(seviye: Int) {
+        menuGecmisi.add(menuSeviye to menuSecili)
+        menuSeviye = seviye
+        menuSecili = 0
+        menuyuCiz()
+    }
+
+    private fun menuyuKapat() {
+        menuKutusu.visibility = View.GONE
+        ana.removeCallbacks(menuyuKendiligindenKapat)
+    }
+
+    private val menuyuKendiligindenKapat = Runnable { menuyuKapat() }
+
+    private fun menuyuCiz() {
+        ana.removeCallbacks(menuyuKendiligindenKapat)
+        ana.postDelayed(menuyuKendiligindenKapat, LISTE_KAPANMA_SURESI)
+        val (baslik, l) = menuIcerigi()
+        menuSecili = menuSecili.coerceIn(0, maxOf(0, l.size - 1))
+        val sayfa = menuSecili / SAYFA_BOYU
+        val sayfaSayisi = maxOf(1, (l.size + SAYFA_BOYU - 1) / SAYFA_BOYU)
+        menuBaslik.text = if (sayfaSayisi > 1) "$baslik · ${sayfa + 1}/$sayfaSayisi" else baslik
+        val secilebilir = l.any { it.is_ != null }
+        for (i in 0 until SAYFA_BOYU) {
+            val t = menuSatirlari[i]
+            val satir = l.getOrNull(sayfa * SAYFA_BOYU + i)
+            if (satir == null) {
+                t.visibility = View.GONE
+                continue
+            }
+            t.text = satir.yazi
+            t.setTextColor(satir.renk)
+            t.visibility = View.VISIBLE
+            t.background = if (secilebilir && sayfa * SAYFA_BOYU + i == menuSecili) seciliZemin() else null
+        }
+    }
+
+    private fun menuTusu(tus: Int): Boolean {
+        val l = menuIcerigi().second
+        val adet = maxOf(1, l.size)
+        when (tus) {
+            KeyEvent.KEYCODE_DPAD_UP -> menuSecili = (menuSecili - 1 + adet) % adet
+            KeyEvent.KEYCODE_DPAD_DOWN -> menuSecili = (menuSecili + 1) % adet
+            KeyEvent.KEYCODE_CHANNEL_UP -> menuSecili = (menuSecili - SAYFA_BOYU).coerceAtLeast(0)
+            KeyEvent.KEYCODE_CHANNEL_DOWN -> menuSecili = (menuSecili + SAYFA_BOYU).coerceAtMost(adet - 1)
+            KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER, KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                l.getOrNull(menuSecili)?.is_?.invoke()
+                return true
+            }
+            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_MENU -> {
+                val onceki = menuGecmisi.removeLastOrNull()
+                if (onceki == null) {
+                    menuyuKapat()
+                    return true
+                }
+                menuSeviye = onceki.first
+                menuSecili = onceki.second
+            }
+            else -> return true
+        }
+        menuyuCiz()
+        return true
+    }
+
+    // ---------------------------------------------------------------- Uyku zamanlayıcısı
+
+    private var uykuBitis = 0L
+    private val uykuSecenekleri = intArrayOf(0, 30, 60, 90)
+
+    private fun uykuYazisi(): String {
+        if (uykuBitis == 0L) return "Kapalı"
+        val kalan = ((uykuBitis - System.currentTimeMillis()) / 60_000L + 1).coerceAtLeast(1)
+        return "$kalan dk sonra"
+    }
+
+    /** Kapalı → 30 → 60 → 90 dk → Kapalı. Süre dolunca yayın durur ve uygulama kapanır. */
+    private fun uykuDegistir() {
+        val simdiki = if (uykuBitis == 0L) 0 else ((uykuBitis - System.currentTimeMillis()) / 60_000L + 1).toInt()
+        val sonraki = uykuSecenekleri.firstOrNull { it > simdiki } ?: 0
+        ana.removeCallbacks(uykuUyarisi)
+        ana.removeCallbacks(uykuKapat)
+        if (sonraki == 0) {
+            uykuBitis = 0L
+            kisaMesaj("Uyku zamanlayıcısı kapatıldı")
+            return
+        }
+        uykuBitis = System.currentTimeMillis() + sonraki * 60_000L
+        ana.postDelayed(uykuUyarisi, (sonraki - 1) * 60_000L)
+        ana.postDelayed(uykuKapat, sonraki * 60_000L)
+        kisaMesaj("HanımTV $sonraki dakika sonra kapanacak")
+    }
+
+    private val uykuUyarisi = Runnable { kisaMesaj("HanımTV 1 dakika sonra kapanacak. Kapatmamak için Ayarlar'dan uyku zamanlayıcısını kapatın.") }
+
+    private val uykuKapat = Runnable {
+        uykuBitis = 0L
+        oynatici.stop()
+        finish()
+    }
+
     // ---------------------------------------------------------------- Kumanda
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (menuAcik) return menuTusu(keyCode)
         if (listeAcik) return listeTusu(keyCode)
         when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_MENU -> menuyuAc(MENU_ANA)
             KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_CHANNEL_UP -> kanalDegistir(+1)
             KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_CHANNEL_DOWN -> kanalDegistir(-1)
             KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER -> listeyiAc()
             in KeyEvent.KEYCODE_0..KeyEvent.KEYCODE_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_0)
             in KeyEvent.KEYCODE_NUMPAD_0..KeyEvent.KEYCODE_NUMPAD_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_NUMPAD_0)
             // Geri tuşu uygulamadan yanlışlıkla çıkarmaz; sadece kanal bilgisini gösterir. Çıkmak için ev tuşu kullanılır.
-            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_INFO ->
+            KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_INFO ->
                 kanallar.getOrNull(aktif)?.let { bilgiyiGoster(it.no.toString(), it.isim) }
             else -> return super.onKeyDown(keyCode, event)
         }
