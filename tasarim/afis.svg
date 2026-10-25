@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+<rect width="640" height="360" fill="#6E1530"/>
+<rect x="14" y="14" width="612" height="332" rx="18" fill="none" stroke="#E8C77A" stroke-opacity="0.35" stroke-width="2"/>
+<rect x="62" y="96" width="180" height="140" rx="20" fill="none" stroke="#E8C77A" stroke-width="7.0"/><path d="M120.0 256 L184.0 256" stroke="#E8C77A" stroke-width="7.0" stroke-linecap="round"/>
+<path d="M152.0 180.8 C126.0 178.2 113.0 149.6 120.8 121.0 C131.2 134.0 141.6 141.8 149.4 149.6Z" fill="#E8C77A" opacity="0.85"/><path d="M152.0 180.8 C178.0 178.2 191.0 149.6 183.2 121.0 C172.8 134.0 162.4 141.8 154.6 149.6Z" fill="#E8C77A" opacity="0.85"/><path d="M152.0 180.8 C133.8 170.4 133.8 139.2 152.0 118.4 C170.2 139.2 170.2 170.4 152.0 180.8Z" fill="#E8C77A"/><path d="M152.0 180.8 C152.0 201.6 152.0 217.2 152.0 232.8" stroke="#E8C77A" stroke-width="4.2" fill="none" stroke-linecap="round"/><path d="M152.0 222.4 C141.6 206.8 126.0 204.2 115.6 209.4 C126.0 217.2 139.0 219.8 152.0 227.6Z" fill="#E8C77A"/><path d="M152.0 217.2 C162.4 201.6 178.0 199.0 188.4 204.2 C178.0 212.0 165.0 214.6 152.0 222.4Z" fill="#E8C77A"/>
+<text x="278" y="196" font-family="Lora" font-weight="600" font-size="82" fill="#FFF7E6">Hanım</text>
+<text x="282" y="256" font-family="Lora" font-weight="500" font-size="40" fill="#E8C77A" letter-spacing="16">TV</text>
+<path d="M368 244 L590 244" stroke="#E8C77A" stroke-width="2" stroke-opacity="0.7"/>
+</svg>
