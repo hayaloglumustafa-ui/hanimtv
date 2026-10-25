@@ -10,6 +10,9 @@ on:
       - "app/src/main/assets/kanallar.json"
       - "surum.json"
       - "BENİOKU.md"
+      - "epg.json"
+      - "araclar/**"
+      - ".github/workflows/epg.yml"
   workflow_dispatch:
 
 permissions:
