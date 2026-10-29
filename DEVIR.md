@@ -18,6 +18,7 @@
 - Kanal ekleme ya da düzeltme sadece `app/src/main/assets/kanallar.json` ile yapılır ve yeni sürüm gerektirmez. "no" sırası bozulmamalı.
 - Ücretli, korsan ya da şifreli kanal eklenmez. Üçüncü kişilerin yeniden yayın linkleri (freeott, iptvperu, smartplaytv, onrender, github raw vb.) 29.10'da temizlendi; reklamda kesilmeyen yayınlar bu tür linkler olduğu için eklenmez.
 - Donma bekçisi: görüntü 8 sn ilerlemezse sonraki linke geçer.
+- TRT Belgesel donması 1.0.22 ile düzeldi (sahibi onayladı): resmi düz link önde, DAI link yedek.
 - NOW, Star, Kanal D'nin resmi uygulamaları sadece telefon/tablet içindir, Android TV sürümü yok (29.10 araştırıldı).
 - `araclar/akis_testi.sh` + `Akis testi` iş akışı: GitHub ABD'de olduğu için TRT gibi Türkiye'ye kısıtlı yayınları test edemez.
 - NOW ve Star kanallarındaki reklam ekranı kanalın kendi yayınından geliyor, çözülemez.
