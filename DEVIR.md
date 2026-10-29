@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 29, 331 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 30, 331 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
