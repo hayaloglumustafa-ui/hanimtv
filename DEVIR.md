@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 33, 363 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 33, 366 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -21,7 +21,7 @@
 
 **Türkmenistan (29.10):** 319-326, devletin resmi tv.online.tm sunucusu (406p, her zaman yayında olmayabilir).
 
-**Güney Kore ve Yunanistan (29.10):** 327-363. Sadece kanalların/kurumların kendi sunucuları; alışveriş kanalları, aracı/IP yeniden yayınları (cinerama, YTN IP, KBS World IP) ve bölge kısıtlı olanlar (ANT1, One, Channel A, MBC Drama) alınmadı. KBS/MBC/SBS ana kanallarının açık resmi yayını yok.
+**Güney Kore ve Yunanistan (29.10):** 327-366 (Kore 327-342, Yunanistan 343-366). Sadece kanalların/kurumların kendi sunucuları; alışveriş kanalları, aracı/IP yeniden yayınları (cinerama, YTN IP, KBS World IP) ve bölge kısıtlı olanlar (ANT1, One, Channel A, MBC Drama) alınmadı. KBS/MBC/SBS ana kanallarının açık resmi yayını yok.
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
