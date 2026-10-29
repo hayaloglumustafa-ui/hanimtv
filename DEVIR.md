@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 27, 305 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 28, 334 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -16,6 +16,8 @@
 **Deneme (29.10):** Ayarlar'da "NOW'u sitesinin oynatıcısıyla aç" (varsayılan kapalı). JSON'da `siteOynatici` alanı olan kanal WebView'da açılır, SITE_JS oynatıcıyı tam ekran yapıp gerisini gizler; sadece o alan adına gidilir; bu modda reklam kaçışı devre dışı. Stick'te ilk deneme (1.0.32): site reklamı oynadı ama reklamdan sonra yayın durdu (gri oynat resmi). 1.0.33'te düzeltildi (reklam modunda değilse her 3 sn play, varsayılan poster gizli) ama denenmedi; sahibi 29.10'da "şimdilik dursun" dedi.
 
 **Özbekistan (29.10):** 272-305, kategori "Özbekistan"; kaynak iptv-org uz listesi. Çoğu cinerama.uz (Özbek OTT platformu) üzerinden, BIZ TV ve Milliy kendi sunucuları önde. Türkiye'den açılıp açılmadığı stick'teki kanal testiyle görülecek (bölge kısıtı olabilir).
+
+**Kazakistan ve Kırgızistan (29.10):** 306-334. Sadece kanalların/devlet kurumlarının kendi sunucuları (qazcdn, kaztrk bölge kanalları, ktk.kz, adapto, kendi alan adları) alındı; uplink.kz, mcquack, mediabay, gohoski, 120.70.60.179 gibi aracı/yeniden yayın kaynakları alınmadı. Khabar, 24KZ, Astana TV, 7 Kanal'ın resmi açık linki bulunamadı. Kırgızistan'dan sadece 3 kanal.
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
