@@ -1,5 +1,5 @@
 {
- "surum": 26,
+ "surum": 27,
  "kanallar": [
   {
    "no": 1,
@@ -2576,6 +2576,282 @@
    "youtube": "https://www.youtube.com/@MTVAzerbaijan/live",
    "no": 271,
    "kategori": "Müzik"
+  },
+  {
+   "no": 272,
+   "name": "O'zbekiston",
+   "urls": [
+    "https://stream8.cinerama.uz/1001/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 273,
+   "name": "O'zbekiston 24",
+   "urls": [
+    "https://stream8.cinerama.uz/1011/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 274,
+   "name": "Yoshlar",
+   "urls": [
+    "https://stream8.cinerama.uz/1002/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 275,
+   "name": "Toshkent",
+   "urls": [
+    "https://stream8.cinerama.uz/1003/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 276,
+   "name": "Sport (Özbekistan)",
+   "urls": [
+    "https://stream8.cinerama.uz/1004/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 277,
+   "name": "Madaniyat va ma'rifat",
+   "urls": [
+    "https://stream8.cinerama.uz/1005/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 278,
+   "name": "Dunyo bo'ylab",
+   "urls": [
+    "https://stream8.cinerama.uz/1006/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 279,
+   "name": "Bolajon",
+   "urls": [
+    "https://stream8.cinerama.uz/1007/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 280,
+   "name": "Navo",
+   "urls": [
+    "https://stream8.cinerama.uz/1008/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 281,
+   "name": "Kinoteatr",
+   "urls": [
+    "https://stream8.cinerama.uz/1009/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 282,
+   "name": "Mahalla",
+   "urls": [
+    "https://stream8.cinerama.uz/1013/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 283,
+   "name": "O'zbekiston Tarixi",
+   "urls": [
+    "https://stream8.cinerama.uz/1209/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 284,
+   "name": "Qaraqalpaqstan",
+   "urls": [
+    "https://stream8.cinerama.uz/1467/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 285,
+   "name": "Farg'ona MTRK",
+   "urls": [
+    "https://stream8.cinerama.uz/1458/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 286,
+   "name": "Navoiy MTRK",
+   "urls": [
+    "https://stream8.cinerama.uz/1460/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 287,
+   "name": "Milliy TV",
+   "urls": [
+    "http://milliy.tv/hls/index.m3u8",
+    "https://stream8.cinerama.uz/1014/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 288,
+   "name": "Sevimli TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1017/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 289,
+   "name": "Zo'r TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1016/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 290,
+   "name": "MY5",
+   "urls": [
+    "https://stream8.cinerama.uz/1217/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 291,
+   "name": "FTV",
+   "urls": [
+    "https://stream8.cinerama.uz/1018/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 292,
+   "name": "UzReport TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1015/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 293,
+   "name": "Futbol TV",
+   "urls": [
+    "http://stream3.cinerama.uz/1010/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 294,
+   "name": "Renessans TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1221/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 295,
+   "name": "Makon TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1497/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 296,
+   "name": "Dasturxon TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1206/tracks-v1a1/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 297,
+   "name": "Taraqqiyot TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1204/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 298,
+   "name": "Nurafshon TV",
+   "urls": [
+    "https://stream8.cinerama.uz/1220/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 299,
+   "name": "Aqlvoy",
+   "urls": [
+    "https://stream8.cinerama.uz/1205/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 300,
+   "name": "Cheksiz TV",
+   "urls": [
+    "https://fl.biztv.media/cheksiz_tv_480_unif7hujidth7f4du83jrhuid3k94j8hfj8d93eubych8eju93n4ubt/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 301,
+   "name": "BIZ TV",
+   "urls": [
+    "https://fl.biztv.media/biz_tv_720_uni8jhub4h8fub4idejswh8dh3j94finbu4nidj39inwsj92in3d/index.m3u8",
+    "https://stream8.cinerama.uz/1211/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 302,
+   "name": "BIZ Cinema",
+   "urls": [
+    "https://fl.biztv.media/cinema_720_EMfSyXgoRdiIHgldXTZICucKTIeCKO/index.m3u8",
+    "https://stream8.cinerama.uz/1213/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 303,
+   "name": "BIZ Music",
+   "urls": [
+    "https://fl.biztv.media/music_720_QAKpGmVUjaPApCNjpsgBxrdqNihAkl/index.m3u8",
+    "https://stream8.cinerama.uz/1212/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 304,
+   "name": "MiMi TV",
+   "urls": [
+    "https://fl.biztv.media/MiMiTV_720/playlist.m3u8"
+   ],
+   "kategori": "Özbekistan"
+  },
+  {
+   "no": 305,
+   "name": "Muz TV Uzbekistan",
+   "urls": [
+    "https://stream8.cinerama.uz/1063/tracks-v1a1/mono.m3u8"
+   ],
+   "kategori": "Özbekistan"
   }
  ]
 }
