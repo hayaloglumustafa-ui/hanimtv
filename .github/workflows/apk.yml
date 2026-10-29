@@ -11,6 +11,7 @@ on:
       - "app/src/main/assets/kanallar.json"
       - "surum.json"
       - "BENİOKU.md"
+      - "DEVIR.md"
       - "epg.json"
       - "araclar/**"
       - ".github/workflows/epg.yml"
