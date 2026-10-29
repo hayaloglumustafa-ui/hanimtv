@@ -1,5 +1,5 @@
 {
- "surum": 34,
+ "surum": 35,
  "kanallar": [
   {
    "no": 1,
@@ -3029,17 +3029,23 @@
    "no": 326,
    "name": "TV Chosun",
    "urls": [
-    "#EXTVLCOPT:http-referrer=http://broadcast.tvchosun.com/onair/on.cstv"
+    "http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8"
    ],
-   "kategori": "Güney Kore"
+   "kategori": "Güney Kore",
+   "basliklar": {
+    "Referer": "http://broadcast.tvchosun.com/onair/on.cstv"
+   }
   },
   {
    "no": 327,
    "name": "TV Chosun 2",
    "urls": [
-    "#EXTVLCOPT:http-referrer=http://broadcast.tvchosun.com/onair/on2.cstv"
+    "http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8"
    ],
-   "kategori": "Güney Kore"
+   "kategori": "Güney Kore",
+   "basliklar": {
+    "Referer": "http://broadcast.tvchosun.com/onair/on2.cstv"
+   }
   },
   {
    "no": 328,
