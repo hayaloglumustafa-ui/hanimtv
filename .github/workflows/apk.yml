@@ -14,6 +14,7 @@ on:
       - "epg.json"
       - "araclar/**"
       - ".github/workflows/epg.yml"
+      - ".github/workflows/akis-testi.yml"
   workflow_dispatch:
 
 permissions:

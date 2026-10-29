@@ -1,0 +1,2 @@
+belgesel-dai https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8
+belgesel https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8
