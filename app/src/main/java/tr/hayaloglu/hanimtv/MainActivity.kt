@@ -269,6 +269,21 @@ class MainActivity : Activity() {
                         durumGizle()
                         kanallar.getOrNull(aktif)?.let { if (calismayanlar.remove(it.no) && listeAcik) listeyiCiz() }
                     }
+                    Player.STATE_ENDED -> {
+                        // Canlı yayın "bitti" derse (bazı kanallar reklam geçişinde böyle işaret verir) canlı noktadan devam et.
+                        // 30 saniye içinde ikinci kez biterse link gerçekten bozuktur: yedeğe geç.
+                        ana.removeCallbacks(takilmaKontrol)
+                        val simdi = System.currentTimeMillis()
+                        if (simdi - sonBitis < 30_000L) {
+                            sonHata = "yayın kendiliğinden bitti"
+                            sonrakiLinkiDene()
+                        } else {
+                            oynatici.seekToDefaultPosition()
+                            oynatici.prepare()
+                            oynatici.playWhenReady = true
+                        }
+                        sonBitis = simdi
+                    }
                     else -> ana.removeCallbacks(takilmaKontrol)
                 }
             }
@@ -309,6 +324,7 @@ class MainActivity : Activity() {
 
     /** Ekranda gösterilecek kısa hata sebebi; bana fotoğrafı gönderildiğinde sorunu anlamayı sağlar. */
     private var sonHata = ""
+    private var sonBitis = 0L
 
     private fun hataAciklamasi(e: PlaybackException): String {
         var c: Throwable? = e
