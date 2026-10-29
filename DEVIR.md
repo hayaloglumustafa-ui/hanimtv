@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 35, 363 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 36, 357 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -24,6 +24,8 @@
 31 Kanal, MuzzOne, Qonaev Media açılmadı, çıkarıldı (sonraki numaralar 3 kaydı: Türkmenistan 316-323, Kore 324-339, Yunanistan 340-363).
 
 **Güney Kore ve Yunanistan (29.10):** 327-366 (Kore 327-342, Yunanistan 343-366). Sadece kanalların/kurumların kendi sunucuları; alışveriş kanalları, aracı/IP yeniden yayınları (cinerama, YTN IP, KBS World IP) ve bölge kısıtlı olanlar (ANT1, One, Channel A, MBC Drama) alınmadı. KBS/MBC/SBS ana kanallarının açık resmi yayını yok.
+
+**29.10 test:** Futbol TV, MBC Gwangju, MBC Busan, SBS KNN, ERT3, Ecclesia TV açılmadı, çıkarıldı. Türk yerel kanalları Er TV, Kanal 33, Kanal Hayat, Agro TV, Dim TV, Kardelen TV, Viyana TV açılmıyor (404/403) ama sıra bozulmasın diye listede tutuldu; yeni link bulunamadı, ileride tekrar bakılacak.
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
