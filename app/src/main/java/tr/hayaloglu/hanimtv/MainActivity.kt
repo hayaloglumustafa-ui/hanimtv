@@ -64,6 +64,7 @@ class MainActivity : Activity() {
         const val MENU_GUNCELLEME = 6
         const val MENU_REHBER = 7
         const val MENU_AKIS = 8
+        const val SITE_JS = """(function(){ var k=document.querySelector('.video-js'); var v=k?k.querySelector('video'):document.querySelector('video'); if(!v) return 'video yok'; if(!k) k=v.parentElement; document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden'; k.style.cssText+=';position:fixed!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;padding:0!important;z-index:2147483647!important;background:#000!important;margin:0!important'; var e=k; while(e&&e!==document.body&&e.parentElement){ [].forEach.call(e.parentElement.children,function(s){ if(s!==e&&!/SCRIPT|STYLE|LINK/.test(s.tagName)) s.style.setProperty('display','none','important'); }); e.style.setProperty('transform','none','important'); e.style.setProperty('filter','none','important'); e=e.parentElement; } [].slice.call(k.querySelectorAll('video')).forEach(function(x){x.style.objectFit='contain'}); window.__htv=(window.__htv||0)+1; var reklam=/vjs-ad-(playing|loading)/.test(k.className); if(v.paused && !reklam && window.__htv<15){ var d=k.querySelector('.vjs-big-play-button'); if(d) d.click(); var p=v.play(); if(p&&p.catch) p.catch(function(){}); } if(!reklam) v.muted=false; return reklam?'reklam':(v.paused?'durdu':'oynuyor'); })()"""
         const val SON_IZLENEN_SAYISI = 10
         const val MENU_SAYFA = 8
 
@@ -164,6 +165,7 @@ class MainActivity : Activity() {
 
     override fun onStop() {
         super.onStop()
+        siteOynaticiyiKapat()
         // Ana ekrana dönülünce ses arkada çalmaya devam etmesin.
         ana.removeCallbacks(yenidenDene)
         ana.removeCallbacks(takilmaKontrol)
@@ -352,6 +354,12 @@ class MainActivity : Activity() {
         linkSirasi = link
         val k = kanallar[indeks]
         if (bilgiGoster) bilgiyiGoster(k.no.toString(), k.isim)
+
+        if (k.siteOynatici != null && ayarlar.getBoolean("siteOynatici", false)) {
+            siteOynaticiylaAc(k)
+            return
+        }
+        siteOynaticiyiKapat()
 
         if (k.linkler.isEmpty() && k.sayfa == null && k.youtube != null) {
             youtubeAc(k)
@@ -769,6 +777,7 @@ class MainActivity : Activity() {
             "Uyku zamanlayıcısı: " + uykuYazisi(),
             "Görüntü: " + goruntuAdlari[ayarlar.getInt("goruntu", 0).coerceIn(0, 2)],
             "Reklamda önceki kanala geç: " + if (ayarlar.getBoolean("reklamKacis", true)) "Açık" else "Kapalı",
+            "NOW'u sitesinin oynatıcısıyla aç (deneme): " + if (ayarlar.getBoolean("siteOynatici", false)) "Açık" else "Kapalı",
             "Kumanda rehberi",
             "Sürüm 1.0.${Guncelleyici.mevcutSurum(this)} · Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman",
         )
@@ -782,18 +791,20 @@ class MainActivity : Activity() {
         val s = ayarSatirlari()
         ayarSecili = ayarSecili.coerceIn(0, s.size - 1)
         listeBaslik.text = "Ayarlar · Geri tuşu: kanal listesi"
+        val bas = (ayarSecili / SAYFA_BOYU) * SAYFA_BOYU
         for (i in 0 until SAYFA_BOYU) {
             val t = satirlar[i]
-            if (i >= s.size) {
+            val j = bas + i
+            if (j >= s.size) {
                 t.visibility = View.INVISIBLE
                 t.background = null
                 continue
             }
-            t.text = s[i]
-            t.setTextColor(if (i == s.size - 1) GRI else BEYAZ)
+            t.text = s[j]
+            t.setTextColor(if (j == s.size - 1) GRI else BEYAZ)
             t.typeface = normalYazi
             t.visibility = View.VISIBLE
-            t.background = if (i == ayarSecili) seciliZemin() else null
+            t.background = if (j == ayarSecili) seciliZemin() else null
         }
     }
 
@@ -829,6 +840,12 @@ class MainActivity : Activity() {
                 if (reklamda) reklamKacisiniBitir()
             }
             8 -> {
+                e.putBoolean("siteOynatici", !ayarlar.getBoolean("siteOynatici", false))
+                e.commit()
+                kanallar.getOrNull(aktif)?.let { if (it.siteOynatici != null) kanalaGit(aktif) }
+                return
+            }
+            9 -> {
                 listeyiKapat()
                 menuyuAc(MENU_REHBER)
                 return
@@ -1367,6 +1384,8 @@ class MainActivity : Activity() {
         if (reklamda && System.currentTimeMillis() - reklamBaslangici > 12 * 60_000L) { reklamdanDon(); return }
         val hedef = if (reklamda) asilKanal else aktif
         val k = kanallar.getOrNull(hedef) ?: return
+        // Kanal kendi sitesinin oynatıcısıyla açıksa reklamları site gösterir; kaçmaya gerek yok.
+        if (!reklamda && k.siteOynatici != null && ayarlar.getBoolean("siteOynatici", false)) return
         if (k.no != izlenenNo) {
             izlenenNo = k.no
             medyaListesi = null
@@ -1435,6 +1454,75 @@ class MainActivity : Activity() {
         if (buradaydi && asil in kanallar.indices) {
             kanalaGit(asil)
             kisaMesaj("${kanallar[asil].isim} programına dönüldü")
+        }
+    }
+
+    // ---------------------------------------------------------------- Kanalın kendi sitesindeki oynatıcı (deneme)
+
+    /*
+     * Kanalın resmi sitesini uygulamanın içinde, sadece oynatıcı tam ekran görünecek şekilde açar.
+     * Reklam arasında sitenin kendi reklamları oynar (bilgisayarda tarayıcıdan izlemekle aynı).
+     * Güvenlik: sadece kanalın kendi alan adındaki sayfalara gidilir; başka siteye geçiş engellenir.
+     */
+    private var siteGorunum: android.webkit.WebView? = null
+    private var siteAlanAdi = ""
+
+    private val siteDuzenle: Runnable = object : Runnable { override fun run() {
+        val w = siteGorunum ?: return
+        if (w.visibility != View.VISIBLE) return
+        w.evaluateJavascript(SITE_JS, null)
+        ana.postDelayed(this, 3_000)
+    } }
+
+    private fun siteOynaticiylaAc(k: Kanal) {
+        val adres = k.siteOynatici ?: return
+        oynatici.stop()
+        ana.removeCallbacks(takilmaKontrol)
+        durumGizle()
+        val w = siteGorunum ?: try {
+            android.webkit.WebView(this).also { yeni ->
+                yeni.isFocusable = false
+                yeni.isFocusableInTouchMode = false
+                yeni.setBackgroundColor(android.graphics.Color.BLACK)
+                yeni.settings.javaScriptEnabled = true
+                yeni.settings.domStorageEnabled = true
+                yeni.settings.mediaPlaybackRequiresUserGesture = false
+                yeni.settings.allowFileAccess = false
+                yeni.webViewClient = object : android.webkit.WebViewClient() {
+                    override fun shouldOverrideUrlLoading(view: android.webkit.WebView, istek: android.webkit.WebResourceRequest): Boolean {
+                        if (!istek.isForMainFrame) return false
+                        val host = istek.url.host ?: return true
+                        return !(host == siteAlanAdi || host.endsWith(".$siteAlanAdi"))
+                    }
+                    override fun onPageFinished(view: android.webkit.WebView, url: String) {
+                        ana.removeCallbacks(siteDuzenle)
+                        ana.postDelayed(siteDuzenle, 1_500)
+                    }
+                }
+                (oynaticiGorunum.parent as android.view.ViewGroup).addView(yeni, 1,
+                    android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT))
+                siteGorunum = yeni
+            }
+        } catch (e: Exception) {
+            // Stick'te tarayıcı bileşeni yoksa normal oynatıcıyla devam.
+            kisaMesaj("Site oynatıcısı bu cihazda açılamadı")
+            ayarlar.edit().putBoolean("siteOynatici", false).apply()
+            oynat(aktif, 0)
+            return
+        }
+        siteAlanAdi = (android.net.Uri.parse(adres).host ?: "").removePrefix("www.")
+        w.visibility = View.VISIBLE
+        w.onResume()
+        w.loadUrl(adres)
+    }
+
+    private fun siteOynaticiyiKapat() {
+        val w = siteGorunum ?: return
+        ana.removeCallbacks(siteDuzenle)
+        if (w.visibility == View.VISIBLE) {
+            w.loadUrl("about:blank")
+            w.onPause()
+            w.visibility = View.GONE
         }
     }
 

@@ -13,4 +13,6 @@ data class Kanal(
     val sayfa: String? = null,
     /** Menüdeki kategori (Ulusal, Haber, Spor...). */
     val kategori: String = "Diğer",
+    /** İsteğe bağlı: kanalın kendi sitesindeki oynatıcı (Ayarlar'dan açılınca bununla oynatılır). */
+    val siteOynatici: String? = null,
 )
