@@ -1,5 +1,5 @@
 {
- "surum": 33,
+ "surum": 34,
  "kanallar": [
   {
    "no": 1,
@@ -2904,30 +2904,6 @@
   },
   {
    "no": 312,
-   "name": "31 Kanal",
-   "urls": [
-    "https://streams.adapto.kz/hls/live/31kz/main_stream.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 313,
-   "name": "MuzzOne",
-   "urls": [
-    "https://streams.adapto.kz/hls/live/muzzone/main_stream.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 314,
-   "name": "Qonaev Media",
-   "urls": [
-    "https://s.qonaevtv.kz/live/qonaev/playlist.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 315,
    "name": "Ulytau",
    "urls": [
     "https://ulytau.tv/hls/master.m3u8"
@@ -2935,7 +2911,7 @@
    "kategori": "Kazakistan"
   },
   {
-   "no": 316,
+   "no": 313,
    "name": "TDK 42",
    "urls": [
     "https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8"
@@ -2943,7 +2919,7 @@
    "kategori": "Kazakistan"
   },
   {
-   "no": 317,
+   "no": 314,
    "name": "Rika TV",
    "urls": [
     "https://live-rikatv.cdnvideo.ru/rikatv/rikatv_tcode.sdp/playlist.m3u8"
@@ -2951,7 +2927,7 @@
    "kategori": "Kazakistan"
   },
   {
-   "no": 318,
+   "no": 315,
    "name": "MTRK (Kazakistan)",
    "urls": [
     "https://tvcdn01.esilnet.kz/tv/mtrk/index.m3u8",
@@ -2960,7 +2936,7 @@
    "kategori": "Kazakistan"
   },
   {
-   "no": 319,
+   "no": 316,
    "name": "Altyn Asyr",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch001.m3u8",
@@ -2969,7 +2945,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 320,
+   "no": 317,
    "name": "Türkmenistan",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch007.m3u8",
@@ -2978,7 +2954,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 321,
+   "no": 318,
    "name": "Ýaşlyk",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch002.m3u8",
@@ -2987,7 +2963,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 322,
+   "no": 319,
    "name": "Miras",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch003.m3u8",
@@ -2996,7 +2972,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 323,
+   "no": 320,
    "name": "Türkmenistan Sport",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch004.m3u8",
@@ -3005,7 +2981,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 324,
+   "no": 321,
    "name": "Türkmen Owazy",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch005.m3u8",
@@ -3014,7 +2990,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 325,
+   "no": 322,
    "name": "Aşgabat",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch006.m3u8",
@@ -3023,7 +2999,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 326,
+   "no": 323,
    "name": "Arkadag TV",
    "urls": [
     "https://alpha.tv.online.tm/hls/ch000.m3u8",
@@ -3032,7 +3008,7 @@
    "kategori": "Türkmenistan"
   },
   {
-   "no": 327,
+   "no": 324,
    "name": "Arirang TV",
    "urls": [
     "https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
@@ -3042,7 +3018,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 328,
+   "no": 325,
    "name": "Korea TV",
    "urls": [
     "https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8"
@@ -3050,7 +3026,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 329,
+   "no": 326,
    "name": "TV Chosun",
    "urls": [
     "#EXTVLCOPT:http-referrer=http://broadcast.tvchosun.com/onair/on.cstv"
@@ -3058,7 +3034,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 330,
+   "no": 327,
    "name": "TV Chosun 2",
    "urls": [
     "#EXTVLCOPT:http-referrer=http://broadcast.tvchosun.com/onair/on2.cstv"
@@ -3066,7 +3042,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 331,
+   "no": 328,
    "name": "EBS 1",
    "urls": [
     "https://ebsonair.ebs.co.kr/ebs1familypc/familypc1m/playlist.m3u8",
@@ -3075,7 +3051,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 332,
+   "no": 329,
    "name": "EBS 2",
    "urls": [
     "https://ebsonair.ebs.co.kr/ebs2familypc/familypc1m/playlist.m3u8"
@@ -3083,7 +3059,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 333,
+   "no": 330,
    "name": "EBS Kids",
    "urls": [
     "https://ebsonair.ebs.co.kr/ebsufamilypc/familypc1m/playlist.m3u8"
@@ -3091,7 +3067,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 334,
+   "no": 331,
    "name": "TBS Seoul",
    "urls": [
     "https://cdntv.tbs.seoul.kr/tbs/tbs_tv_web.smil/playlist.m3u8"
@@ -3104,7 +3080,7 @@
     "https://media.kjmbc.co.kr/hls/live/stream/playlist.m3u8"
    ],
    "kategori": "Güney Kore",
-   "no": 335
+   "no": 332
   },
   {
    "name": "MBC Busan",
@@ -3112,7 +3088,7 @@
     "https://stream.bsmbc.com/livetv/BusanMBC_TV_onairstream/playlist.m3u8"
    ],
    "kategori": "Güney Kore",
-   "no": 336
+   "no": 333
   },
   {
    "name": "MBC Daejeon",
@@ -3120,10 +3096,10 @@
     "https://ns1.tjmbc.co.kr/live/myStream.sdp/playlist.m3u8"
    ],
    "kategori": "Güney Kore",
-   "no": 337
+   "no": 334
   },
   {
-   "no": 338,
+   "no": 335,
    "name": "SBS KNN",
    "urls": [
     "https://stream1.knn.co.kr/hls/9ly4534y7dm2xfa123r2_tv/index.m3u8"
@@ -3131,7 +3107,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 339,
+   "no": 336,
    "name": "SBS KBC",
    "urls": [
     "https://vod.ikbc.co.kr/KBCTV/tv/playlist.m3u8"
@@ -3139,7 +3115,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 340,
+   "no": 337,
    "name": "SBS UBC",
    "urls": [
     "https://stream.ubc.co.kr/hls/ubctvstream/index.m3u8"
@@ -3147,7 +3123,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 341,
+   "no": 338,
    "name": "Gugak TV",
    "urls": [
     "https://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8"
@@ -3155,7 +3131,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 342,
+   "no": 339,
    "name": "OUN",
    "urls": [
     "https://live.knou.ac.kr/knou1/live1/playlist.m3u8"
@@ -3163,7 +3139,7 @@
    "kategori": "Güney Kore"
   },
   {
-   "no": 343,
+   "no": 340,
    "name": "ERT News",
    "urls": [
     "https://ert-ucdn.broadpeak-aas.com/bpk-tv/ERTNews/default/index.m3u8"
@@ -3171,7 +3147,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 344,
+   "no": 341,
    "name": "ERT3",
    "urls": [
     "https://ert-ucdn.broadpeak-aas.com/bpk-tv/ERT3/default/index.m3u8"
@@ -3179,7 +3155,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 345,
+   "no": 342,
    "name": "ERT Cosmos",
    "urls": [
     "https://ert-ucdn.broadpeak-aas.com/bpk-tv/ERTCosmos/default/index.m3u8"
@@ -3187,7 +3163,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 346,
+   "no": 343,
    "name": "Vouli TV",
    "urls": [
     "https://ert-ucdn.broadpeak-aas.com/bpk-tv/VOULITV/default/index.m3u8"
@@ -3195,7 +3171,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 347,
+   "no": 344,
    "name": "Skai TV",
    "urls": [
     "http://skai-live-back.siliconweb.com/media/cambria4/index.m3u8"
@@ -3203,7 +3179,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 348,
+   "no": 345,
    "name": "Alpha TV",
    "urls": [
     "https://alphatvlive2.siliconweb.com/alphatvlive/live_abr/playlist.m3u8"
@@ -3211,7 +3187,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 349,
+   "no": 346,
    "name": "Star Channel",
    "urls": [
     "http://livestar.siliconweb.com/starvod/star4/star4.m3u8"
@@ -3219,7 +3195,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 350,
+   "no": 347,
    "name": "Star International",
    "urls": [
     "https://livestar.siliconweb.com/starvod/star_int/star_int.m3u8"
@@ -3227,7 +3203,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 351,
+   "no": 348,
    "name": "Action 24",
    "urls": [
     "http://actionlive.siliconweb.com/actionabr/actiontv/playlist.m3u8"
@@ -3235,7 +3211,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 352,
+   "no": 349,
    "name": "Kontra Channel",
    "urls": [
     "https://kontralive.siliconweb.com/live/kontratv/playlist.m3u8"
@@ -3243,7 +3219,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 353,
+   "no": 350,
    "name": "Naftemporiki TV",
    "urls": [
     "https://telmaco.ascdn.broadpeak.io/nafteboriki/default/index.m3u8"
@@ -3251,7 +3227,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 354,
+   "no": 351,
    "name": "Zougla TV",
    "urls": [
     "https://zouglacam-mdc-secure.akamaized.net/zouglalive/backup/playlist.m3u8"
@@ -3259,7 +3235,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 355,
+   "no": 352,
    "name": "Ecclesia TV",
    "urls": [
     "https://liveopen.siliconweb.com/openTvLive/openEcclessia/playlist.m3u8"
@@ -3267,7 +3243,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 356,
+   "no": 353,
    "name": "Kriti TV",
    "urls": [
     "https://cretetvlive.siliconweb.com/cretetv/liveabr/playlist.m3u8"
@@ -3275,7 +3251,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 357,
+   "no": 354,
    "name": "Star Kentrikis Elladas",
    "urls": [
     "https://telmaco-cdn.akamaized.net/starcgr/default/index.m3u8"
@@ -3283,7 +3259,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 358,
+   "no": 355,
    "name": "4E",
    "urls": [
     "http://eu2.tv4e.gr:554/live/smil:myStream.sdp.smil/playlist.m3u8",
@@ -3292,7 +3268,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 359,
+   "no": 356,
    "name": "Nea TV",
    "urls": [
     "https://live.neatv.gr:8888/hls/neatv.m3u8",
@@ -3301,7 +3277,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 360,
+   "no": 357,
    "name": "Ionian Channel",
    "urls": [
     "http://stream.ioniantv.gr:8081/ionian/live/playlist.m3u8",
@@ -3310,7 +3286,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 361,
+   "no": 358,
    "name": "Vergina TV",
    "urls": [
     "https://verginanews.gr:8443/hls_live/stream1.m3u8"
@@ -3318,7 +3294,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 362,
+   "no": 359,
    "name": "Thraki Net TV",
    "urls": [
     "https://cdn.onestreaming.com/thrakinettv/thrakinettv/playlist.m3u8"
@@ -3326,7 +3302,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 363,
+   "no": 360,
    "name": "Blue Sky TV",
    "urls": [
     "https://cdn5.smart-tv-data.com/bluesky/bluesky-live/playlist.m3u8"
@@ -3334,7 +3310,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 364,
+   "no": 361,
    "name": "ENA Channel",
    "urls": [
     "https://cdn5.smart-tv-data.com/ena/ena_channel/playlist.m3u8"
@@ -3342,7 +3318,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 365,
+   "no": 362,
    "name": "Center TV",
    "urls": [
     "https://eu1.streams.gr:8081/centertv/index.m3u8"
@@ -3350,7 +3326,7 @@
    "kategori": "Yunanistan"
   },
   {
-   "no": 366,
+   "no": 363,
    "name": "Kos TV",
    "urls": [
     "https://eu1.streams.gr:8081/kostv/index.m3u8"

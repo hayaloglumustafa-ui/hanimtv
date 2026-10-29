@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 33, 366 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 34, 363 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -20,6 +20,8 @@
 **Kazakistan ve Kırgızistan (29.10):** 306-334. Sadece kanalların/devlet kurumlarının kendi sunucuları (qazcdn, kaztrk bölge kanalları, ktk.kz, adapto, kendi alan adları) alındı; uplink.kz, mcquack, mediabay, gohoski, 120.70.60.179 gibi aracı/yeniden yayın kaynakları alınmadı. 13 kaztrk.kz bölge kanalı Türkiye'den 403 verdi (bölge kısıtı), çıkarıldı. Khabar, 24KZ, Astana TV, 7 Kanal'ın resmi açık linki bulunamadı. Kırgızistan'daki 3 kanal (TV1 KG, 312 Kino, 312 TV) stick'te açılmadı, çıkarıldı. NOW sayfasında YouTube tanıtım videosu bulunup YouTube açılıyordu: sabit linki olan kanalda sayfadan gelen YouTube yok sayılıyor (1.0.34).
 
 **Türkmenistan (29.10):** 319-326, devletin resmi tv.online.tm sunucusu (406p, her zaman yayında olmayabilir).
+
+31 Kanal, MuzzOne, Qonaev Media açılmadı, çıkarıldı (sonraki numaralar 3 kaydı: Türkmenistan 316-323, Kore 324-339, Yunanistan 340-363).
 
 **Güney Kore ve Yunanistan (29.10):** 327-366 (Kore 327-342, Yunanistan 343-366). Sadece kanalların/kurumların kendi sunucuları; alışveriş kanalları, aracı/IP yeniden yayınları (cinerama, YTN IP, KBS World IP) ve bölge kısıtlı olanlar (ANT1, One, Channel A, MBC Drama) alınmadı. KBS/MBC/SBS ana kanallarının açık resmi yayını yok.
 
