@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 26, 271 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 27, 305 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -14,6 +14,8 @@
 **29.10 eklenenler:** Yayın akışı ekranı (menü) + program hatırlatıcı (5 dk önce, OK ile geç). Reklam kaçışı: izlenen kanalın HLS listesinde son 3 parça "_era"/"/crea/" ise önceki kanala geçer, son 2 parça normal olunca döner (en fazla 12 dk). Ayarlar'dan kapatılabilir. 29.10 NOW sitesinde canlı inceleme: NOW listesi reklamı EXTINF başlığında ADV-IN / ADV-OUT ile işaretliyor, "_era" parçaları; kuşak arada ~60 sn kanal tanıtımıyla bölünüyor. Bu yüzden kaçış oynatıcı gecikmesi kadar (currentLiveOffset) bekleyip giriyor, dönüş için listenin sonunda en az 70 sn kesintisiz program arıyor. NOW sitesi reklam arasında kararma üstüne Google IMA ile kendi internet reklamını gösteriyor; bunu taklit etmiyoruz (izinsiz reklam isteği). Test (araclar/reklam_izle.py): NOW "_era.ts", Kanal D ve Show TV "/crea/" parçaları + DATERANGE X-DAION işaretleri kullanıyor; Star TV'de 25 dk'da işaret görülmedi.
 
 **Deneme (29.10):** Ayarlar'da "NOW'u sitesinin oynatıcısıyla aç" (varsayılan kapalı). JSON'da `siteOynatici` alanı olan kanal WebView'da açılır, SITE_JS oynatıcıyı tam ekran yapıp gerisini gizler; sadece o alan adına gidilir; bu modda reklam kaçışı devre dışı. Stick'te ilk deneme (1.0.32): site reklamı oynadı ama reklamdan sonra yayın durdu (gri oynat resmi). 1.0.33'te düzeltildi (reklam modunda değilse her 3 sn play, varsayılan poster gizli) ama denenmedi; sahibi 29.10'da "şimdilik dursun" dedi.
+
+**Özbekistan (29.10):** 272-305, kategori "Özbekistan"; kaynak iptv-org uz listesi. Çoğu cinerama.uz (Özbek OTT platformu) üzerinden, BIZ TV ve Milliy kendi sunucuları önde. Türkiye'den açılıp açılmadığı stick'teki kanal testiyle görülecek (bölge kısıtı olabilir).
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
