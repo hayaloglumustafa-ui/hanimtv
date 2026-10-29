@@ -1,5 +1,5 @@
 {
- "surum": 30,
+ "surum": 31,
  "kanallar": [
   {
    "no": 1,
@@ -2956,110 +2956,6 @@
    "urls": [
     "https://tvcdn01.esilnet.kz/tv/mtrk/index.m3u8",
     "https://tvcdn01.oktv.kz/tv/mtrk/playlist.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 319,
-   "name": "Aqjaiyq",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/oraltv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 320,
-   "name": "Aqtóbe",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/aktobetv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 321,
-   "name": "Atyraý",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/atyrautv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 322,
-   "name": "Ertis",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/pavlodartv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 323,
-   "name": "Jambyl",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/taraztv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 324,
-   "name": "Kókshe",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/kokshetautv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 325,
-   "name": "Mańǵystaý",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/mangystautv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 326,
-   "name": "Ontústik",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/shymkenttv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 327,
-   "name": "Qostanai",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/kostanaytv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 328,
-   "name": "Qyzyljar",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/petropavltv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 329,
-   "name": "Qyzylorda",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/kyzylordatv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 330,
-   "name": "Saryarqa",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/karagandytv/index.m3u8"
-   ],
-   "kategori": "Kazakistan"
-  },
-  {
-   "no": 331,
-   "name": "Semeı",
-   "urls": [
-    "https://stream.kaztrk.kz/regional/semeytv/index.m3u8"
    ],
    "kategori": "Kazakistan"
   }
