@@ -155,6 +155,8 @@ class MainActivity : Activity() {
     override fun onStart() {
         super.onStart()
         if (kanallar.isNotEmpty()) oynat(aktif, 0, bilgiGoster = true)
+        ana.removeCallbacks(donmaBekcisi)
+        ana.postDelayed(donmaBekcisi, 8_000)
     }
 
     override fun onStop() {
@@ -162,6 +164,7 @@ class MainActivity : Activity() {
         // Ana ekrana dönülünce ses arkada çalmaya devam etmesin.
         ana.removeCallbacks(yenidenDene)
         ana.removeCallbacks(takilmaKontrol)
+        ana.removeCallbacks(donmaBekcisi)
         oynatici.stop()
     }
 
@@ -466,6 +469,30 @@ class MainActivity : Activity() {
     }
 
     private val yenidenDene = Runnable { if (kanallar.isNotEmpty()) oynat(aktif, 0) }
+
+    /**
+     * Donma bekçisi: yayın "oynuyor" görünüp görüntü ilerlemiyorsa (resim donduysa)
+     * 8 saniye içinde fark eder ve bir sonraki linke geçer. Hata vermeden donan yayınlar için.
+     */
+    private var sonKonum = -1L
+    private var donmaSayaci = 0
+    private val donmaBekcisi: Runnable = object : Runnable { override fun run() {
+        if (oynatici.playbackState == Player.STATE_READY && oynatici.playWhenReady) {
+            val konum = oynatici.currentPosition
+            if (konum == sonKonum) {
+                if (++donmaSayaci >= 2) {
+                    donmaSayaci = 0
+                    sonHata = "görüntü dondu"
+                    sonrakiLinkiDene()
+                }
+            } else donmaSayaci = 0
+            sonKonum = konum
+        } else {
+            donmaSayaci = 0
+            sonKonum = -1L
+        }
+        ana.postDelayed(this, 4_000)
+    } }
 
     private val takilmaKontrol = Runnable {
         if (oynatici.playbackState == Player.STATE_BUFFERING) {

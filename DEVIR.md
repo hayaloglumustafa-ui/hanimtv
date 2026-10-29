@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (25.10.2026):** Sürüm 1.0.19, kanal listesi sürüm 24, 271 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.20, kanal listesi sürüm 25, 271 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -16,5 +16,8 @@
 **Dikkat:**
 - İmza dosyası ve şifresinin yedeği sahibinin bilgisayarında, anahtarlar\HanimTV klasöründe. Şifre GitHub'da `HANIMTV_IMZA_SIFRESI` gizli ayarında. Bu ayar değiştirilmemeli.
 - Kanal ekleme ya da düzeltme sadece `app/src/main/assets/kanallar.json` ile yapılır ve yeni sürüm gerektirmez. "no" sırası bozulmamalı.
-- Ücretli, korsan ya da şifreli kanal eklenmez.
+- Ücretli, korsan ya da şifreli kanal eklenmez. Üçüncü kişilerin yeniden yayın linkleri (freeott, iptvperu, smartplaytv, onrender, github raw vb.) 29.10'da temizlendi; reklamda kesilmeyen yayınlar bu tür linkler olduğu için eklenmez.
+- Donma bekçisi: görüntü 8 sn ilerlemezse sonraki linke geçer.
+- NOW, Star, Kanal D'nin resmi uygulamaları sadece telefon/tablet içindir, Android TV sürümü yok (29.10 araştırıldı).
+- `araclar/akis_testi.sh` + `Akis testi` iş akışı: GitHub ABD'de olduğu için TRT gibi Türkiye'ye kısıtlı yayınları test edemez.
 - NOW ve Star kanallarındaki reklam ekranı kanalın kendi yayınından geliyor, çözülemez.
