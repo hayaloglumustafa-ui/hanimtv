@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 31, 318 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 32, 326 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -18,6 +18,8 @@
 **Özbekistan (29.10):** 272-305, kategori "Özbekistan"; kaynak iptv-org uz listesi. Çoğu cinerama.uz (Özbek OTT platformu) üzerinden, BIZ TV ve Milliy kendi sunucuları önde. Türkiye'den açılıp açılmadığı stick'teki kanal testiyle görülecek (bölge kısıtı olabilir).
 
 **Kazakistan ve Kırgızistan (29.10):** 306-334. Sadece kanalların/devlet kurumlarının kendi sunucuları (qazcdn, kaztrk bölge kanalları, ktk.kz, adapto, kendi alan adları) alındı; uplink.kz, mcquack, mediabay, gohoski, 120.70.60.179 gibi aracı/yeniden yayın kaynakları alınmadı. 13 kaztrk.kz bölge kanalı Türkiye'den 403 verdi (bölge kısıtı), çıkarıldı. Khabar, 24KZ, Astana TV, 7 Kanal'ın resmi açık linki bulunamadı. Kırgızistan'daki 3 kanal (TV1 KG, 312 Kino, 312 TV) stick'te açılmadı, çıkarıldı. NOW sayfasında YouTube tanıtım videosu bulunup YouTube açılıyordu: sabit linki olan kanalda sayfadan gelen YouTube yok sayılıyor (1.0.34).
+
+**Türkmenistan (29.10):** 319-326, devletin resmi tv.online.tm sunucusu (406p, her zaman yayında olmayabilir).
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 

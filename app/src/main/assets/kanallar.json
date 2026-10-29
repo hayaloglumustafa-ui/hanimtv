@@ -1,5 +1,5 @@
 {
- "surum": 31,
+ "surum": 32,
  "kanallar": [
   {
    "no": 1,
@@ -2958,6 +2958,78 @@
     "https://tvcdn01.oktv.kz/tv/mtrk/playlist.m3u8"
    ],
    "kategori": "Kazakistan"
+  },
+  {
+   "no": 319,
+   "name": "Altyn Asyr",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch001.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch001.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 320,
+   "name": "Türkmenistan",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch007.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch007.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 321,
+   "name": "Ýaşlyk",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch002.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch002.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 322,
+   "name": "Miras",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch003.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch003.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 323,
+   "name": "Türkmenistan Sport",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch004.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch004.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 324,
+   "name": "Türkmen Owazy",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch005.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch005.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 325,
+   "name": "Aşgabat",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch006.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch006.m3u8"
+   ],
+   "kategori": "Türkmenistan"
+  },
+  {
+   "no": 326,
+   "name": "Arkadag TV",
+   "urls": [
+    "https://alpha.tv.online.tm/hls/ch000.m3u8",
+    "https://alpha.tv.online.tm/legacyhls/ch000.m3u8"
+   ],
+   "kategori": "Türkmenistan"
   }
  ]
 }
