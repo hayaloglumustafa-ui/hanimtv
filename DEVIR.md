@@ -11,6 +11,8 @@
 - Ayarlar: kanal testi, şeffaflık, yazı boyutu, açılışta başla, açılmayanları gizle, uyku zamanlayıcısı, görüntü (orijinal/doldur/uzat), kumanda rehberi
 - Kendi kendine güncelleme: kanal listesi Wi-Fi ile kendiliğinden, uygulama "Yeni sürümü kur" ile
 
+**29.10 eklenenler:** Yayın akışı ekranı (menü) + program hatırlatıcı (5 dk önce, OK ile geç). Reklam kaçışı: izlenen kanalın HLS listesinde son 3 parça "_era"/"/crea/" ise önceki kanala geçer, son 2 parça normal olunca döner (en fazla 12 dk). Ayarlar'dan kapatılabilir. Test (araclar/reklam_izle.py): NOW "_era.ts", Kanal D ve Show TV "/crea/" parçaları + DATERANGE X-DAION işaretleri kullanıyor; Star TV'de 25 dk'da işaret görülmedi.
+
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
 **Dikkat:**

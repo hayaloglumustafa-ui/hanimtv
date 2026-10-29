@@ -152,6 +152,7 @@ class MainActivity : Activity() {
         ana.postDelayed(saglikKontrol, 60_000)
         ana.postDelayed(akisGuncelle, 15_000)
         ana.postDelayed(hatirlatmaKontrol, 30_000)
+        ana.postDelayed(reklamBekcisi, 20_000)
     }
 
     override fun onStart() {
@@ -751,6 +752,7 @@ class MainActivity : Activity() {
             "Açılmayan kanalları gizle: " + if (gizle) "Açık" else "Kapalı",
             "Uyku zamanlayıcısı: " + uykuYazisi(),
             "Görüntü: " + goruntuAdlari[ayarlar.getInt("goruntu", 0).coerceIn(0, 2)],
+            "Reklamda önceki kanala geç: " + if (ayarlar.getBoolean("reklamKacis", true)) "Açık" else "Kapalı",
             "Kumanda rehberi",
             "Sürüm 1.0.${Guncelleyici.mevcutSurum(this)} · Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman",
         )
@@ -807,6 +809,10 @@ class MainActivity : Activity() {
             5 -> uykuDegistir()
             6 -> e.putInt("goruntu", (ayarlar.getInt("goruntu", 0) + 1) % 3)
             7 -> {
+                e.putBoolean("reklamKacis", !ayarlar.getBoolean("reklamKacis", true))
+                if (reklamda) reklamKacisiniBitir()
+            }
+            8 -> {
                 listeyiKapat()
                 menuyuAc(MENU_REHBER)
                 return
@@ -1152,6 +1158,7 @@ class MainActivity : Activity() {
             "Sol tuş: bu menü",
             "Sağ tuş: kanal bilgisi",
             "Hatırlatma çıkınca OK: o kanala geç",
+            "Reklam arasında önceki kanala geçer",
             "Listede sağ / sol: sayfa",
             "Geri: önceki kanala dön",
             "Menüde geri: bir önceki ekran",
@@ -1287,6 +1294,118 @@ class MainActivity : Activity() {
     private val hatirlatmayiKapat = Runnable {
         hatirlatmaKanali = -1
         durumGizle()
+    }
+
+    // ---------------------------------------------------------------- Reklam arası kaçışı
+
+    /*
+     * Bazı kanallar (NOW, Kanal D, Show TV...) internet yayınının içine reklam arası parçaları koyar
+     * (adında "_era" ya da "/crea/" geçen parçalar). İzlenen kanalın yayın listesine 5 saniyede bir bakılır:
+     * son 3 parça reklamsa önceki kanala geçilir; o sırada asıl kanala bakılmaya devam edilir,
+     * program başlayınca (son 2 parça normal) asıl kanala geri dönülür.
+     */
+    private val REKLAM_PARCASI = Regex("""_era[._]|/crea/|/slate/|reklam""", RegexOption.IGNORE_CASE)
+    private var reklamda = false
+    private var asilKanal = -1
+    private var kacisKanali = -1
+    private var izlenenNo = -1
+    private var medyaListesi: String? = null
+    private var reklamSayaci = 0
+    private var icerikSayaci = 0
+    private var bekciMesgul = false
+    private var reklamBaslangici = 0L
+
+    private fun parcalar(liste: String): List<String> = liste.lines().map { it.trim() }.filter { it.isNotEmpty() && !it.startsWith("#") }
+
+    private fun reklamKacisiniBitir() {
+        reklamda = false
+        asilKanal = -1
+        kacisKanali = -1
+        reklamSayaci = 0
+        icerikSayaci = 0
+    }
+
+    private val reklamBekcisi: Runnable = object : Runnable { override fun run() {
+        ana.postDelayed(this, 5_000)
+        if (bekciMesgul || kanallar.isEmpty() || !ayarlar.getBoolean("reklamKacis", true)) return
+        // Kullanıcı reklam sırasında kendisi başka kanala geçtiyse kaçış iptal.
+        if (reklamda && aktif != kacisKanali && aktif != asilKanal) reklamKacisiniBitir()
+        // Güvenlik: reklam arası 12 dakikadan uzun sürmez; işaret okunamazsa yine de geri dönülür.
+        if (reklamda && System.currentTimeMillis() - reklamBaslangici > 12 * 60_000L) { reklamdanDon(); return }
+        val hedef = if (reklamda) asilKanal else aktif
+        val k = kanallar.getOrNull(hedef) ?: return
+        if (k.no != izlenenNo) {
+            izlenenNo = k.no
+            medyaListesi = null
+            reklamSayaci = 0
+            icerikSayaci = 0
+        }
+        val ana_ = if (hedef == aktif) aktifLinkler.getOrNull(linkSirasi) else null
+        val bilinen = medyaListesi
+        if (bilinen == null && ana_ == null) return
+        bekciMesgul = true
+        arkaPlan.execute {
+            var liste: String? = null
+            var adres = bilinen
+            try {
+                if (adres == null && ana_ != null) {
+                    val m = Ag.metinIndir(ana_, 300_000, 8_000, k.basliklar)
+                    if (m != null && m.contains("#EXT-X-STREAM-INF")) {
+                        parcalar(m).firstOrNull()?.let { adres = java.net.URL(java.net.URL(ana_), it).toString() }
+                    } else if (m != null) {
+                        adres = ana_
+                        liste = m
+                    }
+                }
+                if (liste == null) adres?.let { liste = Ag.metinIndir(it, 300_000, 8_000, k.basliklar) }
+            } catch (e: Exception) { liste = null }
+            ana.post {
+                bekciMesgul = false
+                if (izlenenNo != k.no) return@post
+                medyaListesi = adres
+                val son = parcalar(liste ?: return@post)
+                if (son.size < 3) return@post
+                val reklamVar = son.takeLast(3).all { REKLAM_PARCASI.containsMatchIn(it) }
+                val icerikVar = son.takeLast(2).none { REKLAM_PARCASI.containsMatchIn(it) }
+                if (!reklamda) {
+                    reklamSayaci = if (reklamVar) reklamSayaci + 1 else 0
+                    if (reklamSayaci >= 2 && hedef == aktif && !menuAcik && !listeAcik) reklamaGir(hedef)
+                } else {
+                    icerikSayaci = if (icerikVar) icerikSayaci + 1 else 0
+                    if (icerikSayaci >= 2) reklamdanDon()
+                }
+            }
+        }
+    } }
+
+    private fun oynatilabilir(i: Int) = kanallar.getOrNull(i)?.let { it.linkler.isNotEmpty() || it.sayfa != null } == true
+
+    private fun reklamaGir(asil: Int) {
+        val kacis = when {
+            oynatilabilir(geriKanal) && geriKanal != asil -> geriKanal
+            asil != 0 -> 0
+            else -> 1
+        }
+        reklamda = true
+        reklamBaslangici = System.currentTimeMillis()
+        asilKanal = asil
+        kacisKanali = kacis
+        icerikSayaci = 0
+        kanalaGit(kacis)
+        hatirlatmaKanali = asil
+        durumGoster("Reklam arası · ${kanallar[asil].isim} başlayınca geri dönülecek\nHemen dönmek için OK")
+        ana.removeCallbacks(hatirlatmayiKapat)
+        ana.postDelayed(hatirlatmayiKapat, 10_000L)
+    }
+
+    private fun reklamdanDon() {
+        val asil = asilKanal
+        val buradaydi = aktif == kacisKanali
+        reklamKacisiniBitir()
+        if (buradaydi && asil in kanallar.indices) {
+            kanalaGit(asil)
+            kisaMesaj("${kanallar[asil].isim} programına dönüldü")
+        }
     }
 
     // ---------------------------------------------------------------- Uyku zamanlayıcısı
