@@ -1320,25 +1320,42 @@ class MainActivity : Activity() {
      * son 3 parça reklamsa önceki kanala geçilir; o sırada asıl kanala bakılmaya devam edilir,
      * program başlayınca (son 2 parça normal) asıl kanala geri dönülür.
      */
+    private val C_UNSET = Long.MIN_VALUE + 1
     private val REKLAM_PARCASI = Regex("""_era[._]|/crea/|/slate/|reklam""", RegexOption.IGNORE_CASE)
     private var reklamda = false
     private var asilKanal = -1
     private var kacisKanali = -1
     private var izlenenNo = -1
     private var medyaListesi: String? = null
-    private var reklamSayaci = 0
-    private var icerikSayaci = 0
     private var bekciMesgul = false
     private var reklamBaslangici = 0L
 
     private fun parcalar(liste: String): List<String> = liste.lines().map { it.trim() }.filter { it.isNotEmpty() && !it.startsWith("#") }
 
+    /** Listenin sonundan geriye: (aynı türden ardışık parçaların toplam süresi sn, son parça reklam mı). */
+    private fun sondakiSure(liste: String): Pair<Double, Boolean> {
+        val sureler = ArrayList<Pair<Double, Boolean>>()
+        var sure = 0.0
+        for (satir in liste.lines()) {
+            val t = satir.trim()
+            if (t.startsWith("#EXTINF:")) sure = t.removePrefix("#EXTINF:").substringBefore(',').toDoubleOrNull() ?: 0.0
+            else if (t.isNotEmpty() && !t.startsWith("#")) sureler.add(sure to REKLAM_PARCASI.containsMatchIn(t))
+        }
+        val son = sureler.lastOrNull() ?: return 0.0 to false
+        var toplam = 0.0
+        for (i in sureler.indices.reversed()) {
+            if (sureler[i].second != son.second) break
+            toplam += sureler[i].first
+        }
+        // Listenin tamamı aynı türdeyse (hiç reklam yoksa) çok uzun say.
+        if (sureler.all { it.second == son.second }) toplam = 9_999.0
+        return toplam to son.second
+    }
+
     private fun reklamKacisiniBitir() {
         reklamda = false
         asilKanal = -1
         kacisKanali = -1
-        reklamSayaci = 0
-        icerikSayaci = 0
     }
 
     private val reklamBekcisi: Runnable = object : Runnable { override fun run() {
@@ -1353,8 +1370,6 @@ class MainActivity : Activity() {
         if (k.no != izlenenNo) {
             izlenenNo = k.no
             medyaListesi = null
-            reklamSayaci = 0
-            icerikSayaci = 0
         }
         val ana_ = if (hedef == aktif) aktifLinkler.getOrNull(linkSirasi) else null
         val bilinen = medyaListesi
@@ -1379,16 +1394,16 @@ class MainActivity : Activity() {
                 bekciMesgul = false
                 if (izlenenNo != k.no) return@post
                 medyaListesi = adres
-                val son = parcalar(liste ?: return@post)
-                if (son.size < 3) return@post
-                val reklamVar = son.takeLast(3).all { REKLAM_PARCASI.containsMatchIn(it) }
-                val icerikVar = son.takeLast(2).none { REKLAM_PARCASI.containsMatchIn(it) }
+                val (sure, reklamSonda) = sondakiSure(liste ?: return@post)
                 if (!reklamda) {
-                    reklamSayaci = if (reklamVar) reklamSayaci + 1 else 0
-                    if (reklamSayaci >= 2 && hedef == aktif && !menuAcik && !listeAcik) reklamaGir(hedef)
+                    // Oynatıcı canlının biraz gerisinden oynar: reklam ekrana gelince (o kadar süre sonra) kaçılır,
+                    // böylece programın son saniyeleri kaçmaz.
+                    val gecikme = (if (hedef == aktif) oynatici.currentLiveOffset else C_UNSET).let { if (it <= 0 || it > 120_000) 30_000L else it }
+                    if (reklamSonda && sure * 1000 >= gecikme - 3_000 && hedef == aktif && !menuAcik && !listeAcik) reklamaGir(hedef)
                 } else {
-                    icerikSayaci = if (icerikVar) icerikSayaci + 1 else 0
-                    if (icerikSayaci >= 2) reklamdanDon()
+                    // Reklam kuşağı arada kanal tanıtımlarıyla bölünür (yaklaşık 1 dk). Program en az 70 sn kesintisiz
+                    // gelmeden dönülmez; yoksa tanıtım sırasında dönüp yeniden kaçılırdı.
+                    if (!reklamSonda && sure >= 70.0) reklamdanDon()
                 }
             }
         }
@@ -1406,7 +1421,6 @@ class MainActivity : Activity() {
         reklamBaslangici = System.currentTimeMillis()
         asilKanal = asil
         kacisKanali = kacis
-        icerikSayaci = 0
         kanalaGit(kacis)
         hatirlatmaKanali = asil
         durumGoster("Reklam arası · ${kanallar[asil].isim} başlayınca geri dönülecek\nHemen dönmek için OK")
