@@ -1,5 +1,5 @@
 {
- "surum": 28,
+ "surum": 29,
  "kanallar": [
   {
    "no": 1,
@@ -3062,30 +3062,6 @@
     "https://stream.kaztrk.kz/regional/semeytv/index.m3u8"
    ],
    "kategori": "Kazakistan"
-  },
-  {
-   "no": 332,
-   "name": "TV1 KG",
-   "urls": [
-    "http://212.2.225.30:1935/live/site.stream/playlist.m3u8"
-   ],
-   "kategori": "Kırgızistan"
-  },
-  {
-   "no": 333,
-   "name": "312 Kino",
-   "urls": [
-    "http://176.126.166.43:1935/live/312kino/playlist.m3u8"
-   ],
-   "kategori": "Kırgızistan"
-  },
-  {
-   "no": 334,
-   "name": "312 TV",
-   "urls": [
-    "http://176.126.166.43:1935/live/312musik/playlist.m3u8"
-   ],
-   "kategori": "Kırgızistan"
   }
  ]
 }

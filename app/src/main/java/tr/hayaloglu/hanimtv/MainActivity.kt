@@ -402,7 +402,10 @@ class MainActivity : Activity() {
             }
         }
         arkaPlan.execute {
-            val taze = SayfadanLink.bul(sayfa, k.basliklar)
+            val bulunan = SayfadanLink.bul(sayfa, k.basliklar)
+            // Sayfada YouTube videosu bulundu ama kanalın kendi yayın linkleri de var: YouTube'a gitme, linkleri dene.
+            // (Kanal sitesindeki tanıtım videoları yüzünden yanlışlıkla YouTube açılmasın.)
+            val taze = if (bulunan != null && bulunan.startsWith("youtube:") && k.linkler.isNotEmpty()) null else bulunan
             if (taze != null) sayfaOnbellegi[k.no] = taze to System.currentTimeMillis()
             ana.post {
                 if (istek != sayfaIstegi || kanallar.getOrNull(aktif)?.no != k.no) return@post
