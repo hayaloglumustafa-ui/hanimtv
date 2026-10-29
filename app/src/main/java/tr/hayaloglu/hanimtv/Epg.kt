@@ -11,7 +11,7 @@ import java.io.File
  */
 object Epg {
     private const val DOSYA = "epg.json"
-    private class Program(val bas: Long, val bit: Long, val ad: String)
+    class Program(val bas: Long, val bit: Long, val ad: String)
 
     @Volatile private var akis: Map<String, List<Program>> = emptyMap()
 
@@ -42,6 +42,12 @@ object Epg {
             }
         }
         return m.ifEmpty { null }
+    }
+
+    /** Kanalın şu anki ve sonraki programları (bitmiş olanlar hariç). */
+    fun programlar(isim: String): List<Program> {
+        val simdi = System.currentTimeMillis()
+        return akis[isim].orEmpty().filter { it.bit > simdi }
     }
 
     /** "Şimdi: ..." ve "21:00 ..." satırları. Akış yoksa null. */

@@ -63,6 +63,7 @@ class MainActivity : Activity() {
         const val MENU_TEMA = 5
         const val MENU_GUNCELLEME = 6
         const val MENU_REHBER = 7
+        const val MENU_AKIS = 8
         const val SON_IZLENEN_SAYISI = 10
         const val MENU_SAYFA = 8
 
@@ -150,6 +151,7 @@ class MainActivity : Activity() {
         ana.postDelayed(surumKontrol, 20_000)
         ana.postDelayed(saglikKontrol, 60_000)
         ana.postDelayed(akisGuncelle, 15_000)
+        ana.postDelayed(hatirlatmaKontrol, 30_000)
     }
 
     override fun onStart() {
@@ -1121,12 +1123,35 @@ class MainActivity : Activity() {
             l.add(MenuSatiri("Liste ${ayarlar.getInt("listeSurumu", 0)} · $zaman", GRI, null))
             "Güncellemeler" to l
         }
+        MENU_AKIS -> {
+            val k = kanallar.getOrNull(aktif)
+            val l = ArrayList<MenuSatiri>()
+            val saat = java.text.SimpleDateFormat("HH:mm", java.util.Locale("tr"))
+            val simdi = System.currentTimeMillis()
+            val kurulu = hatirlatmalar()
+            if (k != null) for (p in Epg.programlar(k.isim)) {
+                val anahtar = "${k.isim}|${p.bas}|${p.ad}"
+                val oyunda = p.bas <= simdi
+                val isaret = when { oyunda -> "▶ "; anahtar in kurulu -> "⏰ "; else -> "    " }
+                l.add(MenuSatiri(isaret + saat.format(java.util.Date(p.bas)) + "  " + p.ad) {
+                    if (oyunda) menuyuKapat() else {
+                        val yeni = if (anahtar in kurulu) kurulu - anahtar else kurulu + anahtar
+                        isimListesiKaydet("hatirlatmalar", yeni)
+                        kisaMesaj(if (anahtar in kurulu) "Hatırlatma kaldırıldı" else "${p.ad} başlamadan 5 dakika önce hatırlatılacak")
+                        menuyuCiz()
+                    }
+                })
+            }
+            if (l.isEmpty()) l.add(MenuSatiri("Bu kanalın yayın akışı yok", GRI, null))
+            "${k?.isim ?: ""} · yayın akışı" to l
+        }
         MENU_REHBER -> "Kumanda rehberi" to listOf(
             "Yukarı / Aşağı: kanal değiştir",
             "Rakamlar: kanal numarası",
             "Orta tuş: kanal listesi",
             "Sol tuş: bu menü",
             "Sağ tuş: kanal bilgisi",
+            "Hatırlatma çıkınca OK: o kanala geç",
             "Listede sağ / sol: sayfa",
             "Geri: önceki kanala dön",
             "Menüde geri: bir önceki ekran",
@@ -1135,6 +1160,7 @@ class MainActivity : Activity() {
             MenuSatiri("Son izlenenler") { menuyeGir(MENU_SON) },
             MenuSatiri("Favoriler") { menuyeGir(MENU_FAVORI) },
             MenuSatiri("Kategoriler") { menuyeGir(MENU_KATEGORI) },
+            MenuSatiri("Yayın akışı") { menuyeGir(MENU_AKIS) },
             MenuSatiri("Tüm kanallar") { menuyuKapat(); listeyiAc() },
             MenuSatiri("Tema") { menuyeGir(MENU_TEMA) },
             MenuSatiri(if (yeniSurum != null) "Güncellemeler  ●" else "Güncellemeler") { menuyeGir(MENU_GUNCELLEME) },
@@ -1222,6 +1248,47 @@ class MainActivity : Activity() {
         return true
     }
 
+    // ---------------------------------------------------------------- Program hatırlatıcı
+
+    /** Kurulu hatırlatmalar: "kanal adı|başlangıç (ms)|program adı". */
+    private fun hatirlatmalar() = isimListesi("hatirlatmalar")
+
+    /** Ekrandaki hatırlatmanın kanalı; OK tuşu bu kanala geçirir. */
+    private var hatirlatmaKanali = -1
+    private val hatirlatmaGosterildi = HashSet<String>()
+
+    private val hatirlatmaKontrol: Runnable = object : Runnable { override fun run() {
+        val simdi = System.currentTimeMillis()
+        val l = hatirlatmalar()
+        val kalan = l.filter { (it.split('|').getOrNull(1)?.toLongOrNull() ?: 0L) > simdi - 10 * 60_000L }
+        if (kalan.size != l.size) isimListesiKaydet("hatirlatmalar", kalan)
+        for (h in kalan) {
+            val p = h.split('|', limit = 3)
+            if (p.size < 3) continue
+            val bas = p[1].toLongOrNull() ?: continue
+            val indeks = indeksBul(p[0])
+            if (indeks < 0) continue
+            val asama = when {
+                simdi >= bas && simdi < bas + 2 * 60_000L -> "basladi"
+                simdi >= bas - 5 * 60_000L && simdi < bas -> "yakinda"
+                else -> null
+            } ?: continue
+            if (!hatirlatmaGosterildi.add("$h|$asama")) continue
+            if (indeks == aktif && asama == "basladi") continue
+            val dk = ((bas - simdi) / 60_000L + 1).coerceAtLeast(1)
+            hatirlatmaKanali = indeks
+            durumGoster(if (asama == "yakinda") "⏰ ${p[2]} $dk dk sonra · ${p[0]}\nGeçmek için OK" else "⏰ ${p[2]} başladı · ${p[0]}\nGeçmek için OK")
+            ana.removeCallbacks(hatirlatmayiKapat)
+            ana.postDelayed(hatirlatmayiKapat, 60_000L)
+        }
+        ana.postDelayed(this, 20_000L)
+    } }
+
+    private val hatirlatmayiKapat = Runnable {
+        hatirlatmaKanali = -1
+        durumGizle()
+    }
+
     // ---------------------------------------------------------------- Uyku zamanlayıcısı
 
     private var uykuBitis = 0L
@@ -1267,7 +1334,14 @@ class MainActivity : Activity() {
             KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_MENU -> menuyuAc(MENU_ANA)
             KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_CHANNEL_UP -> kanalDegistir(+1)
             KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_CHANNEL_DOWN -> kanalDegistir(-1)
-            KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER -> listeyiAc()
+            KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER ->
+                if (hatirlatmaKanali >= 0 && durumYazisi.visibility == View.VISIBLE) {
+                    val h = hatirlatmaKanali
+                    hatirlatmaKanali = -1
+                    ana.removeCallbacks(hatirlatmayiKapat)
+                    durumGizle()
+                    if (h != aktif) kanalaGit(h)
+                } else listeyiAc()
             in KeyEvent.KEYCODE_0..KeyEvent.KEYCODE_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_0)
             in KeyEvent.KEYCODE_NUMPAD_0..KeyEvent.KEYCODE_NUMPAD_9 -> rakamBasildi(keyCode - KeyEvent.KEYCODE_NUMPAD_0)
             // Geri tuşu uygulamadan yanlışlıkla çıkarmaz; sadece kanal bilgisini gösterir. Çıkmak için ev tuşu kullanılır.
