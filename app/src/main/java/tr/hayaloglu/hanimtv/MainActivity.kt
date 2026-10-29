@@ -64,7 +64,7 @@ class MainActivity : Activity() {
         const val MENU_GUNCELLEME = 6
         const val MENU_REHBER = 7
         const val MENU_AKIS = 8
-        const val SITE_JS = """(function(){ var k=document.querySelector('.video-js'); var v=k?k.querySelector('video'):document.querySelector('video'); if(!v) return 'video yok'; if(!k) k=v.parentElement; document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden'; k.style.cssText+=';position:fixed!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;padding:0!important;z-index:2147483647!important;background:#000!important;margin:0!important'; var e=k; while(e&&e!==document.body&&e.parentElement){ [].forEach.call(e.parentElement.children,function(s){ if(s!==e&&!/SCRIPT|STYLE|LINK/.test(s.tagName)) s.style.setProperty('display','none','important'); }); e.style.setProperty('transform','none','important'); e.style.setProperty('filter','none','important'); e=e.parentElement; } [].slice.call(k.querySelectorAll('video')).forEach(function(x){x.style.objectFit='contain'}); window.__htv=(window.__htv||0)+1; var reklam=/vjs-ad-(playing|loading)/.test(k.className); if(v.paused && !reklam && window.__htv<15){ var d=k.querySelector('.vjs-big-play-button'); if(d) d.click(); var p=v.play(); if(p&&p.catch) p.catch(function(){}); } if(!reklam) v.muted=false; return reklam?'reklam':(v.paused?'durdu':'oynuyor'); })()"""
+        const val SITE_JS = """(function(){ var k=document.querySelector('.video-js'); var v=k?k.querySelector('video'):document.querySelector('video'); if(!v) return 'video yok'; if(!k) k=v.parentElement; document.documentElement.style.overflow='hidden';document.body.style.overflow='hidden'; k.style.cssText+=';position:fixed!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;padding:0!important;z-index:2147483647!important;background:#000!important;margin:0!important'; var e=k; while(e&&e!==document.body&&e.parentElement){ [].forEach.call(e.parentElement.children,function(s){ if(s!==e&&!/SCRIPT|STYLE|LINK/.test(s.tagName)) s.style.setProperty('display','none','important'); }); e.style.setProperty('transform','none','important'); e.style.setProperty('filter','none','important'); e=e.parentElement; } [].slice.call(k.querySelectorAll('video')).forEach(function(x){x.style.objectFit='contain'}); var reklam=/vjs-ad-(playing|loading|content-resuming)/.test(k.className); try{ var pl=window.videojs&&k.id&&window.videojs.getPlayer&&window.videojs.getPlayer(k.id); if(pl&&pl.ads&&pl.ads.isInAdMode&&pl.ads.isInAdMode()) reklam=true; }catch(x){} if(v.paused && !reklam){ var d=k.querySelector('.vjs-big-play-button'); if(d) d.click(); var p=v.play(); if(p&&p.catch) p.catch(function(){}); } if(!reklam) v.muted=false; return reklam?'reklam':(v.paused?'durdu':'oynuyor'); })()"""
         const val SON_IZLENEN_SAYISI = 10
         const val MENU_SAYFA = 8
 
@@ -1488,6 +1488,11 @@ class MainActivity : Activity() {
                 yeni.settings.domStorageEnabled = true
                 yeni.settings.mediaPlaybackRequiresUserGesture = false
                 yeni.settings.allowFileAccess = false
+                // Video beklerken WebView'in kendi gri "oynat" resmi görünmesin.
+                yeni.webChromeClient = object : android.webkit.WebChromeClient() {
+                    override fun getDefaultVideoPoster(): android.graphics.Bitmap =
+                        android.graphics.Bitmap.createBitmap(1, 1, android.graphics.Bitmap.Config.ARGB_8888)
+                }
                 yeni.webViewClient = object : android.webkit.WebViewClient() {
                     override fun shouldOverrideUrlLoading(view: android.webkit.WebView, istek: android.webkit.WebResourceRequest): Boolean {
                         if (!istek.isForMainFrame) return false
