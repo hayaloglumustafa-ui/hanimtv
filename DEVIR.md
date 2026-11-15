@@ -29,6 +29,8 @@
 
 **15.11:** Cinerama.uz dış kullanımı kapattı (yayın yerine "Cinerama uygulamasını indirin" reklam ekranı veriyor; Sport ve Zo'r 'blocked'a yönleniyor). Özbekistan kategorisinin tamamı çıkarıldı; BIZ'in kendi sunucusu da cevap vermiyordu. Sonraki ülkeler 33 numara yukarı kaydı.
 
+**Ana Ekran (15.11, yeni uygulama `anaekran/`, paket tr.hayaloglu.hanimev):** Google TV ana ekranının yerine geçen sade ekran. Tasarım sahibiyle seçildi (D+E): solda saat/tarih/hava (Open-Meteo, İstanbul varsayılan), altın "Kaldığınız yer" kartı (HanımTV'yi açar), YouTube, beIN Connect, Play Store, Uygulamalar (Ayarlar en başta); sağda aile fotoğrafı. Fotoğraf depoya KONMAZ (depo herkese açık): stick'te /sdcard/Android/data/tr.hayaloglu.hanimev/files/aile.jpg (adb push). Kaldığınız yer bilgisi HanımTV'nin DurumSaglayici'sinden (content://tr.hayaloglu.hanimtv.durum, signature izni). Kendi güncellemesi: surum-anaekran.json + release'teki AnaEkran.apk. Stick'te ADB: 192.168.1.30 (DHCP, değişebilir). Ev tuşu için Google TV başlatıcısı adb ile devre dışı bırakılacak (pm disable-user --user 0 com.google.android.apps.tv.launcherx); geri almak: pm enable. Kurulumdan sonra MiTV Adb debugging ve USB hata ayıklama kapatılacak.
+
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
 **Dikkat:**

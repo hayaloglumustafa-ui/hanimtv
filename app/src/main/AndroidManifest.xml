@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
+    <!-- Ana Ekran uygulamasının "kaldığınız yer" bilgisini okuyabilmesi için; sadece aynı imzalı uygulamalar. -->
+    <permission
+        android:name="tr.hayaloglu.hanimtv.DURUM_OKU"
+        android:protectionLevel="signature" />
+
     <uses-feature android:name="android.software.leanback" android:required="false" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
@@ -39,6 +44,12 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name=".DurumSaglayici"
+            android:authorities="tr.hayaloglu.hanimtv.durum"
+            android:exported="true"
+            android:readPermission="tr.hayaloglu.hanimtv.DURUM_OKU" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

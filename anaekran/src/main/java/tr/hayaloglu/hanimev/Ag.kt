@@ -1,0 +1,134 @@
+package tr.hayaloglu.hanimev
+
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.net.HttpURLConnection
+import java.net.URL
+
+/** İnternetten küçük dosyaları güvenli şekilde indiren yardımcı. */
+object Ag {
+    const val TARAYICI =
+        "Mozilla/5.0 (Linux; Android 9; Mi TV Stick) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+
+    private fun baglan(adres: String, zamanAsimi: Int): HttpURLConnection {
+        val b = URL(adres).openConnection() as HttpURLConnection
+        b.connectTimeout = zamanAsimi
+        b.readTimeout = zamanAsimi
+        b.instanceFollowRedirects = true
+        b.useCaches = false
+        b.setRequestProperty("User-Agent", TARAYICI)
+        return b
+    }
+
+    /** Metin dosyası indirir. Hata olursa ya da dosya [enFazlaBayt] değerinden büyükse null döner. */
+    fun metinIndir(
+        adres: String,
+        enFazlaBayt: Int = 2_000_000,
+        zamanAsimi: Int = 10_000,
+        ekBasliklar: Map<String, String> = emptyMap(),
+    ): String? {
+        var b: HttpURLConnection? = null
+        return try {
+            b = baglan(adres, zamanAsimi)
+            ekBasliklar.forEach { (ad, deger) -> b.setRequestProperty(ad, deger) }
+            if (b.responseCode !in 200..299) return null
+            val cikti = ByteArrayOutputStream()
+            val tampon = ByteArray(8192)
+            b.inputStream.use { giris ->
+                while (true) {
+                    val n = giris.read(tampon)
+                    if (n < 0) break
+                    cikti.write(tampon, 0, n)
+                    if (cikti.size() > enFazlaBayt) return null
+                }
+            }
+            cikti.toString("UTF-8")
+        } catch (e: Exception) {
+            null
+        } finally {
+            b?.disconnect()
+        }
+    }
+
+    /**
+     * GitHub'daki bir dosyayı önbelleğe takılmadan, doğrudan en yeni haliyle indirir.
+     * Olmazsa normal (en fazla 5 dakika gecikmeli) adresten dener.
+     */
+    fun githubDosyasi(yol: String, enFazlaBayt: Int = 2_000_000): String? {
+        val api = "https://api.github.com/repos/hayaloglumustafa-ui/hanimtv/contents/$yol?ref=main"
+        return metinIndir(api, enFazlaBayt, ekBasliklar = mapOf("Accept" to "application/vnd.github.raw"))
+            ?: metinIndir("https://raw.githubusercontent.com/hayaloglumustafa-ui/hanimtv/main/$yol", enFazlaBayt)
+    }
+
+    /** Kanal testi için: link açılıyorsa null, açılmıyorsa kısa sebebini döndürür. */
+    fun linkSorunu(adres: String, basliklar: Map<String, String> = emptyMap()): String? {
+        var b: HttpURLConnection? = null
+        return try {
+            b = baglan(adres, 8_000)
+            basliklar.forEach { (ad, deger) -> b.setRequestProperty(ad, deger) }
+            val kod = b.responseCode
+            if (kod !in 200..399) return "kod $kod"
+            val ilk = ByteArray(2048)
+            val n = b.inputStream.use { it.read(ilk) }
+            if (adres.contains(".m3u8") && (n <= 0 || !String(ilk, 0, maxOf(n, 0), Charsets.UTF_8).contains("#EXTM3U"))) "yayın dosyası değil" else null
+        } catch (e: java.net.SocketTimeoutException) {
+            "zaman aşımı"
+        } catch (e: java.net.UnknownHostException) {
+            "sunucu yok"
+        } catch (e: Exception) {
+            "bağlantı hatası"
+        } finally {
+            b?.disconnect()
+        }
+    }
+
+    /** Bir yayın linkinin cevap verip vermediğini hızlıca kontrol eder. */
+    fun linkCalisiyorMu(adres: String): Boolean {
+        var b: HttpURLConnection? = null
+        return try {
+            b = baglan(adres, 6_000)
+            b.setRequestProperty("Range", "bytes=0-2047")
+            val kod = b.responseCode
+            if (kod !in 200..399) return false
+            if (adres.contains(".m3u8")) {
+                val ilk = ByteArray(2048)
+                val n = b.inputStream.use { it.read(ilk) }
+                n > 0 && String(ilk, 0, n, Charsets.UTF_8).contains("#EXTM3U")
+            } else true
+        } catch (e: Exception) {
+            false
+        } finally {
+            b?.disconnect()
+        }
+    }
+
+    /** Dosya indirir; önce geçici dosyaya yazar, tamamlanınca asıl adına taşır. */
+    fun dosyaIndir(adres: String, hedef: File, enFazlaBayt: Long = 80_000_000L): Boolean {
+        var b: HttpURLConnection? = null
+        val gecici = File(hedef.parentFile, hedef.name + ".gecici")
+        return try {
+            b = baglan(adres, 20_000)
+            if (b.responseCode !in 200..299) return false
+            var toplam = 0L
+            b.inputStream.use { giris ->
+                gecici.outputStream().use { cikis ->
+                    val tampon = ByteArray(16384)
+                    while (true) {
+                        val n = giris.read(tampon)
+                        if (n < 0) break
+                        toplam += n
+                        if (toplam > enFazlaBayt) return false
+                        cikis.write(tampon, 0, n)
+                    }
+                }
+            }
+            hedef.delete()
+            gecici.renameTo(hedef)
+        } catch (e: Exception) {
+            false
+        } finally {
+            b?.disconnect()
+            gecici.delete()
+        }
+    }
+}

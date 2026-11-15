@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HanimTV"
 include(":app")
+include(":anaekran")

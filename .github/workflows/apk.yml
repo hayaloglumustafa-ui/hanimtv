@@ -10,6 +10,7 @@ on:
     paths-ignore:
       - "app/src/main/assets/kanallar.json"
       - "surum.json"
+      - "surum-anaekran.json"
       - "BENİOKU.md"
       - "DEVIR.md"
       - "epg.json"
@@ -74,6 +75,7 @@ jobs:
         run: |
           gradle --no-daemon assembleRelease
           cp app/build/outputs/apk/release/app-release.apk HanimTV.apk
+          cp anaekran/build/outputs/apk/release/anaekran-release.apk AnaEkran.apk
 
       - name: Yayınla
         uses: softprops/action-gh-release@v2
@@ -81,14 +83,18 @@ jobs:
           tag_name: v${{ github.run_number }}
           name: HanımTV 1.0.${{ github.run_number }}
           make_latest: "true"
-          files: HanimTV.apk
+          files: |
+            HanimTV.apk
+            AnaEkran.apk
 
       - name: Uygulamaya yeni sürümü haber ver
         run: |
           printf '{\n "surumKodu": %s,\n "apk": "https://github.com/%s/releases/latest/download/HanimTV.apk"\n}\n' \
             "${{ github.run_number }}" "${{ github.repository }}" > surum.json
+          printf '{\n "surumKodu": %s,\n "apk": "https://github.com/%s/releases/latest/download/AnaEkran.apk"\n}\n' \
+            "${{ github.run_number }}" "${{ github.repository }}" > surum-anaekran.json
           git config user.name "hanimtv-derleyici"
           git config user.email "actions@github.com"
-          git add surum.json
+          git add surum.json surum-anaekran.json
           git commit -m "Sürüm ${{ github.run_number }}" || exit 0
           git push
