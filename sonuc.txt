@@ -1,0 +1,26 @@
+El_Trece | 200  | #EXTM3U #EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=580000,BANDWIDTH=730000,RESOLUTION=640x360,FRAME-RATE=25.000,CODECS="avc1.4d401e,mp4a.40.2",CLOSED-CAPTIONS=NONE tracks-v4a1/mono.m3u8 #EXT-X-STREAM-INF:AVE
+America_TV | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-TARGETDURATION:6 #EXT-X-MEDIA-SEQUENCE:167637 #EXT-X-PROGRAM-DATE-TIME:2026-11-15T03:42:19-03:00 #EXTINF:6.000, segment_167637.ts #EXT-X-PROGRAM-DATE-TIME:2026-11-15T03
+A24 | 403  | <!DOCTYPE html> <html>   <head>     <title>403 Access denied.</title>   </head>   <body>     <h1>Error 403 Access denied.</h1>     <p>Access denied.</p>     <h3>Guru Meditation:</h3>     <p>XID: 92845
+A24b | 403  | <!DOCTYPE html> <html>   <head>     <title>403 Access denied.</title>   </head>   <body>     <h1>Error 403 Access denied.</h1>     <p>Access denied.</p>     <h3>Guru Meditation:</h3>     <p>XID: 29001
+Canal_26 | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=211223,RESOLUTION=1920x1080,CODECS="avc1.4d0028,mp4a.40.2" 0/playlist.m3u8?uid=83ae894a3526376de179407dac159744  
+Telemax | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=210987,RESOLUTION=1920x1080,CODECS="avc1.4d0028,mp4a.40.2" 0/playlist.m3u8?uid=de72c12a090a1ef1c998f09fd5384e85  
+NET_TV | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=4208064,FRAME-RATE=30,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2" nettv/livestream0/chunks.m3u8?nimblesessionid=1063280898 #EXT-X-STREAM-IN
+Caras_TV | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2523967,FRAME-RATE=25,RESOLUTION=1920x1080,CODECS="avc1.640028,mp4a.40.2" carastv/livestream0/chunks.m3u8?nimblesessionid=1063280908 #EXT-X-STREAM-
+Telefe_Tucuman | 403  | <!DOCTYPE html> <html>   <head>     <title>403 Access denied.</title>   </head>   <body>     <h1>Error 403 Access denied.</h1>     <p>Access denied.</p>     <h3>Guru Meditation:</h3>     <p>XID: 65396
+Canal_10_Cordoba | 404  | 
+Canal_10_MdP | 403  | <!DOCTYPE html> <html>   <head>     <title>403 Access denied.</title>   </head>   <body>     <h1>Error 403 Access denied.</h1>     <p>Access denied.</p>     <h3>Guru Meditation:</h3>     <p>XID: 64801
+Canal_7_Neuquen | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2628000,CODECS="avc1.42c01f,mp4a.40.2",RESOLUTION=1280x720 chunklist_w217044471_b2628000.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=639500,CODECS="avc1.64001
+Aire_Santa_Fe | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-MDSTRM-CDN-VERSION:2 #EXT-X-STREAM-INF:BANDWIDTH=1205600,RESOLUTION=640x360,CODECS="avc1.42001e,mp4a.40.2" https://us-b4-p-e-mg17.cdn.mdstrm.com/live-stream/6931a0eb067
+Catamarca_TV | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=1528000,CODECS="avc1.42c01f,mp4a.40.2",RESOLUTION=1280x720 chunklist_w2114277247_b1528000.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=639500,CODECS="avc1.6400
+Canal_3_La_Pampa | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2044928,CODECS="avc1.640028,mp4a.40.2",RESOLUTION=1920x1080 chunklist_w409118713_b2044928.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=1779024,CODECS="avc1.640
+Chaco_TV | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2939818,CODECS="avc1.66.31,mp4a.40.2",RESOLUTION=1280x720 chunklist_w277930348.m3u8 
+RTN_Neuquen | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2934955,CODECS="avc1.42c01f,mp4a.40.2",RESOLUTION=1280x720 chunklist_w1803746521.m3u8 
+TV_Universidad | 403  | <html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> <hr><center>nginx</center> </body> </html> 
+Telesol | 000  | <html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> <hr><center>nginx</center> </body> </html> 
+Canal_Luz | 403  | <!DOCTYPE html> <html>   <head>     <title>403 Access denied.</title>   </head>   <body>     <h1>Error 403 Access denied.</h1>     <p>Access denied.</p>     <h3>Guru Meditation:</h3>     <p>XID: 10515
+Canal_Mas_UY | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=2660000,RESOLUTION=1280x720 720p/index.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=1360000,RESOLUTION=854x480 480p/index.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=8600
+Canal_Once_UY | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=1710664,CODECS="avc1.64001f,mp4a.40.2",RESOLUTION=1280x720 chunklist_w1463520825.m3u8 
+UCL_UY | 404  | <h1>error 404</h1>
+TV_Universal_UY | 200  | #EXTM3U #EXT-X-VERSION:6 #EXT-X-TARGETDURATION:3 #EXT-X-MEDIA-SEQUENCE:7160 #EXT-X-INDEPENDENT-SEGMENTS #EXTINF:3.000000, #EXT-X-PROGRAM-DATE-TIME:2026-11-15T06:43:13.641+0000 stream-LRq9mJeDR-7160.ts
+Mision_Vida_UY | 200  | #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=1873013,CODECS="avc1.42c01f,mp4a.40.2",RESOLUTION=1920x1080 chunklist_w291359462.m3u8 
+Desde_El_Sur_UY | 200  | #EXTM3U #EXT-X-STREAM-INF:BANDWIDTH=1,AVERAGE-BANDWIDTH=1 /surtv/surtv/playlist.m3u8?hls_ctx=a23vr96y 
