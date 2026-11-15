@@ -119,15 +119,15 @@ class Ev : Activity() {
         kart = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(dpi(24f), dpi(14f), dpi(24f), dpi(16f))
+            setPadding(dpi(24f), dpi(12f), dpi(24f), dpi(14f))
             background = zemin(ALTIN, 14f)
         }
         kartBaslik = metin(17f, KOYU, yazi).apply { text = "Kaldığınız yer" }
-        kartKanal = metin(38f, KOYU, kalin).apply { text = "Televizyon"; isSingleLine = true }
+        kartKanal = metin(34f, KOYU, kalin).apply { text = "Televizyon"; isSingleLine = true }
         kartSimdi = metin(17f, KOYU, yazi).apply { isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END }
         kart.addView(kartBaslik); kart.addView(kartKanal); kart.addView(kartSimdi)
         odaklanabilir(kart, ALTIN) { ac(HANIMTV) }
-        sol.addView(kart, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpi(122f)).apply { bottomMargin = dpi(14f) })
+        sol.addView(kart, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dpi(14f) })
 
         val satir = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         val tum = DUGMELER.map { (ad, paketler, kelime) -> ad to { acIlk(paketler, kelime) } } + ("Uygulamalar" to {
