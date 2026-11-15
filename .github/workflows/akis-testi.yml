@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["araclar/test_linkleri.txt", "araclar/reklam_izle.py"]
+    paths: ["araclar/test_linkleri.txt", "araclar/link_yokla.sh"]
 permissions:
   contents: write
 jobs:
@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
-      - run: python3 araclar/reklam_izle.py
+      - run: bash araclar/link_yokla.sh < araclar/test_linkleri.txt > sonuc.txt 2>&1; cat sonuc.txt
       - run: |
           git config user.name "hanimtv-derleyici"; git config user.email "actions@github.com"
           git checkout -B test-sonucu && git add -f sonuc.txt && git commit -qm "Test sonucu" && git push -f origin test-sonucu
