@@ -54,6 +54,19 @@
             android:exported="false"
             android:screenOrientation="landscape" />
 
+        <service
+            android:name=".EvTusu"
+            android:exported="true"
+            android:label="Ana Ekran · Ev tuşu"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/ev_tusu" />
+        </service>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.dosyalar"

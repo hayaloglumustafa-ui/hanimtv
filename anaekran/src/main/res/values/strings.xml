@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ana Ekran</string>
+    <string name="ev_tusu_aciklama">Kumandanın Ev tuşuna basınca HanımTV Ana Ekranı açılır. Ekrandaki içerik okunmaz.</string>
 </resources>
