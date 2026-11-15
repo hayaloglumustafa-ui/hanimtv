@@ -1,5 +1,5 @@
 {
- "surum": 37,
+ "surum": 38,
  "kanallar": [
   {
    "no": 1,
@@ -3022,6 +3022,142 @@
     "https://eu1.streams.gr:8081/kostv/index.m3u8"
    ],
    "kategori": "Yunanistan"
+  },
+  {
+   "no": 325,
+   "name": "El Trece",
+   "urls": [
+    "https://livetrx01.vodgc.net/eltrecetv/index.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 326,
+   "name": "América TV",
+   "urls": [
+    "https://prepublish.f.qaotic.net/a07/americahls-100056/playlist_720p.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 327,
+   "name": "Canal 26",
+   "urls": [
+    "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 328,
+   "name": "Telemax",
+   "urls": [
+    "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 329,
+   "name": "NET TV",
+   "urls": [
+    "https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 330,
+   "name": "Caras TV",
+   "urls": [
+    "https://unlimited1-us.dps.live/carastv/carastv.smil/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 331,
+   "name": "Canal 7 Neuquén",
+   "urls": [
+    "https://stream.arcast.com.ar/c7nq/ngrp:c7nq_all/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 332,
+   "name": "Aire de Santa Fe",
+   "urls": [
+    "https://mdstrm.com/live-stream-playlist/6931a0eb06778645348008e0.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 333,
+   "name": "Catamarca TV",
+   "urls": [
+    "https://stream.arcast.com.ar/canal7catamarca/ngrp:canal7catamarca_all/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 334,
+   "name": "Canal 3 La Pampa",
+   "urls": [
+    "https://stream.arcast.com.ar/c3lapampa/ngrp:c3lapampa_all/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 335,
+   "name": "Chaco TV",
+   "urls": [
+    "https://wowzasrv.chaco.gov.ar/Streamtv/chacotv/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 336,
+   "name": "RTN Neuquén",
+   "urls": [
+    "https://media.neuquen.gov.ar/rtn/television/playlist.m3u8"
+   ],
+   "kategori": "Arjantin"
+  },
+  {
+   "no": 337,
+   "name": "Canal Más",
+   "urls": [
+    "https://canalmasuruguay.com/hls/master-abr.m3u8"
+   ],
+   "kategori": "Uruguay"
+  },
+  {
+   "no": 338,
+   "name": "Canal Once Plus",
+   "urls": [
+    "https://5e50264bd6766.streamlock.net/canal11ury/videocanal11ury/playlist.m3u8"
+   ],
+   "kategori": "Uruguay"
+  },
+  {
+   "no": 339,
+   "name": "TV Universal Uruguay",
+   "urls": [
+    "https://stream.universal.org.uy/hls/0/stream.m3u8"
+   ],
+   "kategori": "Uruguay"
+  },
+  {
+   "no": 340,
+   "name": "Misión Vida TV",
+   "urls": [
+    "https://5bf8041cb3fed.streamlock.net/zoefm/zoefm/playlist.m3u8"
+   ],
+   "kategori": "Uruguay"
+  },
+  {
+   "no": 341,
+   "name": "Desde El Sur TV",
+   "urls": [
+    "https://stmv.gmpro.top/surtv/surtv/playlist.m3u8"
+   ],
+   "kategori": "Uruguay"
   }
  ]
 }

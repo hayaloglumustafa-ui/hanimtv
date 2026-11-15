@@ -1,6 +1,6 @@
 # HanımTV — devir notu
 
-**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 37, 324 kanal.
+**Son durum (29.10.2026):** Sürüm 1.0.33, kanal listesi sürüm 38, 341 kanal.
 
 **Yapılanlar:**
 - Klasik kanal değiştirme, sabit sıra (1..271), kanal listesi (orta tuş), rakamla kanal seçimi
@@ -30,6 +30,8 @@
 **15.11:** Cinerama.uz dış kullanımı kapattı (yayın yerine "Cinerama uygulamasını indirin" reklam ekranı veriyor; Sport ve Zo'r 'blocked'a yönleniyor). Özbekistan kategorisinin tamamı çıkarıldı; BIZ'in kendi sunucusu da cevap vermiyordu. Sonraki ülkeler 33 numara yukarı kaydı.
 
 **Ana Ekran (15.11, yeni uygulama `anaekran/`, paket tr.hayaloglu.hanimev):** Google TV ana ekranının yerine geçen sade ekran. Tasarım sahibiyle seçildi (D+E): solda saat/tarih/hava (Open-Meteo, İstanbul varsayılan), altın "Kaldığınız yer" kartı (HanımTV'yi açar), YouTube, beIN Connect, Play Store, Uygulamalar (Ayarlar en başta); sağda aile fotoğrafı. Fotoğraf depoya KONMAZ (depo herkese açık): stick'te /sdcard/Android/data/tr.hayaloglu.hanimev/files/aile.jpg (adb push). Kaldığınız yer bilgisi HanımTV'nin DurumSaglayici'sinden (content://tr.hayaloglu.hanimtv.durum, signature izni). Kendi güncellemesi: surum-anaekran.json + release'teki AnaEkran.apk. Stick'te ADB: 192.168.1.30 (DHCP, değişebilir). Ev tuşu: launcherx'i devre dışı bırakmak (pm disable-user) stick'i açılışta SİYAH EKRANDA bıraktı, geri alındı; KULLANMAYIN. Yerine EvTusu erişilebilirlik hizmeti: Ev tuşunu yakalar, Google TV ana ekranı öne gelirse Ana Ekran'a geçer (adb: settings put secure enabled_accessibility_services ...). 15.11: stick'te çalışıyor; Ev tuşu ve yeniden başlatma testleri başarılı. Kurulum dosyaları sahibinin bilgisayarında anahtarlar\HanimTV\kurulum (1_kur, 2_ev_tusu, 3_GERI_AL .bat). Kurulumdan sonra MiTV Adb debugging ve USB hata ayıklama kapatılacak.
+
+**Arjantin ve Uruguay (15.11):** 325-341. Sadece kanalların kendi/resmi CDN'leri, GitHub'dan 200 dönenler. A24, Telefe, TN, TV Pública, Canal 10 Córdoba/MdP, Canal Luz, TV Universidad, Telesol ve Uruguay'ın 4/10/12 kanalları ya IP yeniden yayını ya da bölge kısıtlı olduğu için alınmadı.
 
 **Bekleyen işler:** Yok. İsteğe bağlı: Avrupa ve yerel kanallar için yayın akışı kaynağı.
 
